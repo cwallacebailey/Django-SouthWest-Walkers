@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
 import dj_database_url
 if os.path.isfile('env.py'):  # This prevents an import error if env does not exist
     import env
@@ -29,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Django-SouthWest-Walkers.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['south-west-walkers.herokuapp.com', 'localhost']
 
 
 # Application definition
