@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['south-west-walkers.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['Django-SouthWest-Walkers.herokuapp.com', 'localhost']
 
 
 # Application definition
