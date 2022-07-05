@@ -40,3 +40,6 @@ os.environ["DATABASE_URL"] = "postgres://soybsfcfvfpvkf:6f2c9e7d69d9062e9e8a0396
 os.environ["SECRET_KEY"] = "s@uthwest!84"
 os.environ["CLOUDINARY_URL"] = "cloudinary://624189548942148:RmTrYOVf13gQzqCqeo-cJuTy12o@dkzungvzx"
 
+# Allow Multiple Images
+
+https://stackoverflow.com/questions/34006994/how-to-upload-multiple-images-to-a-blog-post-in-django
