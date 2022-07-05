@@ -7,7 +7,7 @@ class Post(models.Model):
     post_author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
-    Body = models.TextField()
+    body = models.TextField()
     header_image = CloudinaryField('image', default='placeholder')
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -19,7 +19,7 @@ class Post(models.Model):
         ordering = ['-created_date', 'post_author'] # descending order then by author
     
     def __str__(self):
-        return self.post_title + ' | ' + self.str(post_author)
+        return self.post_title + ' | ' + str(self.post_author)
 
     def number_of_times_starred(self):
         return self.starred.count()
@@ -30,7 +30,7 @@ class Comment(models.Model):
         Post, on_delete=models.CASCADE, related_name="comment"
     )
     comment_author = models.CharField(max_length=70)
-    Body = models.TextField()
+    body = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     slug = models.SlugField(max_length=150, unique=True)
