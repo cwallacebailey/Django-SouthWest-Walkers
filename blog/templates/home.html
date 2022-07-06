@@ -9,14 +9,12 @@
 <body>
     <h1>Hello this is the first test</h1>
     {% for post in object_list %}
-        <li>
             {{ post.post_title }}
             <br>
             {{ post.post_author }}
             <br>
             {{ post.created_date }}
             <br>
-        </li>
     {% endfor %}
 </body>
 </html>
