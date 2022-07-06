@@ -32,7 +32,7 @@ class Comment(models.Model):
     comment_author = models.CharField(max_length=70)
     body = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
+    updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
     slug = models.SlugField(max_length=150, unique=True)
 
     class Meta: 
