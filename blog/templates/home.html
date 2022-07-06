@@ -9,7 +9,7 @@
 <body>
     <h1>Hello this is the first test</h1>
     {% for post in object_list %}
-            {{ post.post_title }}
+            <a href="{% url 'detail' %} ">{{ post.post_title }}</a>
             <br>
             {{ post.post_author }}
             <br>
