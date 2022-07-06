@@ -10,7 +10,7 @@ class Post(models.Model):
     body = models.TextField()
     header_image = CloudinaryField('image', default='placeholder')
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
+    updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
     starred = models.ManyToManyField(
         User, blank=True)
     slug = models.SlugField(max_length=150, unique=True)
