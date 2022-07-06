@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailedView
+from django.views.generic import ListView
 
 def home(request):
-    return render(request, home.html, {})
+    return render(request, 'home.html', {})
 
 
