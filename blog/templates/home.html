@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
     <h1>Hello this is the first test</h1>
     {% for post in object_list %}
             <a href="{% url 'detail' post.pk %} ">{{ post.post_title }}</a>
@@ -16,5 +11,5 @@
             {{ post.created_date }}
             <br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
