@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
 
 class Post(models.Model):
     post_title = models.CharField(max_length=150, unique=True)
@@ -23,6 +24,9 @@ class Post(models.Model):
 
     def number_of_times_starred(self):
         return self.starred.count()
+
+    def get_absolute_url(self):
+        return reverse('detail', args=(str(self.id))) # this will go to the post just created using its id
 
 
 class Comment(models.Model):
