@@ -4,4 +4,10 @@
 
     <h1>Tell Us About Your Journey</h1>
 
+    <form action="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Submit</button>
+    </form>
+
 {% endblock %}
