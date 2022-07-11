@@ -7,11 +7,11 @@
 {% block content %}
 
     <h1>Tell Us About Your Journey</h1>
-
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Post</button>
-    </form>
+    <div class="form-group"></div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Post</button>
+        </form>
 
 {% endblock %}
