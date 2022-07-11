@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Post
+from .forms import PostForm
+
 
 class Home(generic.ListView):
     model = Post
@@ -13,5 +15,5 @@ class DetailView(generic.DetailView):
 
 class NewPost(generic.CreateView):
     model = Post
+    form_class = PostForm
     template_name = 'new_post.html'
-    fields = '__all__'
