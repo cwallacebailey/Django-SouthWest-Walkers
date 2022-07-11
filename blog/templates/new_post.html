@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
+{{ post.post_title }}
+{% block title  %}
+{{ post.post_title }}
+{% endblock %}
 
 {% block content %}
 
     <h1>Tell Us About Your Journey</h1>
 
-    <form action="POST">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button class="btn btn-secondary">Submit</button>
+        <button class="btn btn-secondary">Post</button>
     </form>
 
 {% endblock %}
