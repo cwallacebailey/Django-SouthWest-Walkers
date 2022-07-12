@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{{ post.post_title }}
+{% block title  %}
+{{ post.post_title }}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Delete Your Journey</h1>
+    <br>
+    <h3>Delete {{ post.title }}</h3>
+    <br>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Delete Post</button>
+        </form>
+    </div>
+    
+{% endblock %}
