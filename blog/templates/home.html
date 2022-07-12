@@ -4,11 +4,14 @@
 
     <h1>Hello this is the first test</h1>
     {% for post in object_list %}
-            <a href="{% url 'detail' post.pk %} ">{{ post.post_title }}</a>
+            <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a>
             <br>
             {{ post.post_author }}
             <br>
             {{ post.created_date }}
+            <br>
+            <a href="{% url 'update_post' post.pk %}">Update</a>
+            <br>
             <br>
     {% endfor %}
 

@@ -13,6 +13,7 @@
         {{ post.body }}
     </div>
     <br>
+    <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary">Update</a> 
     <a href="{% url 'home' %} " class="btn btn-secondary">Home</a>
 
 {% endblock %}
