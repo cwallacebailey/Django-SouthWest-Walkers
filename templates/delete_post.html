@@ -6,6 +6,8 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
     <h1>Delete Your Journey</h1>
     <br>
     <h3>Delete {{ post.title }}</h3>
@@ -17,5 +19,12 @@
             <button class="btn btn-secondary">Delete Post</button>
         </form>
     </div>
-    
+
+{% else %}
+
+    <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
+    <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+
+{% endif %}
+
 {% endblock %}
