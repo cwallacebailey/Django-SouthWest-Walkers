@@ -47,3 +47,13 @@ https://stackoverflow.com/questions/34006994/how-to-upload-multiple-images-to-a-
 
 Using AllAuth because there are advantages such as account and password and single sign on with google or facebook 
 # https://learndjango.com/tutorials/django-allauth-tutorial
+
+
+to find the allauth directory
+
+python
+help(‘allauth')
+
+cp -r /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/allauth/templates/* templates/allauth/
+
+have to create an allauth folder in the templates folder in the general area. 
