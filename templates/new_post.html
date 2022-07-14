@@ -5,6 +5,8 @@ Tell Us About Your Journey
 
 {% block content %}
 
+{% if user.is_authenticated %}
+
     <h1>Tell Us About Your Journey</h1>
     <div class="form-group">
         <form method="POST">
@@ -13,5 +15,12 @@ Tell Us About Your Journey
             <button class="btn btn-secondary">Post</button>
         </form>
     </div>
-    
+
+{% else %}
+
+    <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
+    <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+
+{% endif %}
+
 {% endblock %}
