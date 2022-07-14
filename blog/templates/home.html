@@ -2,18 +2,30 @@
 
 {% block content %}
 
-    <h1>Hello this is the first test</h1>
-    {% for post in object_list %}
-            <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a>
-            <br>
-            {{ post.post_author }}
-            <br>
-            {{ post.created_date }}
-            <br>
-            <a href="{% url 'update_post' post.pk %}">Update</a>
-            <a href="{% url 'delete_post' post.pk %}">Delete</a>
-            <br>
-            <br>
-    {% endfor %}
+<div class="container">
+    <div class="row">
+        <!-- Blog Items Arranged Below -->
+        <div class="col-12 mt-3 offset-md-2">
+            <div class="row">
+                {% for post in object_list %}
+                    <div class="col-md-3 text-center">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
+                                <br>
+                                {{ post.post_author }}
+                                <br>
+                                {{ post.created_date }}
+                                <br>
+                                <a class="btn btn-secondary" href="{% url 'update_post' post.pk %}">Update</a>
+                                <a class="btn btn-secondary" href="{% url 'delete_post' post.pk %}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %} 
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

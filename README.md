@@ -45,4 +45,5 @@ os.environ["CLOUDINARY_URL"] = "cloudinary://624189548942148:RmTrYOVf13gQzqCqeo-
 https://stackoverflow.com/questions/34006994/how-to-upload-multiple-images-to-a-blog-post-in-django
 
 
-Using AllAuth because there are advantages such as account and password and single sign on with google or facebook
+Using AllAuth because there are advantages such as account and password and single sign on with google or facebook 
+# https://learndjango.com/tutorials/django-allauth-tutorial
