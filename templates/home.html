@@ -13,9 +13,9 @@
                             <div class="card-body">
                                 <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
                                 <br>
-                                {{ post.post_author }}
+                                {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
                                 <br>
-                                {{ post.created_date }}
+                                {{ post.body | slice:50 | safe}}
                                 <br>
                                 <a class="btn btn-secondary btn-sm" href="{% url 'update_post' post.pk %}">Update</a>
                                 <a class="btn btn-secondary btn-sm" href="{% url 'delete_post' post.pk %}">Delete</a>

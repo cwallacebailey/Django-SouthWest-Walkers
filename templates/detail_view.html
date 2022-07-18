@@ -10,7 +10,8 @@
     <div>
         By {{ post.post_author }} | {{ post.created_date }}
         <hr>
-        {{ post.body }}
+        <!-- the safe tag marks the item as safe so the body can be edited into paragraphs -->
+        {{ post.body | safe }} 
     </div>
     <br>
     <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary">Update</a> 
