@@ -3,11 +3,13 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.urls import reverse
 
+
 class Post(models.Model):
     post_title = models.CharField(max_length=150, unique=True)
     post_author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
+    post_region = models.CharField(max_length=20, default='Bristol')
     body = models.TextField()
     header_image = CloudinaryField('image', default='placeholder')
     created_date = models.DateTimeField(auto_now_add=True)
@@ -15,6 +17,7 @@ class Post(models.Model):
     starred = models.ManyToManyField(
         User, blank=True)
     slug = models.SlugField(max_length=150, unique=True)
+    
 
     class Meta: 
         ordering = ['-created_date', 'post_author'] # descending order then by author

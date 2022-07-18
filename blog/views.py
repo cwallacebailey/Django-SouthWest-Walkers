@@ -22,7 +22,7 @@ class NewPost(generic.CreateView):
 class UpdatePost(generic.UpdateView):
     model = Post
     template_name = 'update_post.html'
-    fields = ['post_title', 'body']
+    fields = ['post_title', 'post_region', 'body']
 
 class DeletePost(generic.DeleteView):
     model = Post
