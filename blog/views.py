@@ -8,6 +8,11 @@ from django.http import HttpResponseRedirect
 
 # this updates the database using a get object or 404. 
 
+def get_context_data(self, *args, **kwargs): 
+    blog_entry = get_object_or_404(Post, id=self.kwargs['pk'])
+    total_stars = blog_entry.total_stars()
+    context["total_stars"] = total_stars
+
 def starred(request, pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     post.starred.add(request.user)

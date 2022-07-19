@@ -17,6 +17,8 @@ class Post(models.Model):
         User, blank=True)
     slug = models.SlugField(max_length=150, unique=True)
     
+    def total_stars(self):
+        return self.starred.count()
 
     class Meta: 
         ordering = ['-created_date', 'post_author'] # descending order then by author
