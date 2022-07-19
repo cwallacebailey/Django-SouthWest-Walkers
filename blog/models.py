@@ -9,7 +9,6 @@ class Post(models.Model):
     post_author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
-    post_region = models.CharField(max_length=20, default='Bristol')
     body = models.TextField()
     header_image = CloudinaryField('image', default='placeholder')
     created_date = models.DateTimeField(auto_now_add=True)
@@ -29,7 +28,7 @@ class Post(models.Model):
         return self.starred.count()
 
     def get_absolute_url(self):
-        return reverse('detail', args=(str(self.id))) # this will go to the post just created using its id
+        return reverse('detail', args=(str(self.id))) # this will go to the post just created using its id - replaced by reverse_lazy to home. WASN'T WORKING NEEDS REVIEW.
 
 
 class Comment(models.Model):
