@@ -1,23 +1,22 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from .models import Post
 from .forms import PostForm
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 
 
 # this updates the database using a get object or 404. 
 
-def get_context_data(self, *args, **kwargs): 
-    blog_entry = get_object_or_404(Post, id=self.kwargs['pk'])
-    total_stars = blog_entry.total_stars()
-    context["total_stars"] = total_stars
+class StarPost(generic.View):
+    def post(self, request, pk):
+        post = get_object_or_404(Post, id=request.POST.get('post_id'))
 
-def starred(request, pk):
-    post = get_object_or_404(Post, id=request.POST.get('post_id'))
-    post.starred.add(request.user)
-    return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
-
+        if post.starred.filter(id=request.user.id).exists():
+            post.starred.remove(request.user)
+        else: 
+            post.starred.add(request.user)
+        return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
 class Home(generic.ListView):
     model = Post
@@ -27,6 +26,10 @@ class Home(generic.ListView):
 class DetailView(generic.DetailView):
     model = Post
     template_name = 'detail_view.html'
+    starred = False
+    def starred():
+        if post.likes.filter(id=self.request.user.id).exists():
+            starred = True
 
 class NewPost(generic.CreateView):
     model = Post
