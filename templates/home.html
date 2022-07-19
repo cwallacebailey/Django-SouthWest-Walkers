@@ -17,8 +17,14 @@
                                 <br>
                                 {{ post.body | slice:50 | safe}}
                                 <br>
+                                
+                                {% if post.post_author.id == user.id %}
+
                                 <a class="btn btn-secondary btn-sm" href="{% url 'update_post' post.pk %}">Update</a>
                                 <a class="btn btn-secondary btn-sm" href="{% url 'delete_post' post.pk %}">Delete</a>
+
+                                {% endif %}
+
                             </div>
                         </div>
                     </div>
