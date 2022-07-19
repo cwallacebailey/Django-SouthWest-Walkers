@@ -8,6 +8,8 @@
 
 {% if user.is_authenticated %}
 
+    {% if post.post_author.id == user.id %}
+
     <h1>Delete Your Journey</h1>
     <br>
     <h3>Delete {{ post.title }}</h3>
@@ -19,6 +21,12 @@
             <button class="btn btn-secondary">Delete Post</button>
         </form>
     </div>
+
+    {% else %}
+    
+    This isn't your post
+
+    {% endif %}
 
 {% else %}
 
