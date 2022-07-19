@@ -2,7 +2,16 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Post
 from .forms import PostForm
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
+
+
+# this updates the database using a get object or 404. 
+
+def starred(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('post_id'))
+    post.starred.add(request.user)
+    return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
 
 class Home(generic.ListView):
@@ -30,4 +39,4 @@ class DeletePost(generic.DeleteView):
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
-    
+

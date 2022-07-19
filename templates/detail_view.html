@@ -29,4 +29,10 @@
 
     {% endif %}
 
+    <br><br>
+    <form action="{% url 'star_post' post.pk %}" method="POST">
+        {% csrf_token %}
+            <button type="submit", name="post_id", value="{{ post.id }}"><i class="fa-solid fa-star"></i></button>
+    </form>
+
 {% endblock %}
