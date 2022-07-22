@@ -20,7 +20,7 @@ class StarPost(generic.View):
 
 class Home(generic.ListView):
     model = Post
-    template_name = 'home.html'
+    template_name = 'index.html'
     paginate_by = 8
 
 class DetailView(generic.DetailView):
