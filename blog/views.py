@@ -48,3 +48,7 @@ class DeletePost(generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
+class Profile(generic.ListView):
+    model = Post
+    template_name = 'profile.html'
+    paginate_by = 8
