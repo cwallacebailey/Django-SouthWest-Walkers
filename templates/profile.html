@@ -2,23 +2,43 @@
 
 {% block content %}
 
-    {% for post in object_list %}
-
-    {% if post.post_author.id == user.id %}
-
-        <div class="col-md-3 text-center">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
-                    <br>
-                    {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
-                    <br>
-                    {{ post.body | slice:50 | safe}}
-                    <br>
+<section>
+    <div class="row no-gutters">
+        <a class="col-md-4 testerpiece" href="index.html"></a>
+        <div class="col-md-8">
+            <div class="row no-gutters">
+                <div class="col heading">
+                    <h1 class="name">A Walker</h1>
+                    <h2 class="title">Here we go</h2>
+                    <h3>Stat about Distance | Stat about Cairns reached</h3>
+                    <h3>Success Badges</h3>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>    
+
+<div class="row no-gutters">
+    <div class="col-md-4 testerpiece">
+    </div>
+    <div class="col-md-6">
+    <br>
+    {% for post in object_list %}
+    {% if post.post_author.id == user.id %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
+                <br>
+                {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
+                <br>
+                {{ post.body | slice:50 | safe}}
+                <br>
             </div>
         </div>
     {% endif %}
     {% endfor %} 
+    </div>
+</div>    
+
 
 {% endblock %}
