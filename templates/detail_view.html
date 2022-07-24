@@ -36,9 +36,9 @@
     <form action="{% url 'star_post' post.pk %}" method="POST">
         {% csrf_token %}
         {% if post.starred %}
-            <button type="submit" name="post_id" value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} star
-        {% else %}
             <button type="submit" name="post_id" value="{{ post.id }}"><i class="fas fa-star"></i></button> - {{ post.total_stars }} star
+        {% else %}
+            <button type="submit" name="post_id" value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} star
         {% endif %}
     </form>
 
