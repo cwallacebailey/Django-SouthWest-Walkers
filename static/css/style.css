@@ -1,10 +1,6 @@
-.test {
-    background-color: black;
-}
-
 
 .testerpiece {
-    background-image: url("../images/mendip_hills.jpg");
+    background-image: url("../media/mendip_hills.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

@@ -11,20 +11,22 @@
                     <div class="col-md-3 text-center">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
-                                <br>
-                                {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
-                                <br>
-                                {{ post.body | slice:50 | safe}}
-                                <br>
-                                
-                                {% if post.post_author.id == user.id %}
-
-                                <a class="btn btn-secondary btn-sm" href="{% url 'update_post' post.pk %}">Update</a>
-                                <a class="btn btn-secondary btn-sm" href="{% url 'delete_post' post.pk %}">Delete</a>
-
-                                {% endif %}
-
+                                <div class="image-container">
+                                    {% if "placeholder" in post.header_image.url %}
+                                    <img class="card-img-top"
+                                        src="../static/media/mendip_hills.jpg">
+                                    {% else %}
+                                    <img class="card-img-top" src=" {{ post.header_image.url }}">
+                                    {% endif %}
+                                </div>
+                                    <div class="card-body">
+                                    <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
+                                    <br>
+                                    {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
+                                    <br>
+                                    {{ post.body | slice:50 | safe}}
+                                    <br>
+                                </div>
                             </div>
                         </div>
                     </div>

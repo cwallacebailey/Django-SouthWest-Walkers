@@ -28,13 +28,13 @@ class DetailView(generic.DetailView):
     template_name = 'detail_view.html'
     starred = False
     def starred():
-        if post.likes.filter(id=self.request.user.id).exists():
+        if post.starred.filter(id=self.request.user.id).exists():
             starred = True
 
 class NewPost(generic.CreateView):
     model = Post
     form_class = PostForm
-    template_name = 'new_post.html'
+    template_name = 'new_post.html'   
     success_url = reverse_lazy('home')
 
 class UpdatePost(generic.UpdateView):
