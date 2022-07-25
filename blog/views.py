@@ -24,12 +24,16 @@ class Home(generic.ListView):
     paginate_by = 8
 
 class DetailView(generic.DetailView):
-    model = Post
-    template_name = 'detail_view.html'
-    starred = False
-    def starred():
-        if post.starred.filter(id=self.request.user.id).exists():
-            starred = True
+    def get(self, request, pk, *args, **kwargs):
+        queryset = Post.objects
+        obj = get_object_or_404(queryset, pk=pk)
+        return render(
+            request,
+            "detail_view.html",
+            {
+                "post": obj,
+            }
+        )
 
 class NewPost(generic.CreateView):
     model = Post
