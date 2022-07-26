@@ -67,3 +67,7 @@ https://thewebdev.info/2022/04/05/how-to-create-a-dropdown-in-python-django-mode
 List of all the hills in the mendips
 
 https://peakvisor.com/park/mendip-hills-aonb.html
+
+
+Add summernote to blog post creation
+https://github.com/summernote/django-summernote
