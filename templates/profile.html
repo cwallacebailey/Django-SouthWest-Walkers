@@ -25,16 +25,28 @@
     <br>
     {% for post in object_list %}
     {% if post.post_author.id == user.id %}
-        <div class="card mb-3">
+    <div class="col-md-6 mt-3 text-center">
+        <div class="card mb-6">
             <div class="card-body">
-                <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
-                <br>
-                {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
-                <br>
-                {{ post.body | slice:50 | safe}}
-                <br>
+                <div class="image-container">
+                    {% if "placeholder" in post.header_image.url %}
+                    <img class="card-img-top"
+                        src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
+                    {% else %}
+                    <img class="card-img-top" src=" {{ post.header_image.url }}">
+                    {% endif %}
+                </div>
+                    <div class="card-body">
+                    <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
+                    <br>
+                    {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
+                    <br>
+                    {{ post.post_blurb | slice:50 | safe}}
+                    <br>
+                </div>
             </div>
         </div>
+    </div>
     {% endif %}
     {% endfor %} 
     </div>
