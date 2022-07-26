@@ -9,6 +9,7 @@ class Post(models.Model):
     post_author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
+    post_blurb = models.CharField(max_length=100)
     distance = models.FloatField()
     body = models.TextField()
     header_image = CloudinaryField('image', default='placeholder')

@@ -24,7 +24,7 @@
                                     <br>
                                     {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
                                     <br>
-                                    {{ post.body | slice:50 | safe}}
+                                    {{ post.post_blurb | slice:50 | safe}}
                                     <br>
                                 </div>
                             </div>

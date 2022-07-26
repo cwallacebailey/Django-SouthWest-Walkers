@@ -44,7 +44,7 @@ class NewPost(generic.CreateView):
 class UpdatePost(generic.UpdateView):
     model = Post
     template_name = 'update_post.html'
-    fields = ['post_title', 'body']
+    form_class = PostForm
     success_url = reverse_lazy('home')
 
 class DeletePost(generic.DeleteView):
