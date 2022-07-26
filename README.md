@@ -61,3 +61,9 @@ have to create an allauth folder in the templates folder in the general area.
 to add dropdown to form for region
 
 https://thewebdev.info/2022/04/05/how-to-create-a-dropdown-in-python-django-model-form/#:~:text=To%20create%20a%20dropdown%20in%20Python%20Django%20model%20form%2C%20we,the%20model%20for%20the%20form.&text=to%20add%20the%20color%20field%20to%20the%20MyModel%20model%20class.
+
+
+
+List of all the hills in the mendips
+
+https://peakvisor.com/park/mendip-hills-aonb.html

@@ -8,13 +8,13 @@ class Post(models.Model):
     post_author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
+    distance = models.FloatField()
     body = models.TextField()
     header_image = CloudinaryField('image', default='placeholder')
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
     starred = models.ManyToManyField(
         User, blank=True)
-    slug = models.SlugField(max_length=150, unique=True)
     
     def total_stars(self):
         return self.starred.count()
@@ -25,8 +25,8 @@ class Post(models.Model):
     def __str__(self):
         return self.post_title + ' | ' + str(self.post_author)
 
-    def number_of_times_starred(self):
-        return self.starred.count()
+    def total_distance(self):
+        return self.distance.aggregate()
 
     def get_absolute_url(self):
         return reverse('detail', args=(str(self.id))) # this will go to the post just created using its id - replaced by reverse_lazy to home. WASN'T WORKING NEEDS REVIEW.
