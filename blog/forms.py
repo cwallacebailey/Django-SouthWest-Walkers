@@ -6,7 +6,7 @@ from django_summernote.widgets import *
 class PostForm(forms.ModelForm): 
     class Meta: # meta class is a class who's instances are classes
         model = Post
-        fields = ('post_title', 'post_author', 'post_blurb', 'distance', 'body',)
+        fields = ('post_title', 'post_author', 'post_blurb', 'header_image', 'distance', 'body',)
 
         widgets = {
             'post_title': forms.TextInput(attrs={'class': 'form-control'}),

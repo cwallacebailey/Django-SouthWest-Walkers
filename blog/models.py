@@ -12,7 +12,7 @@ class Post(models.Model):
     post_blurb = models.CharField(max_length=100)
     distance = models.FloatField()
     body = models.TextField()
-    header_image = CloudinaryField('image', default='placeholder')
+    header_image = CloudinaryField('image', default='placeholder', null=True, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
     starred = models.ManyToManyField(
