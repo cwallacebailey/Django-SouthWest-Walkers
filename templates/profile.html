@@ -4,8 +4,8 @@
 
 <section>
     <div class="row no-gutters">
-        <div class="col-md-4 testerpiece"></div>
-        <div class="col-md-8">
+        <div class="col-md-3 testerpiece"></div>
+        <div class="col-md-9">
             <div class="row no-gutters">
                 <div class="col heading">
                     <h1 class="name">{{ user }}</h1>
@@ -18,39 +18,45 @@
     </div>
 </section>    
 
-<div class="row no-gutters">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-6">
-    <br>
-    {% for post in object_list %}
-    {% if post.post_author.id == user.id %}
-    <div class="col-md-6 mt-3 text-center">
-        <div class="card mb-6">
-            <div class="card-body">
-                <div class="image-container">
-                    {% if "placeholder" in post.header_image.url %}
-                    <img class="card-img-top"
-                        src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
-                    {% else %}
-                    <img class="card-img-top" src=" {{ post.header_image.url }}">
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                
+            </div>
+            <!-- Blog Items Arranged Below -->
+            <div class="col-9 mt-3">
+                <div class="row">
+                    {% for post in object_list %}
+                    {% if post.post_author.id == user.id %}
+                        <div class="col-md-4 text-center">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="image-container">
+                                        {% if "placeholder" in post.header_image.url %}
+                                        <img class="card-img-top"
+                                            src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
+                                        {% else %}
+                                        <img class="card-img-top" src=" {{ post.header_image.url }}">
+                                        {% endif %}
+                                    </div>
+                                        <div class="card-body">
+                                        <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
+                                        <br>
+                                        {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
+                                        <br>
+                                        {{ post.post_blurb | slice:50 | safe}}
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     {% endif %}
-                </div>
-                    <div class="card-body">
-                    <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
-                    <br>
-                    {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
-                    <br>
-                    {{ post.post_blurb | slice:50 | safe}}
-                    <br>
+                    {% endfor %} 
                 </div>
             </div>
         </div>
     </div>
-    {% endif %}
-    {% endfor %} 
-    </div>
-</div>    
-
+</section>
 
 {% endblock %}
