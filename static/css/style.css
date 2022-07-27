@@ -1,11 +1,15 @@
 
-.testerpiece {
+.image-section {
     background-image: url("https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.tester {
-    border-style: dashed;
+.top-height {
+    height: 12rem;
+}
+
+.badge-height {
+    height: 8rem
 }
