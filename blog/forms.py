@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, ProfilePicture
 from django_summernote.widgets import *
 
 
@@ -16,3 +16,11 @@ class PostForm(forms.ModelForm):
             'body': SummernoteWidget(),
         }
 
+class ProfileForm(forms.ModelForm): 
+    class Meta: 
+        model = ProfilePicture
+        fields = ('user_name', 'profile_image',)
+
+        widgets = {
+            'user_name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
