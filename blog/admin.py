@@ -14,4 +14,4 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(ProfilePicture)
 class ProfileAdmin(SummernoteModelAdmin):
 
-    list_display = ('user_name', 'profile_image', 'id')
+    list_display = ('user_name', 'profile_image', 'profile_image_owner')

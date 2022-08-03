@@ -66,4 +66,9 @@ class ProfilePicture(generic.CreateView):
     model = ProfilePicture
     form_class = ProfileForm
     template_name = 'profile_picture.html'
+
+    def form_valid(self, form):
+        form.instance.profile_image_owner = self.request.user
+        return super().form_valid(form)
+
     success_url = reverse_lazy('profile')
