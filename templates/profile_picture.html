@@ -13,6 +13,7 @@
     <div class="form-group">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
+            <p>there should be a form here</p>
             {{ form.as_p }}
             <button class="btn btn-secondary">Add / Update</button>
         </form>

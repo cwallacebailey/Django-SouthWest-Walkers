@@ -57,7 +57,7 @@ class Profile(generic.ListView):
     template_name = 'profile.html'
     paginate_by = 8
 
-class ProfilePicture(generic.ListView):
+class ProfilePicture(generic.CreateView):
     model = ProfilePicture
     form_class = ProfileForm
     template_name = 'profile_picture.html'
