@@ -71,3 +71,4 @@ https://peakvisor.com/park/mendip-hills-aonb.html
 
 Add summernote to blog post creation
 https://github.com/summernote/django-summernote
+

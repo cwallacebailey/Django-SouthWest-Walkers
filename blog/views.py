@@ -38,7 +38,12 @@ class DetailView(generic.DetailView):
 class NewPost(generic.CreateView):
     model = Post
     form_class = PostForm
-    template_name = 'new_post.html'   
+    template_name = 'new_post.html'
+
+    def form_valid(self, form):
+        form.instance.post_author = self.request.user
+        return super().form_valid(form)
+
     success_url = reverse_lazy('home')
 
 class UpdatePost(generic.UpdateView):

@@ -48,5 +48,8 @@ class Comment(models.Model):
 
 
 class ProfilePicture(models.Model):
+    # User = models.ForeignKey(
+    #     Post, related_name = "profile"
+    # )
     user_name = models.CharField(max_length=150, unique=True)
     profile_image = CloudinaryField('image', default='placeholder', null=True, blank=True)

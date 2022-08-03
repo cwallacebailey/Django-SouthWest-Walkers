@@ -11,4 +11,7 @@ class PostAdmin(SummernoteModelAdmin):
     list_display = ('post_title', 'post_author', 'created_date', 'pk')
     search_fields = ('post_title', 'post_author', 'created_date', 'pk')
 
-admin.site.register(ProfilePicture)
+@admin.register(ProfilePicture)
+class ProfileAdmin(SummernoteModelAdmin):
+
+    list_display = ('user_name', 'profile_image', 'id')
