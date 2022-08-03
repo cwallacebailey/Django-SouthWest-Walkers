@@ -10,5 +10,3 @@ class PostAdmin(SummernoteModelAdmin):
     list_filter = ('post_title', 'created_date')
     list_display = ('post_title', 'post_author', 'created_date', 'pk')
     search_fields = ('post_title', 'post_author', 'created_date', 'pk')
-
-

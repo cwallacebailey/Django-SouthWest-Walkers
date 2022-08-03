@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
-from .models import Post, ProfilePicture
-from .forms import PostForm, ProfileForm
+from django.contrib.auth.forms import UserChangeForm
+from .models import Post
+from .forms import PostForm
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 
@@ -57,8 +58,7 @@ class Profile(generic.ListView):
     template_name = 'profile.html'
     paginate_by = 8
 
-class ProfilePicture(generic.CreateView):
-    model = ProfilePicture
-    form_class = ProfileForm
-    template_name = 'profile_picture.html'
+class UpdateProfile(generic.CreateView):
+    form_class = UserChangeForm
+    template_name = 'update_profile.html'
     success_url = reverse_lazy('profile')

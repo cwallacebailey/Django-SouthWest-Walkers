@@ -45,8 +45,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.str(comment_author) + ' : ' + self.body
-
-
-class ProfilePicture(models.Model):
-    user_name = models.CharField(max_length=150, unique=True)
-    profile_image = CloudinaryField('image', default='placeholder', null=True, blank=True)

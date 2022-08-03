@@ -5,7 +5,8 @@
 <section>
     <div class="container-fluid p-0">
         <div class="row no-gutters top-height">
-            <div class="col-md-3 image-section border-bottom border-end"></div>
+            <!-- image-section -->
+            <div class="col-md-3 border-bottom border-end"><img src="{{ user.profile_image.url }}" alt="">what</div>
             <div class="col-md-9 border-bottom">
                 <div class="row no-gutters top-height">
                     <div class="col heading my-auto">
@@ -16,7 +17,7 @@
                     </div>
                 </div>
                 <div class="row no-gutters badge-height">
-
+                    
                 </div>
             </div>
         </div>
@@ -50,7 +51,7 @@
                                         <img class="card-img-top border"
                                             src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
                                         {% else %}
-                                        <img class="card-img-top border" src=" {{ post.header_image.url }}">
+                                        <img class="card-img-top border" src="{{ post.header_image.url }}">
                                         {% endif %}
                                     </div>
                                         <div class="card-body">
