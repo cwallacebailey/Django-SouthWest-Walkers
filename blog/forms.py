@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post
+from .models import Post, ProfilePicture
 from django_summernote.widgets import *
 
 
@@ -15,3 +15,8 @@ class PostForm(forms.ModelForm):
             'post_author': forms.Select(attrs={'class': 'form-control'}),
             'body': SummernoteWidget(),
         }
+
+class ProfileForm(forms.ModelForm): 
+    class Meta: 
+        model = ProfilePicture
+        fields = ('profile_image',)
