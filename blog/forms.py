@@ -20,10 +20,6 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('body',)
 
-        widgets = {
-            'body': SummernoteWidget(),
-        }
-
 
 class ProfileForm(forms.ModelForm): 
     class Meta: 

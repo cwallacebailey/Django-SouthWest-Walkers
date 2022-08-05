@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from .models import Post, ProfilePicture
-from .forms import PostForm, ProfileForm
+from .forms import PostForm, ProfileForm, CommentForm
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 
@@ -34,6 +34,7 @@ class DetailView(generic.DetailView):
             {
                 "post": obj,
                 "comments": comments,
+                "comment_form": CommentForm()
             }
         )
     
@@ -45,8 +46,8 @@ class DetailView(generic.DetailView):
 
         if comment_form.is_valid():
             comment_form.instance.comment_author = self.request.user
-            comment.post = post
-            return super().form_valid(form)
+            comments.post = obj
+            comments.save()
         else:
             comment_form = CommentForm()
 
@@ -56,6 +57,7 @@ class DetailView(generic.DetailView):
             {
                 "post": obj,
                 "comments": comments,
+                "comment_form": CommentForm()
             }
         )
 
