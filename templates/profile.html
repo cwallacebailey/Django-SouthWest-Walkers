@@ -6,11 +6,18 @@
     <div class="container-fluid p-0">
         <div class="row no-gutters top-height">
             <!-- image-section -->
-            <div class="col-md-3 border-bottom border-end"><img src="{{ user.profile_image.url }}" alt="">what</div>
+            <div class="col-md-3 border-bottom border-end">                
+                {% for name in user.images.all %}
+                {{ name.profile_image }}
+                {% endfor %}
+            </div>
             <div class="col-md-9 border-bottom">
                 <div class="row no-gutters top-height">
                     <div class="col heading my-auto">
-                        <h1 class="name">{{ profilepicture.username }}</h1>
+                        <h1 class="name">
+                            {% for name in user.images.all %}
+                            {{ name.user_name }}
+                            {% endfor %}</h1>
                         <h2 class="title">Here we go</h2>
                         <h3>Stat about Distance | Stat about Cairns reached</h3>
                         <h4><a href="{% url 'update_profile_picture' %}">Update Profile</a></h4>
