@@ -42,6 +42,19 @@
         {% endif %}
     </form>
 
+    <hr>
+    <br>
+    <h2>Comments:</h2>
+        <h4>Leave a comment</h4>
+        <form method="post">
+            {{ comment_form }}
+
+        </form>
+
+
+
+
+
     {% else %}
 
         <button type="submit", name="post_id", value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} Stars

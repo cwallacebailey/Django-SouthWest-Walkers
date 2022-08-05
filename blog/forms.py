@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, ProfilePicture
+from .models import Post, ProfilePicture, Comment
 from django_summernote.widgets import *
 
 
@@ -14,6 +14,16 @@ class PostForm(forms.ModelForm):
             'distance': forms.NumberInput(attrs={'minlength': 1, 'maxlength': 5, 'type': 'number',}),
             'body': SummernoteWidget(),
         }
+
+class CommentForm(forms.ModelForm): 
+    class Meta:
+        model = Comment
+        fields = ('body',)
+
+        widgets = {
+            'body': SummernoteWidget(),
+        }
+
 
 class ProfileForm(forms.ModelForm): 
     class Meta: 

@@ -27,11 +27,35 @@ class DetailView(generic.DetailView):
     def get(self, request, pk, *args, **kwargs):
         queryset = Post.objects
         obj = get_object_or_404(queryset, pk=pk)
+        comments = obj.comment.order_by("-created_date")
         return render(
             request,
             "detail_view.html",
             {
                 "post": obj,
+                "comments": comments,
+            }
+        )
+    
+    def post(self, request, pk, *args, **kwargs):
+        queryset = Post.objects
+        obj = get_object_or_404(queryset, pk=pk)
+        comments = obj.comment.order_by("-created_date")
+        comment_form = CommentForm(data=request.POST)
+
+        if comment_form.is_valid():
+            comment_form.instance.comment_author = self.request.user
+            comment.post = post
+            return super().form_valid(form)
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            "detail_view.html",
+            {
+                "post": obj,
+                "comments": comments,
             }
         )
 
