@@ -6,8 +6,6 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 
 
-# this updates the database using a get object or 404. 
-
 class StarPost(generic.View):
     def post(self, request, pk):
         post = get_object_or_404(Post, id=request.POST.get('post_id'))
@@ -77,7 +75,10 @@ class UpdatePost(generic.UpdateView):
     model = Post
     template_name = 'update_post.html'
     form_class = PostForm
-    success_url = reverse_lazy('home')
+
+    def get_success_url(self):
+        pk = self.kwargs["pk"]
+        return reverse("detail", kwargs={"pk": pk})
 
 class DeletePost(generic.DeleteView):
     model = Post
@@ -89,13 +90,8 @@ class Profile(generic.ListView):
     template_name = 'profile.html'
     paginate_by = 8
 
-class ProfilePicture(generic.CreateView):
+class ProfilePicture(generic.ListView):
     model = ProfilePicture
     form_class = ProfileForm
     template_name = 'profile_picture.html'
-
-    def form_valid(self, form):
-        form.instance.profile_image_owner = self.request.user
-        return super().form_valid(form)
-
-    success_url = reverse_lazy('profile')
+    success_url = reverse_lazy('home')

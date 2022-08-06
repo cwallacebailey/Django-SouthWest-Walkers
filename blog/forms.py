@@ -24,8 +24,4 @@ class CommentForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm): 
     class Meta: 
         model = ProfilePicture
-        fields = ('user_name', 'profile_image',)
-
-        widgets = {
-            'user_name': forms.TextInput(attrs={'class': 'form-control'}),
-        }
+        fields = ('profile_image',)
