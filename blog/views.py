@@ -46,8 +46,9 @@ class DetailView(generic.DetailView):
 
         if comment_form.is_valid():
             comment_form.instance.comment_author = self.request.user
-            comments.post = obj
-            comments.save()
+            comment = comment_form.save(commit=False)
+            comment.Post = obj
+            comment.save()
         else:
             comment_form = CommentForm()
 
@@ -57,7 +58,7 @@ class DetailView(generic.DetailView):
             {
                 "post": obj,
                 "comments": comments,
-                "comment_form": CommentForm()
+                "comment_form": comment_form
             }
         )
 

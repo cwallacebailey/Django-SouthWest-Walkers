@@ -52,10 +52,15 @@
             <br>
             <button type="submit" class="btn btn-secondary">Post Comment</button>
         </form>
-
-
-
-
+        <hr>
+        <br>
+        {% for comment in comments %}
+        {{ comment.comment_author }} : {{ comment.created_date }}
+        <br>
+        {{ comment.body }}
+        <br>
+        <hr>
+        {% endfor %}
 
     {% else %}
 
