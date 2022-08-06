@@ -2,17 +2,13 @@
 
 {% block content %}
 
-<section>
-    <div class="container-fluid p-0">
-        <div class="row no-gutters top-height">
-            <!-- image-section -->
-            <div class="col-md-3 border-bottom border-end">                
-                {% for name in user.images.all %}
-                {{ name.profile_image }}
-                {% endfor %}
-            </div>
+<section class="top-height">
+        <div class="row no-gutters">
+            {% for name in user.images.all %}
+                <img class="col-md-3 margin-none" id="profile-picture" src="{{ name.profile_image.url }}" alt="profile-picture">
+            {% endfor %}
             <div class="col-md-9 border-bottom">
-                <div class="row no-gutters top-height">
+                <div class="row no-gutters">
                     <div class="col heading my-auto">
                         <h1 class="name">
                             {% for name in user.images.all %}
@@ -24,16 +20,15 @@
                     </div>
                 </div>
                 <div class="row no-gutters badge-height">
-                    
+
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <section>
     <div class="container-fluid">
-        <div class="row badge-height border">
+        <div class="row badge-height border margin-none">
 
         </div>
     </div>
@@ -42,7 +37,7 @@
 <section>
     <div class="container-fluid p-0">
         <div class="row">
-            <div class="col-md-3 border-end">
+            <div class="col-md-3 border-end overflow">
                 map here
             </div>
             <!-- Blog Items Arranged Below -->
