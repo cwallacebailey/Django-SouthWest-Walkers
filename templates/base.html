@@ -35,17 +35,15 @@
                 </li>
             </ul>
             <li>
-              <div id="icon"> 
                 <a class="text-white text-center" href="{% url 'profile' %}">
-                  <div id="icon">
-                    {% for name in user.images.all %}
-                    <img class="col-md-3 margin-none" id="profile-picture" src="{{ name.profile_image.url }}" alt="profile-picture">
-                    {% endfor %}
-                    <br>
-                    Profile
-                  </div>
+                    <div id="icon">
+                      {% for name in user.images.all %}
+                      <img class="col-md-3 margin-none" id="profile-picture" src="{{ name.profile_image.url }}" alt="profile-picture">
+                      {% endfor %}
+                      <br>
+                      <p class="margin-none">Profile</p>
+                    </div>
                 </a>
-              </div>
             </li>
               {% else %}
                 <li>

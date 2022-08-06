@@ -2,16 +2,10 @@
     font-family: 'Uchen', sans-serif;
 }
 
-#icon-small {
-    border-radius: 4px;
-}
-
 #icon {
     display: inline-block;
-    overflow: hidden;
-    line-height: 1;
     vertical-align: middle;
-    border-radius: 6px;
+    border-radius: 50%;
     width: 8rem;
 }
 
