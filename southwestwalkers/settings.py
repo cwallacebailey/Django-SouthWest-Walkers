@@ -56,7 +56,7 @@ SITE_ID = 1 # we have to tell Django the site number
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = 'none' # prevents 500 type errors
-
+ACCOUNT_SIGNUP_REDIRECT_URL = '/profile/create_profile'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

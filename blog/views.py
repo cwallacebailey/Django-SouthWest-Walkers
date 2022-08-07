@@ -4,7 +4,7 @@ from .models import Post, Profile
 from .forms import PostForm, ProfileForm, CommentForm
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-
+from allauth.account.views import SignupView
 
 
 class Home(generic.ListView):
@@ -91,12 +91,20 @@ class Profile(generic.ListView):
     template_name = 'profile.html'
     paginate_by = 8
 
+class CreateProfile(generic.CreateView):
+    model = Profile
+    form_class = ProfileForm
+    template_name = 'create_profile.html'
+    success_url = reverse_lazy('home')
+
 class UpdateProfile(generic.CreateView):
     model = Profile
     form_class = ProfileForm
     template_name = 'update_profile.html'
     success_url = reverse_lazy('home')
 
+class CustomSignupView(SignupView):
+    success_url = reverse_lazy('create_profile')
 
 # Code below is from this source - https://studygyaan.com/django/django-custom-404-error-template-page
 
