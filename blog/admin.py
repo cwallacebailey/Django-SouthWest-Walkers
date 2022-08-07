@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, ProfilePicture, Comment
+from .models import Post, Profile, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -12,10 +12,10 @@ class PostAdmin(SummernoteModelAdmin):
     search_fields = ('post_title', 'post_author', 'created_date', 'pk')
 
 
-@admin.register(ProfilePicture)
+@admin.register(Profile)
 class ProfileAdmin(SummernoteModelAdmin):
 
-    list_display = ('user_name', 'profile_image', 'profile_image_owner', 'pk')
+    list_display = ('user_name', 'profile_picture', 'user', 'pk')
 
 
 admin.site.register(Comment)

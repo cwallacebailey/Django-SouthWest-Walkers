@@ -47,9 +47,15 @@ class Comment(models.Model):
         return self.str(comment_author) + ' : ' + self.body
 
 
-class ProfilePicture(models.Model):
-    profile_image_owner = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="images"
+class Profile(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user"
     )
     user_name = models.CharField(max_length=150, unique=True,)
-    profile_image = CloudinaryField('image', default='placeholder', null=True, blank=True)
+    profile_picture = CloudinaryField('image', default='placeholder', null=True, blank=True)
+    instagram_url = models.CharField(max_length=150, unique=True, null=True, default='placeholder',)
+    strava_url = models.CharField(max_length=150, unique=True, null=True, default='placeholder',)
+    linkedin_url = models.CharField(max_length=150, unique=True, null=True, default='placeholder',)
+
+    def __str__(self):
+        return self.user

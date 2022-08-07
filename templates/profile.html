@@ -5,7 +5,7 @@
 <section class="top-height">
         <div class="row no-gutters">
                 {% for name in user.images.all %}
-                    <img class="col-md-3 margin-none" id="profile-picture" src="{{ name.profile_image.url }}" alt="profile-picture">
+                    <img class="col-md-3 margin-none" id="profile-picture" src="{{ name.profile_picture.url }}" alt="profile-picture">
                 {% endfor %}
             <div class="col-md-9 border-bottom">
                 <div class="row no-gutters">

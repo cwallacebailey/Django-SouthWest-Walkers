@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, ProfilePicture, Comment
+from .models import Post, Profile, Comment
 from django_summernote.widgets import *
 
 
@@ -23,5 +23,5 @@ class CommentForm(forms.ModelForm):
 
 class ProfileForm(forms.ModelForm): 
     class Meta: 
-        model = ProfilePicture
-        fields = ('profile_image',)
+        model = Profile
+        fields = ('profile_picture',)
