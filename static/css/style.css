@@ -9,6 +9,10 @@
     width: 8rem;
 }
 
+.navbar {
+    background-color: #36454F;
+}
+
 .image-section {
     background-image: url("https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg");
     background-position: center;
@@ -16,7 +20,7 @@
     background-size: cover;
 }
 
-.card-img-top {
+.card-img-top-home {
     height: 12rem;
     object-fit: cover;
 }
@@ -31,7 +35,13 @@
     height: 8rem
 }
 
+.profile-info {
+    background-color: #AEB2B2;
+    color:  #36454F;
+}
+
 #profile-picture {
+    object-fit: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
