@@ -1,8 +1,7 @@
 {% extends 'structure/base.html' %}
 
 {% block content %}
-
-<div class="container">
+    <div class="container">
     <div class="row">
         <!-- Blog Items Arranged Below -->
         <div class="col-12 mt-3">
@@ -11,7 +10,7 @@
                     <div class="col-md-3 text-center">
                         <div class="card mb-3">
                             <div class="card-body">
-                                <div class="image-container">
+                                <div class="img-thumbnail">
                                     {% if "placeholder" in post.header_image.url %}
                                     <img class="card-img-top"
                                         src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
@@ -35,5 +34,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

@@ -16,6 +16,10 @@
     background-size: cover;
 }
 
+.card-img-top {
+    height: 12rem;
+    object-fit: cover;
+}
 
 /* Profile Section */
 

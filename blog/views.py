@@ -6,15 +6,6 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 
 
-class StarPost(generic.View):
-    def post(self, request, pk):
-        post = get_object_or_404(Post, id=request.POST.get('post_id'))
-
-        if post.starred.filter(id=request.user.id).exists():
-            post.starred.remove(request.user)
-        else: 
-            post.starred.add(request.user)
-        return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
 class Home(generic.ListView):
     model = Post
@@ -60,6 +51,16 @@ class DetailView(generic.DetailView):
             }
         )
 
+class StarPost(generic.View):
+    def post(self, request, pk):
+        post = get_object_or_404(Post, id=request.POST.get('post_id'))
+
+        if post.starred.filter(id=request.user.id).exists():
+            post.starred.remove(request.user)
+        else: 
+            post.starred.add(request.user)
+        return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
+
 class NewPost(generic.CreateView):
     model = Post
     form_class = PostForm
@@ -97,7 +98,7 @@ class ProfilePicture(generic.ListView):
     success_url = reverse_lazy('home')
 
 
-# These need to be tested - guide is here https://studygyaan.com/django/django-custom-404-error-template-page
+# Code below is from this source - https://studygyaan.com/django/django-custom-404-error-template-page
 
 def error_404(request, exception):
     """"
