@@ -91,10 +91,10 @@ class Profile(generic.ListView):
     template_name = 'profile.html'
     paginate_by = 8
 
-class ProfilePicture(generic.ListView):
+class UpdateProfile(generic.CreateView):
     model = Profile
     form_class = ProfileForm
-    template_name = 'profile_picture.html'
+    template_name = 'update_profile.html'
     success_url = reverse_lazy('home')
 
 

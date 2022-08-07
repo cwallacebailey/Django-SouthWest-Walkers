@@ -20,8 +20,18 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('body',)
 
+        widgets = {
+            'body': SummernoteWidget(),
+        }
 
 class ProfileForm(forms.ModelForm): 
     class Meta: 
         model = Profile
-        fields = ('profile_picture',)
+        fields = ('user_name', 'profile_picture', 'instagram_url', 'strava_url', 'linkedin_url',)
+
+        widgets = {
+        'user_name': forms.TextInput(attrs={'class': 'form-control'}),
+        'instagram_url': forms.TextInput(attrs={'class': 'form-control'}),
+        'strava_url': forms.TextInput(attrs={'class': 'form-control'}),
+        'linkedin_url': forms.TextInput(attrs={'class': 'form-control'}),
+        }
