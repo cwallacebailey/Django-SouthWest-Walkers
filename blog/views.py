@@ -97,7 +97,7 @@ class ProfilePicture(generic.ListView):
     success_url = reverse_lazy('home')
 
 
-# These need to be linked up - guide is here https://studygyaan.com/django/django-custom-404-error-template-page
+# These need to be tested - guide is here https://studygyaan.com/django/django-custom-404-error-template-page
 
 def error_404(request, exception):
     """"
@@ -108,7 +108,7 @@ def error_404(request, exception):
     return render(request, 'templates/errors/404.html')
 
 
-def error_500(request, exception):
+def error_500(request,):
     """"
     HTTP 500 errors - diverts to user
     friendly page
