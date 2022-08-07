@@ -15,7 +15,7 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(Profile)
 class ProfileAdmin(SummernoteModelAdmin):
 
-    list_display = ('user_name', 'profile_picture', 'user', 'pk')
+    list_display = ('display_name', 'profile_picture', 'user', 'pk')
 
 
 admin.site.register(Comment)

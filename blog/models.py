@@ -51,11 +51,11 @@ class Profile(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="user"
     )
-    user_name = models.CharField(max_length=150, unique=True,)
+    display_name = models.CharField(max_length=150, unique=True,)
     profile_picture = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    instagram_url = models.CharField(max_length=150, unique=True, null=True, default='placeholder',)
-    strava_url = models.CharField(max_length=150, unique=True, null=True, default='placeholder',)
-    linkedin_url = models.CharField(max_length=150, unique=True, null=True, default='placeholder',)
+    instagram_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
+    strava_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
+    linkedin_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
 
     def __str__(self):
         return self.user
