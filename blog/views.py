@@ -86,26 +86,19 @@ class DeletePost(generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
-class Profile(generic.DetailView):
-    # def get(self, request, pk, *args, **kwargs):
-    #     queryset = Profile.objects
-    #     obj = get_object_or_404(queryset, pk=pk)
-    #     return render(
-    #         request,
-    #         "prodile.html",
-    #         {
-    #             "profile": obj,
-    #         }
-    #     )
 
+# Profile Section Below 
+
+
+class ProfileView(generic.DetailView):
     model = Profile
     template_name = 'profile.html'
 
-    def get(self, request, pk, *args, **kwargs):
-            queryset = Profile.objects.all()
-            context = super(Profile, self).get_context_data(*args, **kwargs) 
-            user = get_object_or_404(Profile, id=self.kwargs['pk'])
-            context["user"] = user
+    def get_profile(self, *args, **kwargs):
+            users = Profile.objects
+            context = super(ProfileView, self).get_context_data(**kwargs) 
+            page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
+            context["page_user"] = page_user
             return context
     
 class CreateProfile(generic.CreateView):
