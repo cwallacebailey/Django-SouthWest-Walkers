@@ -12,7 +12,7 @@ class Home(generic.ListView):
     template_name = 'index.html'
     paginate_by = 8
 
-class DetailView(generic.DetailView):
+class PostDetailView(generic.DetailView):
     def get(self, request, pk, *args, **kwargs):
         queryset = Post.objects
         obj = get_object_or_404(queryset, pk=pk)
@@ -88,7 +88,16 @@ class DeletePost(generic.DeleteView):
 
 
 # Profile Section Below 
+    
+class CreateProfile(generic.CreateView):
+    model = Profile
+    form_class = ProfileForm
+    template_name = 'create_profile.html'
+    success_url = reverse_lazy('home')
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class ProfileView(generic.DetailView):
     model = Profile
@@ -100,16 +109,6 @@ class ProfileView(generic.DetailView):
             page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
             context["page_user"] = page_user
             return context
-    
-class CreateProfile(generic.CreateView):
-    model = Profile
-    form_class = ProfileForm
-    template_name = 'create_profile.html'
-    success_url = reverse_lazy('home')
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
 
 class UpdateProfile(generic.UpdateView):
     model = Profile

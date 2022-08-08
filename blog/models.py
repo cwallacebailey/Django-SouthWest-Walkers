@@ -78,7 +78,7 @@ class Comment(models.Model):
 
 
 class Profile(models.Model):
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="user"
     )
     display_name = models.CharField(max_length=150, unique=True,)

@@ -25,7 +25,9 @@
                       <img class="col-md-3 margin-none" id="profile-picture" src="{{ name.profile_image.url }}" alt="profile-picture">
                       {% endfor %}
                       <br>
-                      <p class="margin-none">Profile</p>
+                      <p class="margin-none">Profile {{ post.post_author.user.profile.display_name }} </p>
+                      || {{ user.profile.user_name }} ||
+
                     </div>
                 </a>
             </li>
