@@ -86,11 +86,28 @@ class DeletePost(generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
-class Profile(generic.ListView):
-    model = Post
-    template_name = 'profile.html'
-    paginate_by = 8
+class Profile(generic.DetailView):
+    # def get(self, request, pk, *args, **kwargs):
+    #     queryset = Profile.objects
+    #     obj = get_object_or_404(queryset, pk=pk)
+    #     return render(
+    #         request,
+    #         "prodile.html",
+    #         {
+    #             "profile": obj,
+    #         }
+    #     )
 
+    model = Profile
+    template_name = 'profile.html'
+
+    def get(self, request, pk, *args, **kwargs):
+            queryset = Profile.objects.all()
+            context = super(Profile, self).get_context_data(*args, **kwargs) 
+            user = get_object_or_404(Profile, id=self.kwargs['pk'])
+            context["user"] = user
+            return context
+    
 class CreateProfile(generic.CreateView):
     model = Profile
     form_class = ProfileForm
@@ -101,11 +118,14 @@ class CreateProfile(generic.CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class UpdateProfile(generic.CreateView):
+class UpdateProfile(generic.UpdateView):
     model = Profile
     form_class = ProfileForm
     template_name = 'update_profile.html'
     success_url = reverse_lazy('home')
+
+    def get_object(self):
+        return self.request.pk
 
 class CustomSignupView(SignupView):
     success_url = reverse_lazy('create_profile')
@@ -120,10 +140,10 @@ def error_404(request, exception):
 
     return render(request, 'templates/errors/404.html')
 
-
 def error_500(request,):
     """"
     HTTP 500 errors - diverts to user
     friendly page
     """
+
     return render(request, 'templates/errors/500.html')

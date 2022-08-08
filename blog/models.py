@@ -44,7 +44,7 @@ class Comment(models.Model):
         ordering = ['-created_date']
 
     def __str__(self):
-        return self.str(comment_author) + ' : ' + self.body
+        return str(self.comment_author) + ' : ' + self.body
 
 
 class Profile(models.Model):
@@ -58,4 +58,4 @@ class Profile(models.Model):
     linkedin_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
 
     def __str__(self):
-        return self.user
+        return str(self.user)

@@ -8,7 +8,10 @@ urlpatterns = [
     path('detail/update/<int:pk>', UpdatePost.as_view(), name='update_post'),
     path('detail/delete/<int:pk>', DeletePost.as_view(), name='delete_post'),
     path('star_post/<int:pk>', StarPost.as_view(), name='star_post'),
-    path('profile', Profile.as_view(), name="profile"),
-    path('profile/update_profile', UpdateProfile.as_view(), name='update_profile'),
+
+
+    # Profile URLs below: 
+    path('profile/<int:pk>', Profile.as_view(), name="profile"),
+    path('profile/update_profile/', UpdateProfile.as_view(), name='update_profile'),
     path('profile/create_profile', CreateProfile.as_view(), name='create_profile'),
 ]
