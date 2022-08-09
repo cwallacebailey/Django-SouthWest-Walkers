@@ -2,36 +2,59 @@
 
 {% block content %}
 
-<section class="top-height">
-        <div class="row no-gutters">
-            {% if 'placeholder' in profile.profile_picture.url %}
-                <img class="col-md-3 margin-none" id="profile-picture"
-                    src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
-            {% else %}
-                <img class="col-md-3 margin-none" id="profile-picture" src="{{ profile.profile_picture.url }}" alt="profile-picture">
-            {% endif %}
-            <div class="col-md-9 border-bottom">
-                <div class="row no-gutters">
-                    <div class="col heading my-auto profile-info">
-                        <h1 class="name">{{ profile.display_name }}</h1>
-                        <h2 class="title">Here we go</h2>
-                        <h3>Stat about Distance | Stat about Cairns reached</h3>
-                        <h4>
-                            <a href="{% url 'update_profile' profile.pk %}">Update Profile</a>
-                        </h4>
-                    </div>
-                </div>
-                <div class="row no-gutters badge-height">
+<section>
 
+    <!-- Profile Picture Section  -->
+
+    <div class="row no-gutters">
+        {% if 'placeholder' in profile.profile_picture.url %}
+            <img class="col-md-3 margin-none" id="profile-picture"
+                src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
+        {% else %}
+            <img class="col-md-3 margin-none" id="profile-picture" src="{{ profile.profile_picture.url }}" alt="profile-picture">
+        {% endif %}
+
+    <!-- Profile Stats Section  -->
+
+        <div class="col-md-9 border-bottom">
+            <div class="row no-gutters">
+                <div class="col heading my-auto profile-info">
+                    <h1 class="name">{{ profile.display_name }}</h1>
+                    <h2 class="title">Here we go</h2>
+                    <h3>Stat about Distance | Stat about Cairns reached</h3>
+                    <h4>
+                        <a href="{% url 'update_profile' profile.pk %}">Update Profile</a>
+                    </h4>
                 </div>
             </div>
-        </div>
-</section>
+    
+    <!-- badges and awards -->
 
-<section>
-    <div class="container-fluid">
-        <div class="row badge-height border margin-none">
-
+            <div class="row no-gutters badge-height">
+                <ul class="list-inline social-links">
+                {% if profile.instagram_url != None %}
+                    <li class="list-inline-item">
+                        <a target="_blank" href="{{ profile.instagram_url }}">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if profile.linkedin_url != None %}
+                    <li class="list-inline-item">
+                        <a target="_blank" href="{{ profile.linkedin_url }}">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if profile.strava_url != None %}
+                    <li class="list-inline-item">
+                        <a target="_blank" href="{{ profile.strava_url }}">
+                        <i class="fa fa-strava" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -40,12 +63,13 @@
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-md-3 border-end profile-info">
-                map here
+                Map
             </div>
             <!-- Blog Items Arranged Below -->
             <div class="col-md-9">
                 <div class="row mt-3">
-                    {% for post in Profile.User.Post.object_list %}
+                    {% for post in user.post.object_list %}
+
                     {% if post.post_author.id == user.id %}
                         <div class="col-md-4 text-center">
                             <div class="card mb-4">
@@ -77,4 +101,6 @@
     </div>
 </section>
 
+<!-- font awesome script --> 
+<script src="https://kit.fontawesome.com/8d6f6ebaae.js" crossorigin="anonymous"></script>
 {% endblock %}

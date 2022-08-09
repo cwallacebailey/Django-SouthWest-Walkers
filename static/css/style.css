@@ -6,7 +6,17 @@
     display: inline-block;
     vertical-align: middle;
     border-radius: 50%;
-    width: 8rem;
+    width: 6rem;
+    height: 2rem;
+}
+
+.profile-icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    z-index: -3;
+    overflow: hidden;
 }
 
 .navbar {
@@ -22,6 +32,15 @@
     padding-top: 0;
 }
 
+.couldbe {
+    transition: all 0.4s ease-in-out;
+}
+
+.couldbe:hover {
+    background: #36454F;
+    color: white;
+}
+
 .image-section {
     background-image: url("https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg");
     background-position: center;
@@ -35,19 +54,6 @@
 }
 
 /* Profile Section */
-
-.top-height {
-    height: 12rem;
-}
-
-.badge-height {
-    height: 8rem
-}
-
-.profile-info {
-    background-color: #AEB2B2;
-    color:  #36454F;
-}
 
 #profile-picture {
     object-fit: cover;
@@ -66,6 +72,28 @@
 .margin-none {
     margin: 0;
     padding: 0;
+}
+
+.social-links {
+    padding: 15px;
+    margin-left: 25px;
+}
+
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    background: #36454F;
+    transition: all 0.4s ease-in-out;
+    font-size: 13px;
+    line-height: 7px;
+}
+
+.social-links li a i:hover {
+    background: #12948d
 }
 
 /* font awesome icons */
