@@ -21,7 +21,7 @@
                                     <div class="card-body">
                                     <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
                                     <br>
-                                    {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
+                                    {{ post.post_author.profile.display_name }} | {{ post.created_date |date:"d M-Y" }}
                                     <br>
                                     {{ post.post_blurb | slice:50 | safe}}
                                     <br>

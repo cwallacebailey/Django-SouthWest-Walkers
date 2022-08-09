@@ -8,9 +8,10 @@
 
 
 <div class="container text-center border-blue">
-    <h1>{{ post.post_title }} |
-        {{ request.user.user.id }}
-        {{ post.post_author.profile.display_name }}
+    <h1>
+        {{ post.post_title }} 
+        <br>
+        by: {{ request.user.user.id }} {{ post.post_author.profile.display_name }}
     </h1>
     <div class="card-body">
         <div class="img-thumbnail">
