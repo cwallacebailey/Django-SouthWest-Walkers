@@ -114,7 +114,7 @@ class UpdateProfile(generic.UpdateView):
     model = Profile
     template_name = 'update_profile.html'
     form_class = ProfileForm
-
+    # success_url = reverse_lazy('home')
     def get_success_url(self):
         pk = self.kwargs["pk"]
         return reverse("profile", kwargs={"pk": pk})

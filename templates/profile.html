@@ -15,11 +15,11 @@
             <div class="col-md-9 border-bottom">
                 <div class="row no-gutters">
                     <div class="col heading my-auto profile-info">
-                        <h1 class="name">{{ user }}</h1>
+                        <h1 class="name">{{ profile.display_name }}</h1>
                         <h2 class="title">Here we go</h2>
                         <h3>Stat about Distance | Stat about Cairns reached</h3>
                         <h4>
-                            <a href="{% url 'update_profile' %}">Update Profile</a>
+                            <a href="{% url 'update_profile' profile.pk %}">Update Profile</a>
                         </h4>
                     </div>
                 </div>
