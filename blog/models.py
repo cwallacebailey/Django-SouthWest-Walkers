@@ -69,12 +69,22 @@ class Comment(models.Model):
     body = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
+    response = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE)
 
     class Meta: 
         ordering = ['-created_date']
 
     def __str__(self):
         return str(self.comment_author) + ' : ' + self.body
+
+    def responses(self):
+        return Comment.objects.filter(response=self)
+    
+    @property
+    def is_comment_to_reply(self):
+        if self.parent is not None:
+            return False
+        return True
 
 
 class Profile(models.Model):
