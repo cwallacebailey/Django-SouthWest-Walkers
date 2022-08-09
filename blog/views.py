@@ -86,7 +86,6 @@ class DeletePost(generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
-
 # Profile Section Below 
     
 class CreateProfile(generic.CreateView):
@@ -100,24 +99,25 @@ class CreateProfile(generic.CreateView):
         return super().form_valid(form)
 
 class ProfileView(generic.DetailView):
-    model = Profile
-    template_name = 'profile.html'
-
-    def get_profile(self, *args, **kwargs):
-            users = Profile.objects
-            context = super(ProfileView, self).get_context_data(**kwargs) 
-            page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
-            context["page_user"] = page_user
-            return context
+    def get(self, request, pk, *args, **kwargs):
+        queryset = Profile.objects
+        obj = get_object_or_404(queryset, pk=request.user.profile.pk)
+        return render(
+            request,
+            "profile.html",
+            {
+                "profile": obj,
+            }
+        )
 
 class UpdateProfile(generic.UpdateView):
     model = Profile
-    form_class = ProfileForm
     template_name = 'update_profile.html'
-    success_url = reverse_lazy('home')
+    form_class = ProfileForm
 
-    def get_object(self):
-        return self.request.pk
+    def get_success_url(self):
+        pk = self.kwargs["pk"]
+        return reverse("profile", kwargs={"pk": pk})
 
 class CustomSignupView(SignupView):
     success_url = reverse_lazy('create_profile')

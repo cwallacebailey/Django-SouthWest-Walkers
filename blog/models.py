@@ -58,7 +58,7 @@ class Post(models.Model):
         return self.post_title + ' | ' + str(self.post_author)
 
     def get_absolute_url(self):
-        return reverse('detail', args=(str(self.id))) # this will go to the post just created using its id - replaced by reverse_lazy to home. WASN'T WORKING NEEDS REVIEW.
+        return reverse('detail', args=(str(self.id)))
 
 
 class Comment(models.Model):
