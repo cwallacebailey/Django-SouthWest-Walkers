@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
-from .models import Post, Profile
+from .models import Post, Profile, Comment
 from .forms import PostForm, ProfileForm, CommentForm
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
@@ -34,8 +34,21 @@ class PostDetailView(generic.DetailView):
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            comment_form.instance.comment_author = self.request.user
-            comment = comment_form.save(commit=False)
+            comment_form.instance.comment_author = self.request.user # old
+            comment_id = request.POST.get("") 
+            parent_obj = None
+            try:
+                parent_id = int(request.POST.get("parent_id")) # https://www.youtube.com/watch?v=KrGQ2Nrz4Dc
+            except:
+                parent_id = None
+
+            if parent_id:
+                parent_qs = Comment.objects.filter(id=parent_id)
+                if parent_qs.exists():
+                    parent_obj = parent_qs.first()
+
+            comment = comment_form.save(commit=False) # old
+            comment.response = parent_obj
             comment.Post = obj
             comment.save()
         else:
@@ -47,7 +60,7 @@ class PostDetailView(generic.DetailView):
             {
                 "post": obj,
                 "comments": comments,
-                "comment_form": comment_form
+                "comment_form": comment_form,
             }
         )
 
@@ -86,6 +99,13 @@ class DeletePost(generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
+# Comments Section 
+
+class DeleteComment(generic.DeleteView):
+    model = Comment
+    template_name = 'delete_comment.html'
+    success_url = reverse_lazy('home')
+
 # Profile Section Below 
     
 class CreateProfile(generic.CreateView):
@@ -114,7 +134,7 @@ class UpdateProfile(generic.UpdateView):
     model = Profile
     template_name = 'update_profile.html'
     form_class = ProfileForm
-    # success_url = reverse_lazy('home')
+
     def get_success_url(self):
         pk = self.kwargs["pk"]
         return reverse("profile", kwargs={"pk": pk})

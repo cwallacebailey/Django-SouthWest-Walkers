@@ -65,8 +65,16 @@
                 {% for comment in comments %}
                 {{ comment.comment_author }} : {{ comment.created_date }}
                 <br>
-                {{ comment.body }}
+                {{ comment.body | safe }}
                 <br>
+                <a href="{% url 'delete_comment' comment.id %}" class="btn btn-secondary">Delete</a>
+                <form method="post">
+                    {{ comment_form }}
+                    {% csrf_token %}
+                    <br>
+                    <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                    <button type="submit" value="reply" class="btn btn-secondary">Reply</button>
+                </form>
                 <hr>
                 {% endfor %}
 
@@ -75,6 +83,7 @@
                     {{ comment_form }}
                     {% csrf_token %}
                     <br>
+                    <input type="hidden" name="" value="{{ comment.id }}">
                     <button type="submit" class="btn btn-secondary">Post Comment</button>
                 </form>
             <hr>
