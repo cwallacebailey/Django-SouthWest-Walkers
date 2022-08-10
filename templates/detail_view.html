@@ -86,12 +86,12 @@
             
             {% endfor %}
 
-                <form method="post">
-                    {{ comment_form }}
+                <form method="post" name="reply-form" action=".">
+                    {{ response_form | crispy }}
                     {% csrf_token %}
                     <br>
                     <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                    <button type="submit" class="btn btn-secondary" name="response" value="response">Post Response</button>
+                    <button type="submit" class="btn btn-secondary" name="reply-form" value="reply-form">Post Response</button>
                 </form>
 
             {% endif %}
@@ -99,11 +99,11 @@
 
             <hr>
             <h4>Leave a comment:</h4>
-                <form method="post">
-                    {{ comment_form }}
+                <form method="post" name="commented-form" action=".">
+                    {{ comment_form | crispy }}
                     {% csrf_token %}
                     <br>
-                    <button type="submit" class="btn btn-secondary" name="comment" value="comment">Post Comment</button>
+                    <button type="submit" class="btn btn-secondary" name="commented-form" value="commented-form">Post Comment</button>
                 </form>
             <hr>
             <br>

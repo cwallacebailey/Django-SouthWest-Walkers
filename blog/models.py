@@ -60,13 +60,6 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse('detail', args=(str(self.id)))
 
-
-class CommentManager(models.Manager):
-    def all(self): 
-        query_set = super(CommentManager, self).filter(parent=None)
-        return qs
-
-
 class Comment(models.Model):
     Post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comment"
