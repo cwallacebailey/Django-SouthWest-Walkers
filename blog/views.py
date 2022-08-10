@@ -39,8 +39,7 @@ class PostDetailView(generic.DetailView):
             parent_obj = None
             parent_id = None
             try:
-                parent_id = int(request.POST.get("parent_id"))
-                print(parent_id)
+                parent_id = int(request.POST.get("parent_id")) # https://www.youtube.com/watch?v=KrGQ2Nrz4Dc
             except:
                 parent_id = None
 
