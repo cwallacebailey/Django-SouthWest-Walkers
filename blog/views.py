@@ -39,7 +39,8 @@ class PostDetailView(generic.DetailView):
             parent_obj = None
             parent_id = None
             try:
-                parent_id = int(request.POST.get("parent_id")) # https://www.youtube.com/watch?v=KrGQ2Nrz4Dc
+                parent_id = int(request.POST.get("parent_id"))
+                print(parent_id)
             except:
                 parent_id = None
 
@@ -52,6 +53,7 @@ class PostDetailView(generic.DetailView):
             comment.response = parent_obj
             comment.Post = obj
             comment.save()
+            return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
         else:
             comment_form = CommentForm()
 

@@ -73,11 +73,11 @@
                 <br>
                 <p>{{ comment.body | safe }}</p>
                 <br>
-            </blockquote>
             
             {% for response in comment.responses %}
 
                 <blockquote>
+                    {{ response.parent_id }} ||
                     {{ response.comment_author }} : {{ response.created_date | timesince }} ago
                     <br>
                     {{ response.body | safe }}
@@ -86,20 +86,22 @@
             
             {% endfor %}
 
-                <form method="post">
+                <form method="post" action=".">
                     {{ comment_form }}
                     {% csrf_token %}
                     <br>
                     <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                    <button type="submit" class="btn btn-secondary" name="response" value="response">Post Response</button>
+                    <button type="submit" class="btn btn-secondary" name="Reply" value="Reply">Post Response</button>
                 </form>
 
             {% endif %}
             {% endfor %}
 
+            </blockquote>
+            
             <hr>
             <h4>Leave a comment:</h4>
-                <form method="post">
+                <form method="post" name="comment" value="comment">
                     {{ comment_form }}
                     {% csrf_token %}
                     <br>
