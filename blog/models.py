@@ -61,6 +61,12 @@ class Post(models.Model):
         return reverse('detail', args=(str(self.id)))
 
 
+class CommentManager(models.Manager):
+    def all(self): 
+        query_set = super(CommentManager, self).filter(parent=None)
+        return qs
+
+
 class Comment(models.Model):
     Post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comment"
@@ -68,7 +74,7 @@ class Comment(models.Model):
     comment_author = models.CharField(max_length=70)
     body = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
+    updated_date = models.DateTimeField(auto_now=True)
     response = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE)
 
     class Meta: 
@@ -82,7 +88,7 @@ class Comment(models.Model):
     
     @property
     def is_comment_to_reply(self):
-        if self.parent is not None:
+        if self.response is not None:
             return False
         return True
 

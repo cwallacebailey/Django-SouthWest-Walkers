@@ -18,4 +18,7 @@ class ProfileAdmin(SummernoteModelAdmin):
     list_display = ('display_name', 'profile_picture', 'user', 'pk')
 
 
-admin.site.register(Comment)
+@admin.register(Comment)
+class ProfileAdmin(SummernoteModelAdmin):
+
+    list_display = ('body', 'comment_author', 'response')

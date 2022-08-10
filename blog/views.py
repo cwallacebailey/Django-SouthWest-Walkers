@@ -34,9 +34,10 @@ class PostDetailView(generic.DetailView):
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
-            comment_form.instance.comment_author = self.request.user # old
+            comment_form.instance.comment_author = self.request.user
             comment_id = request.POST.get("") 
             parent_obj = None
+            parent_id = None
             try:
                 parent_id = int(request.POST.get("parent_id")) # https://www.youtube.com/watch?v=KrGQ2Nrz4Dc
             except:
@@ -47,7 +48,7 @@ class PostDetailView(generic.DetailView):
                 if parent_qs.exists():
                     parent_obj = parent_qs.first()
 
-            comment = comment_form.save(commit=False) # old
+            comment = comment_form.save(commit=False)
             comment.response = parent_obj
             comment.Post = obj
             comment.save()

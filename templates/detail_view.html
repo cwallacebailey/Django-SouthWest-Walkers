@@ -61,30 +61,49 @@
 
             <hr>
             <br>
+            
             <h2>Comments:</h2>
-                {% for comment in comments %}
-                {{ comment.comment_author }} : {{ comment.created_date }}
+
+            <br>
+
+            {% for comment in comments %}
+            {% if comment.response == None %}
+            <blockquote>
+                {{ comment.comment_author }} : {{ comment.created_date | timesince }} ago
                 <br>
-                {{ comment.body | safe }}
+                <p>{{ comment.body | safe }}</p>
                 <br>
-                <a href="{% url 'delete_comment' comment.id %}" class="btn btn-secondary">Delete</a>
+            </blockquote>
+            
+            {% for response in comment.responses %}
+
+                <blockquote>
+                    {{ response.comment_author }} : {{ response.created_date | timesince }} ago
+                    <br>
+                    {{ response.body | safe }}
+                    <br>
+                </blockquote>
+            
+            {% endfor %}
+
                 <form method="post">
                     {{ comment_form }}
                     {% csrf_token %}
                     <br>
                     <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                    <button type="submit" value="reply" class="btn btn-secondary">Reply</button>
+                    <button type="submit" class="btn btn-secondary" name="response" value="response">Post Response</button>
                 </form>
-                <hr>
-                {% endfor %}
 
-            <h4>Leave a comment</h4>
+            {% endif %}
+            {% endfor %}
+
+            <hr>
+            <h4>Leave a comment:</h4>
                 <form method="post">
                     {{ comment_form }}
                     {% csrf_token %}
                     <br>
-                    <input type="hidden" name="" value="{{ comment.id }}">
-                    <button type="submit" class="btn btn-secondary">Post Comment</button>
+                    <button type="submit" class="btn btn-secondary" name="comment" value="comment">Post Comment</button>
                 </form>
             <hr>
             <br>
