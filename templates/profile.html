@@ -72,24 +72,24 @@
                     {% for post in user_posts %}
 
                     {% if post.post_author.id == user.id %}
-                        <div class="col-md-4 text-center">
-                            <div class="card mb-4">
-                                <div class="card-body">
-                                    <div class="image-container">
-                                        {% if "placeholder" in post.header_image.url %}
-                                        <img class="card-img-top border"
-                                            src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
-                                        {% else %}
-                                        <img class="card-img-top border" src="{{ post.header_image.url }}">
-                                        {% endif %}
-                                    </div>
-                                        <div class="card-body">
-                                        <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
-                                        <br>
-                                        {{ post.post_author }} | {{ post.created_date |date:"d M-Y" }}
-                                        <br>
-                                        {{ post.post_blurb | slice:50 | safe}}
-                                        <br>
+                    <div class="col-md-3 text-center">
+                        <div class="card mb-3 couldbe">
+                            <div class="card-body">
+                                <div class="img-thumbnail">
+                                    {% if "placeholder" in post.header_image.url %}
+                                    <img class="card-img-top card-img-top-home"
+                                        src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
+                                    {% else %}
+                                    <img class="card-img-top card-img-top-home" src=" {{ post.header_image.url }}">
+                                    {% endif %}
+                                </div>
+                                    <div class="card-body">
+                                    <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
+                                    <br>
+                                    {{ post.post_author.profile.display_name }} | {{ post.created_date |date:"d M-Y" }}
+                                    <br>
+                                    {{ post.post_blurb | slice:50 | safe}}
+                                    <br>
                                     </div>
                                 </div>
                             </div>

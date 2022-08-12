@@ -10,10 +10,6 @@
     max-height: 2rem;
 }
 
-.tester {
-    background-color: black;
-}
-
 .profile-icon {
     background-position: center;
     background-repeat: no-repeat;
@@ -25,6 +21,10 @@
 
 .navbar {
     background-color: #36454F;
+}
+
+.nav-bar-spacer {
+    height: 60px;
 }
 
 .border-blue {
