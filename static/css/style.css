@@ -6,8 +6,12 @@
     display: inline-block;
     vertical-align: middle;
     border-radius: 50%;
-    width: 6rem;
-    height: 2rem;
+    max-width: 6rem;
+    max-height: 2rem;
+}
+
+.tester {
+    background-color: black;
 }
 
 .profile-icon {

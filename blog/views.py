@@ -124,18 +124,15 @@ class ProfileView(generic.DetailView):
     def get(self, request, pk, *args, **kwargs):
         queryset = Profile.objects
         obj = get_object_or_404(queryset, pk=request.user.profile.pk)
+        user_posts = Post.objects.filter(post_author=request.user)
         return render(
             request,
             "profile.html",
             {
                 "profile": obj,
+                "user_posts": user_posts
             }
         )
-
-    def access_user_posts():
-        user_profile = Post.objects
-        print("should be below AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-        print(Post.objects)
 
 class UpdateProfile(generic.UpdateView):
     model = Profile
