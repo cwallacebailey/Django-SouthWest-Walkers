@@ -24,15 +24,6 @@ class CommentForm(forms.ModelForm):
             'body': SummernoteWidget(),
         }
 
-class ResponseForm(forms.ModelForm): 
-    class Meta:
-        model = Comment
-        fields = ('body',)
-
-        widgets = {
-            'body': forms.TextInput(),
-        }
-
 class ProfileForm(forms.ModelForm): 
     class Meta: 
         model = Profile

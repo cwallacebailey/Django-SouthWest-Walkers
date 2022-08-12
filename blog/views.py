@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from .models import Post, Profile, Comment
-from .forms import PostForm, ProfileForm, CommentForm, ResponseForm
+from .forms import PostForm, ProfileForm, CommentForm
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from allauth.account.views import SignupView
@@ -10,7 +10,7 @@ from allauth.account.views import SignupView
 class Home(generic.ListView):
     model = Post
     template_name = 'index.html'
-    paginate_by = 12
+    paginate_by = 8
 
 class PostDetailView(generic.DetailView):
     def get(self, request, pk, *args, **kwargs):
@@ -23,8 +23,7 @@ class PostDetailView(generic.DetailView):
             {
                 "post": obj,
                 "comments": comments,
-                "comment_form": CommentForm(),
-                "response_form": ResponseForm()
+                "comment_form": CommentForm()
             }
         )
     
@@ -33,55 +32,39 @@ class PostDetailView(generic.DetailView):
         obj = get_object_or_404(queryset, pk=pk)
         comments = obj.comment.order_by("-created_date")
         comment_form = CommentForm(data=request.POST)
-        response_form = ResponseForm(data=request.POST)
 
-        if request.method == 'POST':
-            if 'commented-form' in request.POST:
-                if comment_form.is_valid():
-                    comment_form.instance.comment_author = self.request.user
-                    comment = comment_form.save(commit=False)
-                    comment.Post = obj
-                    comment.save()
-                    return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
-                else:
-                    comment_form = CommentForm()
-                    response_form = ResponseForm()
+        if comment_form.is_valid():
+            comment_form.instance.comment_author = self.request.user
+            comment_id = request.POST.get("") 
+            parent_obj = None
+            parent_id = None
+            try:
+                parent_id = int(request.POST.get("parent_id")) # https://www.youtube.com/watch?v=KrGQ2Nrz4Dc
+            except:
+                parent_id = None
 
-            elif 'reply-form' in request.POST:
-                if response_form.is_valid():
-                    response_form.instance.comment_author = self.request.user
-                    comment_id = request.POST.get("") 
-                    parent_obj = None
-                    parent_id = None
-                try:
-                    parent_id = int(request.POST.get("parent_id")) # https://www.youtube.com/watch?v=KrGQ2Nrz4Dc
-                except:
-                    parent_id = None
+            if parent_id:
+                parent_qs = Comment.objects.filter(id=parent_id)
+                if parent_qs.exists():
+                    parent_obj = parent_qs.first()
 
-                if parent_id:
-                    parent_qs = Comment.objects.filter(id=parent_id)
-                    if parent_qs.exists():
-                        parent_obj = parent_qs.first()
+            comment = comment_form.save(commit=False)
+            comment.response = parent_obj
+            comment.Post = obj
+            comment.save()
+            return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
+        else:
+            comment_form = CommentForm()
 
-                comment = comment_form.save(commit=False)
-                comment.response = parent_obj
-                comment.Post = obj
-                comment.save()
-                return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
-            else:
-                comment_form = CommentForm()
-                response_form = ResponseForm()
-
-            return render(
-                request,
-                "detail_view.html",
-                {
-                    "post": obj,
-                    "comments": comments,
-                    "comment_form": comment_form,
-                    "response_form": response_form
-                }
-            )
+        return render(
+            request,
+            "detail_view.html",
+            {
+                "post": obj,
+                "comments": comments,
+                "comment_form": comment_form,
+            }
+        )
 
 class StarPost(generic.View):
     def post(self, request, pk):
