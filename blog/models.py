@@ -52,7 +52,7 @@ class Post(models.Model):
         return self.starred.count()
 
     class Meta: 
-        ordering = ['-created_date', 'post_author'] # descending order then by author
+        ordering = ['-created_date', 'post_author']
     
     def __str__(self):
         return self.post_title + ' | ' + str(self.post_author)
@@ -61,11 +61,18 @@ class Post(models.Model):
         return reverse('detail', args=(str(self.id)))
 
 
-class CommentManager(models.Manager):
-    def all(self): 
-        query_set = super(CommentManager, self).filter(parent=None)
-        return qs
+class Profile(models.Model):
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name="profile"
+    )
+    display_name = models.CharField(max_length=150, unique=True,)
+    profile_picture = CloudinaryField('image', default='placeholder', null=True, blank=True)
+    instagram_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
+    strava_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
+    linkedin_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
 
+    # def __str__(self):
+    #     return str(self.user)
 
 class Comment(models.Model):
     Post = models.ForeignKey(
@@ -83,24 +90,4 @@ class Comment(models.Model):
     def __str__(self):
         return str(self.comment_author) + ' : ' + self.body
 
-    def responses(self):
-        return Comment.objects.filter(response=self)
-    
-    @property
-    def is_comment_to_reply(self):
-        if self.response is not None:
-            return False
-        return True
 
-class Profile(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name="profile"
-    )
-    display_name = models.CharField(max_length=150, unique=True,)
-    profile_picture = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    instagram_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
-    strava_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
-    linkedin_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
-
-    def __str__(self):
-        return str(self.user)

@@ -132,6 +132,11 @@ class ProfileView(generic.DetailView):
             }
         )
 
+    def access_user_posts():
+        user_profile = Post.objects
+        print("should be below AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+        print(Post.objects)
+
 class UpdateProfile(generic.UpdateView):
     model = Profile
     template_name = 'update_profile.html'

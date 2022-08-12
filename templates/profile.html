@@ -68,6 +68,7 @@
             <!-- Blog Items Arranged Below -->
             <div class="col-md-9">
                 <div class="row mt-3">
+
                     {% for post in user.post.object_list %}
 
                     {% if post.post_author.id == user.id %}
@@ -94,13 +95,11 @@
                             </div>
                         </div>
                     {% endif %}
-                    {% endfor %} 
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- font awesome script --> 
-<script src="https://kit.fontawesome.com/8d6f6ebaae.js" crossorigin="anonymous"></script>
 {% endblock %}
