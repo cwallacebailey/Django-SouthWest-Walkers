@@ -1,3 +1,5 @@
+// Create Slide Show for Detail View
+
 if (window.location.pathname.includes('/detail')) {
 
   let next = document.getElementById("next")

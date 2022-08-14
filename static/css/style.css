@@ -27,13 +27,8 @@
     height: 60px;
 }
 
-.border-blue {
-    border-left: solid;
-    border-right: solid;
-    border-bottom: solid;
-    border-color: #36454F;
-    margin-top: 0;
-    padding-top: 0;
+.message-box {
+    padding-top: 60px;
 }
 
 .couldbe {
@@ -128,6 +123,25 @@ label[for=id_third_cairn],
     margin-left: 25px;
 }
 
+.social-links li a i {
+    width: 32px;
+    height: 32px;
+    padding: 12px 0;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    background: #36454F;
+    transition: all 0.4s ease-in-out;
+    font-size: 13px;
+    line-height: 7px;
+}
+
+.social-links li a i:hover {
+    background: #12948d
+}
+
+/* footer */
+
 footer {
     padding: 0;
     margin: 0;
@@ -160,23 +174,6 @@ footer {
     color: #12948d;
 }
 
-.social-links li a i {
-    width: 32px;
-    height: 32px;
-    padding: 12px 0;
-    border-radius: 50%;
-    text-align: center;
-    color: white;
-    background: #36454F;
-    transition: all 0.4s ease-in-out;
-    font-size: 13px;
-    line-height: 7px;
-}
-
-.social-links li a i:hover {
-    background: #12948d
-}
-
 /* font awesome icons */
 
 .fa-star {
@@ -185,4 +182,9 @@ footer {
 
 .star-icon {
     background-color: #36454F;
+}
+
+.star-clicked {
+    background-color: #36454F;
+    color: gold;
 }
