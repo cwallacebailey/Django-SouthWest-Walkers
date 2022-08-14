@@ -18,8 +18,10 @@
                   <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
                 </li>
             </ul>
+          
           <ul>
-            <li>
+            {% if user.profile.pk %}
+              <li>
                 <a class="text-white text-center" href="{% url 'profile' user.id %}">
                     <div id="icon">
                       <!-- <img class="card-img-top profile-icon"
@@ -29,8 +31,17 @@
                       <p class="margin-none">Profile</p>
                     </div>
                 </a>
-            </li>
+              </li>
+            {% else %}
+              <li>
+                <a class="text-white text-center" href="{% url 'create_profile' %}">
+                      <br>
+                      <p class="margin-none">Create Profile</p>
+                </a>
+              </li>
+            {% endif %}
           </ul>
+
               {% else %}
                 <li>
                   <a class="nav-link text-white" href="{% url 'account_signup' %}">Sign Up</a>
