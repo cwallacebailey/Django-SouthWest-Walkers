@@ -40,6 +40,13 @@
     transition: all 0.4s ease-in-out;
 }
 
+/* label[for=id_second_cairn],
+#id_second_cairn,
+label[for=id_third_cairn],
+#id_third_cairn {
+    visibility: hidden;
+} */
+
 .couldbe:hover {
     background: #36454F;
     color: white;
@@ -81,6 +88,38 @@
 .social-links {
     padding: 15px;
     margin-left: 25px;
+}
+
+footer {
+    padding: 0;
+    margin: 0;
+    font-size: 80%;
+    background-color: #36454F;
+    color: white;
+}
+
+.footer-account {
+    color: white;
+    transition: all 0.4s ease-in-out;
+    text-decoration: none;
+}
+
+.footer-account:hover {
+    text-decoration: underline;
+    color: #12948d;
+}
+
+.footer-social-link {
+    color: white;
+}
+
+.footer-social-link { 
+    transition: all 0.4s ease-in-out;
+    text-decoration: none;
+}
+
+.footer-social-link:hover {
+    color: #12948d;
 }
 
 .social-links li a i {

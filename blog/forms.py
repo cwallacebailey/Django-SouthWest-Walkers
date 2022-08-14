@@ -4,7 +4,7 @@ from django_summernote.widgets import *
 
 
 class PostForm(forms.ModelForm): 
-    class Meta: # meta class is a class who's instances are classes
+    class Meta: 
         model = Post
         fields = ('post_title', 'post_blurb', 'header_image', 'image_2', 'image_3', 'distance', 'meters_climbed', 'first_cairn', 'second_cairn', 'third_cairn',  'body',)
 
@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
             'first_cairn': forms.Select(attrs={'class': 'form-control'}),
             'second_cairn': forms.Select(attrs={'class': 'form-control'}),
             'third_cairn': forms.Select(attrs={'class': 'form-control'}),
-            'body': SummernoteWidget(),
+            'body': SummernoteWidget({ 'class': '.summernote'}),
         }
 
 class CommentForm(forms.ModelForm): 

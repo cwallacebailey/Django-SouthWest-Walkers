@@ -1,0 +1,46 @@
+<!-- Footer bar -->
+
+<footer class="container-fluid footer">
+    <div class="row">
+        <div class="col-sm-4 mt-4">
+            <h4>South West Walkers</h4>
+        </div>
+        <div class="col-sm-4 mt-2">
+            <div class="text-center">
+                <p>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer-social-link">Instagram - <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </p>
+            </div>
+            <div class="text-center">
+                <p>
+                    <a href="https://www.Facebook.com/" target="_blank" class="footer-social-link">Facebook - <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </p>
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="col-sm-4 mt-4">
+            <div class="text-center">
+                <p>
+                    <a href="{% url 'account_login' %}" class="footer-account">Logout</a>
+                </p>
+            </div>
+        </div>     
+
+        {% else %}
+
+        <div class="col-sm-4 mt-2">
+            <div class="text-center">
+                <p>
+                    <a href="{% url 'account_signup' %}" class="footer-account">Sign Up</a>
+                </p>
+            </div>
+            <div class="text-center">
+                <p>
+                    <a href="{% url 'account_login' %}" class="footer-account">Login</a>
+                </p>
+            </div>
+        </div>         
+        {% endif %}
+    </div>
+</footer>

@@ -14,9 +14,7 @@ Tell Us About Your Journey
 
     <div class="row">
         <div class="col-md-4">
-            <p>something in here</p>
         </div>
-
             <div class="col-md-4">
                 <div class="form-group">
                     <form method="POST" enctype="multipart/form-data">
@@ -26,10 +24,9 @@ Tell Us About Your Journey
                     </form>
                 </div>
             </div>
-        </div>
 
         <div class="col-md-4">
-            <p>something in here</p>
+
         </div>
     </div>
 {% else %}
@@ -38,5 +35,6 @@ Tell Us About Your Journey
     <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
 </section>
 {% endif %}
-
+    <br>
+    <br>
 {% endblock %}
