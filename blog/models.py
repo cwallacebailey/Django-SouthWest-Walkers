@@ -32,7 +32,7 @@ class Post(models.Model):
     post_author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
-    post_blurb = models.CharField(max_length=100)
+    post_blurb = models.CharField(max_length=100, null=True)
     distance = models.FloatField()
     meters_climbed = models.FloatField(default=0, null=True)
     body = models.TextField()

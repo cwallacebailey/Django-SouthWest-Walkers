@@ -3,7 +3,8 @@
 <footer class="container-fluid footer">
     <div class="row">
         <div class="col-sm-4 mt-4">
-            <h4>South West Walkers</h4>
+            <h4>South West</h4>
+            <h4>Walkers</h4>
         </div>
         <div class="col-sm-4 mt-2">
             <div class="text-center">
@@ -16,20 +17,25 @@
                     <a href="https://www.Facebook.com/" target="_blank" class="footer-social-link">Facebook - <i class="fa fa-facebook" aria-hidden="true"></i></a>
                 </p>
             </div>
+            <div class="text-center">
+                <p>
+                    <a href="https://www.Facebook.com/" target="_blank" class="footer-social-link">Youtube - <i class="fa fa-youtube" aria-hidden="true"></i></a>
+                </p>
+            </div>
         </div>
 
         {% if user.is_authenticated %}
-        <div class="col-sm-4 mt-4">
+        <div class="col-sm-4 mt-5">
             <div class="text-center">
                 <p>
-                    <a href="{% url 'account_login' %}" class="footer-account">Logout</a>
+                    <a href="{% url 'account_logout' %}" class="footer-account">Logout</a>
                 </p>
             </div>
         </div>     
 
         {% else %}
 
-        <div class="col-sm-4 mt-2">
+        <div class="col-sm-4 mt-4">
             <div class="text-center">
                 <p>
                     <a href="{% url 'account_signup' %}" class="footer-account">Sign Up</a>
@@ -44,3 +50,5 @@
         {% endif %}
     </div>
 </footer>
+<script type ="module" src="../static/js/script.js"></script>
+<script src="https://kit.fontawesome.com/8d6f6ebaae.js" crossorigin="anonymous"></script>

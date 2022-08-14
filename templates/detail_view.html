@@ -8,37 +8,90 @@
 
 
 <div class="container text-center border-blue">
-    <h1>
-        {{ post.post_title }} 
-        <br>
-        by: {{ post.post_author.profile.display_name }}
-    </h1>
-    <div class="card-body">
-        <div class="img-thumbnail">
-            <div>
-                {% if "placeholder" in post.header_image.url %}
-                    <img class="card-img-top"
-                        src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
-                {% else %}
-                    <img class="card-img-top" src=" {{ post.header_image.url }}">
-                {% endif %}
+    <br>
+    <div class="row">
+        <h1>
+            {{ post.post_title }} 
+        </h1>
+        <p>
+            by: {{ post.post_author.profile.display_name }}
+        <p>
+    </div>
+    <div class="">
+        <div class="">
+            <div class="">
+                <div class="image-container-div">
+                    {% if "placeholder" in post.header_image.url %}
+                        <img class="card-img-top"
+                            src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
+                    
+                    {% else %}
+
+                        <!-- Header Image -->
+                        {% if post.header_image.url %}
+                            <img class="card-img-top journeyImages fade-animation" src=" {{ post.header_image.url }}">
+                        {% endif %}
+
+                        <!-- Image 2 -->
+                        {% if "placeholder" not in post.image_2.url %}
+                            <img class="card-img-top journeyImages fade-animation" src=" {{ post.image_2.url }}">                
+                        {% endif %}
+
+                        <!-- Image 3 -->
+                        {% if "placeholder" not in post.image_3.url %}
+                            <img class="card-img-top journeyImages fade-animation" src=" {{ post.image_3.url }}">                
+                        {% endif %}
+                    
+                    {% endif %}
+                    <br>
+                </div>
+                <a id="previous">&#10094;</a>
+                <a id="next">&#10095;</a>
             </div>
             <div>
                 <br>
-                By {{ post.post_author }} | {{ post.created_date }}
+                    {{ post.created_date }} | {{ post.created_date | timesince }} ago
                 <hr>
-                <!-- the safe tag marks the item as safe so the body can be edited into paragraphs -->
-                {{ post.body | safe }} 
+            </div>
+            <div>  
+                <h3>Journey Stats</h3>
+                <br>
+                {% if post.first_cairn or post.second_cairn or post.third_cairn %}
+                    {% if post.first_cairn %}
+                        {{ post.first_cairn }} <i class="fa-solid fa-mountain"></i>
+
+                    {% endif %}
+                    {% if post.second_cairn %}
+                        | {{ post.second_cairn }}
+
+                    {% endif %}
+                    {% if post.third_cairn %} 
+                        | {{ post.third_cairn }}
+
+                    {% endif %}
+                {% else %}
+                    <p>No Cairns Reached - Still Proud.</p>
+                {% endif %}
+                <br>
+                {% if post.distance > 0 %}
+                {{ post.distance }}Km Covered 
+                {% endif %}
+                
+                {% if post.meters_climbed > 0 %}
+                | {{ post.distance }} Total Ascent
+                {% endif %}
+                <hr>
             </div>
             <br>
+
+            <div>
+                {{ post.body | safe }} 
+            </div>
 
             {% if post.post_author.id == user.id %}
 
             <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary">Update</a> 
             <a href="{% url 'delete_post' post.pk %}" class="btn btn-secondary">Delete</a>
-            <br>
-            <br>
-            <a href="{% url 'home' %} " class="btn btn-secondary">Home</a>
 
             {% else %}
 
@@ -116,4 +169,5 @@
         </div>
     </div>          
 </div>
+
 {% endblock %}
