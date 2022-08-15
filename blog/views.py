@@ -5,12 +5,30 @@ from .forms import PostForm, ProfileForm, CommentForm
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from allauth.account.views import SignupView
+from django.core.paginator import Paginator
 
 
 class Home(generic.ListView):
-    model = Post
-    template_name = 'index.html'
-    paginate_by = 8
+    """
+    Builds the home page
+    retrieves 8 posts per page
+    allows pagination with navbar
+    """
+    def get(self, request):
+
+        # retrieve object list from Post
+        object_list = Post.objects.all()
+
+        # allow pagination 
+
+        pagination = Paginator(Post.objects.all(), 8)
+        site_page = request.GET.get('site_page')
+        current_page = pagination.get_page(site_page)
+        return render (request,
+        'index.html', {
+            'current_page': current_page,
+            'object_list': object_list,
+        })
 
 class PostDetailView(generic.DetailView):
     def get(self, request, pk, *args, **kwargs):

@@ -35,13 +35,6 @@
     transition: all 0.4s ease-in-out;
 }
 
-/* label[for=id_second_cairn],
-#id_second_cairn,
-label[for=id_third_cairn],
-#id_third_cairn {
-    visibility: hidden;
-} */
-
 .couldbe:hover {
     background: #36454F;
     color: white;
@@ -57,6 +50,12 @@ label[for=id_third_cairn],
 .card-img-top-home {
     height: 12rem;
     object-fit: cover;
+}
+
+/* Pagination bar */
+
+#pagination {
+    height: 150px;
 }
 
 /* Detailed View */
@@ -197,4 +196,16 @@ footer {
     height: 100px;
     border-style: solid;
     border: #12948d;
+}
+
+
+@media only screen and (max-width: 600px) {
+footer {
+    position: relative;
+}
+
+footer h4 {
+    text-align: center;
+}
+
 }
