@@ -55,7 +55,7 @@
 /* Pagination bar */
 
 #pagination {
-    height: 150px;
+    height: 50px;
 }
 
 /* Detailed View */
@@ -139,7 +139,29 @@
     background: #12948d
 }
 
+.profile-mountain-list {
+    padding: 0;
+}
+
+.profile-mountain-list li {
+    list-style: none;
+}
+
+.mountain-list-div {
+    border-style: solid;
+    border-color: #386a8b;
+    background-color: #386a8b;
+    width: 50%;
+    margin-top: 2px;
+    color: white;
+    border-radius: 10px;
+}
+
 /* footer */
+
+#footer-spacer {
+    height: 100px;
+}
 
 footer {
     position: fixed;
@@ -187,6 +209,10 @@ footer {
 
 .star-clicked {
     background-color: #36454F;
+    color: gold;
+}
+
+.gold-mountain {
     color: gold;
 }
 

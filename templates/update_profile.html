@@ -3,26 +3,31 @@
     {{ profile.display_name }}
 {% endblock %}
 
-
 {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mt-2 offset-md-4">
+      <div class="spacer">
+      </div>
+      {% if user.is_authenticated %}
 
-{% if user.is_authenticated %}
+        <h2>Update Your Profile</h2>
+        <div class="form-group">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Update</button>
+            </form>
+        </div>
 
-    <h1>Update Your Profile</h1>
-    <div class="form-group">
-        <form method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-secondary">Update</button>
-        </form>
+        {% else %}
+
+        <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
+        <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+
+        {% endif %}
     </div>
-
-{% else %}
-
-    <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
-    <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
-
-{% endif %}
+  </div>
+</div>
 
 {% endblock %}
-
