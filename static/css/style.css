@@ -118,7 +118,6 @@
 }
 
 .social-links {
-    padding: 15px;
     margin-left: 25px;
 }
 
@@ -281,7 +280,6 @@ footer {
     color: #CD7F32;
 }
 
-
 /* AllAuth General Items */
 
 .spacer {
@@ -290,11 +288,13 @@ footer {
     border: #12948d;
 }
 
+@media only screen and (max-width: 1028px) {
+    footer {
+        position: relative;
+    }
+}
 
 @media only screen and (max-width: 600px) {
-footer {
-    position: relative;
-}
 
 footer h4 {
     text-align: center;

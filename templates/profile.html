@@ -20,7 +20,8 @@
                 <div class="row no-gutters">
                     <div class="col heading my-auto">
                         <h1 class="name">{{ profile.display_name }}</h1>
-                        <h3>Total Distance Hiked - {{ distance|intcomma }}Km | Peaks Conquered - {{ peaks_reached }}</h3>
+                        <h3>Total Distance Hiked - {{ distance|intcomma }}Km</h3>
+                        <h3>Peaks Conquered - {{ peaks_reached }}</h3>
                         <h4>
                             <a href="{% url 'update_profile' profile.pk %}" class="achievement-list-item">Update Profile</a>
                         </h4>
@@ -181,8 +182,8 @@
                 {% for post in current_page %}
 
                 {% if post.post_author.id == user.id %}
-                <div class="col-md-3 text-center">
-                    <div class="card mb-3 couldbe">
+                <div class="col-md-4 text-center">
+                    <div class="card mb-4 couldbe">
                         <div class="card-body">
                             <div class="img-thumbnail">
                                 {% if "placeholder" in post.header_image.url %}

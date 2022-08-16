@@ -152,14 +152,14 @@ class ProfileView(generic.DetailView):
         user_posts = Post.objects.filter(post_author=request.user)
 
         # builds pagination
-        pagination = Paginator(user_posts, 8)
+        pagination = Paginator(user_posts, 6)
         site_page = request.GET.get('site_page')
         current_page = pagination.get_page(site_page)
 
         # array for awards and achievements
         mountain_array = ['Pen y Fan', 'Corn Du', 'Fan y Big', 'Fan Brycheiniog', 'Pen Cerrig Calch', 'Picws Du', 'Fan Frynych', 'Cribyn', 'Mynydd Llangorse', 'Skirrid Fawr', 'Waun Fach', 'Twmpa', 'Mynydd Troed', 'The Blorenge', 'ay Bluff', 'Pen Y Gadair Fawr', 'Sugar Loaf', 'Fan Fawr', 'Crug Hywel', 'Tor Y Foel']
         
-        # def build_user_array():
+        # calculate number of peaks reached and which peaks have been climbed
         mountains_walked = []
 
         for posts in user_posts:
