@@ -178,6 +178,17 @@
     border-radius: 10px;
 }
 
+.achievement-list-item {
+    border-style: solid;
+    border-color: #36454F;
+    background-color: #36454F;
+    width: 70%;
+    margin-top: 2px;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
 /* footer */
 
 #footer-spacer{
@@ -233,6 +244,43 @@ footer {
 .gold-mountain {
     color: gold;
 }
+
+.silver-mountain {
+    color: silver;
+}
+
+.bronze-mountain {
+    color: #CD7F32;
+}
+
+.first-medal {
+    color: gold;
+}
+
+.second-medal {
+    color: silver;
+}
+
+.third-medal {
+    color: #CD7F32;
+}
+
+.black-hike {
+    color: black;
+}
+
+.gold-hike {
+    color: gold;
+}
+
+.silver-hike {
+    color: silver;
+}
+
+.bronze-hike {
+    color: #CD7F32;
+}
+
 
 /* AllAuth General Items */
 

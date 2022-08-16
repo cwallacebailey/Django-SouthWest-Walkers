@@ -22,13 +22,13 @@
                         <h1 class="name">{{ profile.display_name }}</h1>
                         <h3>Stat about Distance | Stat about Cairns reached</h3>
                         <h4>
-                            <a href="{% url 'update_profile' profile.pk %}">Update Profile</a>
+                            <a href="{% url 'update_profile' profile.pk %}" class="achievement-list-item">Update Profile</a>
                         </h4>
                     </div>
                 </div>
     
     <!-- Social Media Links -->
-                <h5>See my Social Accounts</h5>
+                <h5>Social Accounts</h5>
                 <div class="row no-gutters badge-height">
                     <ul class="list-inline social-links">
                     {% if profile.instagram_url != None %}
@@ -74,7 +74,11 @@
                 <div id="progress">
                     <h3 class="m-2">Progress</h3>
                     <div class="m-2">
+                        {% if peaks_reached == 0 %}
+                        <p>No peaks reached yet</p>
+                        {% else %}
                         <p>You've conquered:</p>
+                        {% endif %}
                     </div>
                     <!-- Mountains reached -->
                     <ul class="profile-mountain-list m-2">
@@ -105,24 +109,64 @@
                     </div>
                     <div>
                         <ul class="profile-mountain-list">
+
                         {% if 'Pen y Fan' in mountains_walked %}
-                        <li>
-                            <i class="fas fa-mountain"></i> - Highest Mountain Reached
+                        <li class="achievement-list-item">
+                            <i class="fas fa-mountain gold-mountain"></i> - Highest Mountain Reached
                         </li>
                         {% endif %}
+
+                        {% if 'Fan Brycheiniog' in mountains_walked %}
+                        <li class="achievement-list-item">
+                            <i class="fas fa-mountain silver-mountain"></i> - Second Highest Mountain Reached
+                        </li>
+                        {% endif %}
+
+                        {% if 'Cribyn' in mountains_walked %}
+                        <li class="achievement-list-item">
+                            <i class="fas fa-mountain bronze-mountain"></i> - Third Highest Mountain Reached
+                        </li>
+                        {% endif %}
+
                         {% if peaks_reached >= 20 %}
-                        <li>
-                            <i class="fas fa-medal"></i> - Completed all 20 Peaks
+                        <li class="achievement-list-item">
+                            <i class="fas fa-medal first-medal"></i> - Completed all 20 Peaks
                         </li>
                         {% endif %}
+
                         {% if peaks_reached >= 10 %}
-                        <li>
-                            <i class="fas fa-medal"></i> - Completed 10 of 20 Peaks
+                        <li class="achievement-list-item">
+                            <i class="fas fa-medal second-medal"></i> - Completed 10 of 20 Peaks
                         </li>
                         {% endif %}
+
                         {% if peaks_reached >= 5 %}
-                        <li>
-                            <i class="fas fa-medal"></i> - Completed 5 of 20 Peaks
+                        <li class="achievement-list-item">
+                            <i class="fas fa-medal third-medal"></i> - Completed 5 of 20 Peaks
+                        </li>
+                        {% endif %}
+
+                        {% if distance >= 250 %}
+                        <li class="achievement-list-item">
+                            <i class="fas fa-hiking black-hike"></i> - Completed 250km walk of walking
+                        </li>
+                        {% endif %}
+
+                        {% if distance >= 100 %}
+                        <li class="achievement-list-item">
+                            <i class="fas fa-hiking gold-hike"></i> - Completed 100km walk of walking
+                        </li>
+                        {% endif %}
+
+                        {% if distance >= 50 %}
+                        <li class="achievement-list-item">
+                            <i class="fas fa-hiking silver-hike"></i> - Completed 50km walk of walking
+                        </li>
+                        {% endif %}
+
+                        {% if distance >= 10 %}
+                        <li class="achievement-list-item">
+                            <i class="fas fa-hiking bronze-hike"></i> - Completed 10km walk of walking
                         </li>
                         {% endif %}
                         </ul>

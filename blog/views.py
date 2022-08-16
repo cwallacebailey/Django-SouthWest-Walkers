@@ -191,14 +191,20 @@ class ProfileView(generic.DetailView):
 
         peaks_reached = len(mountains_walked)
 
+
+        # get total distance walked
+        distance = 0
+        for posts in user_posts:
+            distance += posts.distance
+
         return render(
             request,
             "profile.html",
             {            
                 "profile": obj,
                 "current_page": current_page,
+                "distance": distance,
                 "mountain_array": mountain_array,
-                "user_posts": user_posts,
                 "mountains_walked": mountains_walked,
                 "peaks_reached": peaks_reached
             }
