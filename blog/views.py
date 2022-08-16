@@ -139,16 +139,33 @@ class CreateProfile(generic.CreateView):
         return super().form_valid(form)
 
 class ProfileView(generic.DetailView):
+    """
+    builds the user profile
+    paginates journeys by 8
+    adds an array to allow
+    awards to be shown
+    """
     def get(self, request, pk, *args, **kwargs):
+        # retrieves users posts
         queryset = Profile.objects
         obj = get_object_or_404(queryset, pk=request.user.profile.pk)
         user_posts = Post.objects.filter(post_author=request.user)
+
+        # builds pagination
+        pagination = Paginator(user_posts, 8)
+        site_page = request.GET.get('site_page')
+        current_page = pagination.get_page(site_page)
+
+        # array for awards and achievements
+        mountain_array = ['Pen y Fan', 'Corn Du', 'Fan y Big', 'Fan Brycheiniog', 'Pen Cerrig Calch', 'Picws Du', 'Fan Frynych', 'Cribyn', 'Mynydd Llangorse', 'Skirrid Fawr', 'Waun Fach', 'Twmpa', 'Mynydd Troed', 'The Blorenge', 'ay Bluff', 'Pen Y Gadair Fawr', 'Sugar Loaf', 'Fan Fawr', 'Crug Hywel', 'Tor Y Foel']
+        
         return render(
             request,
             "profile.html",
-            {
+            {            
                 "profile": obj,
-                "user_posts": user_posts
+                "mountain_array": mountain_array,
+                'current_page': current_page,
             }
         )
 
