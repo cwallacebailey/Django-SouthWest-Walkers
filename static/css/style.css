@@ -139,6 +139,27 @@
     background: #12948d
 }
 
+.tablinks {
+    width: 40%;
+    border-style: solid;
+    border-color: white;
+    display: inline-block;
+    background-color: #36454F;
+    color: white;
+}
+
+.tabs button:hover {
+    background-color: #12948d;
+  }
+
+.tabs button.active {
+    background-color: #12948d;
+  }
+  
+.tabcontent {
+    display: none;
+}
+
 .profile-mountain-list {
     padding: 0;
 }
@@ -151,7 +172,7 @@
     border-style: solid;
     border-color: #386a8b;
     background-color: #386a8b;
-    width: 50%;
+    width: 70%;
     margin-top: 2px;
     color: white;
     border-radius: 10px;
@@ -159,10 +180,15 @@
 
 /* footer */
 
+#footer-spacer{
+    height: 140px
+}
+
 footer {
+    margin: auto 0;
+    position: fixed;
     bottom: 0;
     padding: 0;
-    margin: 0;
     font-size: 80%;
     background-color: #36454F;
     color: white;
@@ -179,11 +205,8 @@ footer {
     color: #12948d;
 }
 
-.footer-social-link {
-    color: white;
-}
-
 .footer-social-link { 
+    color: white;
     transition: all 0.4s ease-in-out;
     text-decoration: none;
 }

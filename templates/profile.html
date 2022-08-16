@@ -16,7 +16,7 @@
 
     <!-- Profile Stats Section  -->
 
-        <div class="col-md-5 border-bottom">
+        <div class="col-md-9 border-bottom">
                 <div class="row no-gutters">
                     <div class="col heading my-auto">
                         <h1 class="name">{{ profile.display_name }}</h1>
@@ -55,94 +55,111 @@
                     </ul>
                 </div>
         </div>
-        <div class="col-md-4 border-left">
-            <br>
-            <ul class="profile-mountain-list">
-            {% if 'Pen y Fan' in mountains_walked %}
-            <li>
-                <i class="fas fa-mountain"></i> - Highest Mountain Reached
-            </li>
-            {% endif %}
-            {% if peaks_reached >= 20 %}
-            <li>
-                <i class="fas fa-medal"></i> - Completed all 20 Peaks
-            </li>
-            {% endif %}
-            {% if peaks_reached >= 10 %}
-            <li>
-                <i class="fas fa-medal"></i> - Completed 10 of 20 Peaks
-            </li>
-            {% endif %}
-            {% if peaks_reached >= 5 %}
-            <li>
-                <i class="fas fa-medal"></i> - Completed 5 of 20 Peaks
-            </li>
-            {% endif %}
-            </ul>
-        </div>
     </div>
 </section>
 
 <section>
-    <!-- Mountains reached and still left to go lists -->
+    <!-- Achievements / Progress -->
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-md-3 border-end">
-                <h3 class="m-2">Progress</h3>
-                <div class="m-2">
-                    <p>You've conquered:</p>
+
+                <!-- Buttons for tabs -->
+                <div class="tabs mt-1 text-center">
+                    <button class="tablinks margin-none" id="progress-button">Progress</button>
+                    <button class="tablinks margin-none" id="achievements-button">Achievements</button>
                 </div>
-                <!-- Mountains reached -->
-                <ul class="profile-mountain-list m-2">
-                    {% for mountains in mountains_walked %}
-                    <div class="mountain-list-div">
-                        <li><i class="fas fa-mountain gold-mountain"></i> {{ mountains }}</li>
+
+                <!-- Progress Section -->
+                <div id="progress">
+                    <h3 class="m-2">Progress</h3>
+                    <div class="m-2">
+                        <p>You've conquered:</p>
                     </div>
-                    {% endfor %}
-                </ul>
-                <!-- Mountains left to go -->
-                <div class="m-2">
-                    <p>Still left to conquer:</p>
+                    <!-- Mountains reached -->
+                    <ul class="profile-mountain-list m-2">
+                        {% for mountains in mountains_walked %}
+                        <div class="mountain-list-div">
+                            <li><i class="fas fa-mountain gold-mountain"></i> {{ mountains }}</li>
+                        </div>
+                        {% endfor %}
+                    </ul>
+                    <!-- Mountains left to go -->
+                    <div class="m-2">
+                        <p>Still left to conquer:</p>
+                    </div>
+                    <ul class="profile-mountain-list m-2">
+                        {% for mountains in mountain_array %}
+                        <div class="mountain-list-div">
+                            <li><i class="fas fa-hiking"></i> {{ mountains }}</li>
+                        </div>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <ul class="profile-mountain-list m-2">
-                    {% for mountains in mountain_array %}
-                    <div class="mountain-list-div">
-                        <li><i class="fas fa-hiking"></i> {{ mountains }}</li>
+
+                <!-- Achievements -->
+                <div id="achievements" class="tabcontent">
+                    <h3 class="m-2">Achievements</h3>
+                    <div class="m-2">
+                        <p>You're achievements:</p>
                     </div>
-                    {% endfor %}
-                </ul>
+                    <div>
+                        <ul class="profile-mountain-list">
+                        {% if 'Pen y Fan' in mountains_walked %}
+                        <li>
+                            <i class="fas fa-mountain"></i> - Highest Mountain Reached
+                        </li>
+                        {% endif %}
+                        {% if peaks_reached >= 20 %}
+                        <li>
+                            <i class="fas fa-medal"></i> - Completed all 20 Peaks
+                        </li>
+                        {% endif %}
+                        {% if peaks_reached >= 10 %}
+                        <li>
+                            <i class="fas fa-medal"></i> - Completed 10 of 20 Peaks
+                        </li>
+                        {% endif %}
+                        {% if peaks_reached >= 5 %}
+                        <li>
+                            <i class="fas fa-medal"></i> - Completed 5 of 20 Peaks
+                        </li>
+                        {% endif %}
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- Blog Items Arranged Below -->
             <div class="col-md-9">
                 <div class="row mt-3">
 
-                    {% for post in current_page %}
+                {% for post in current_page %}
 
-                    {% if post.post_author.id == user.id %}
-                    <div class="col-md-3 text-center">
-                        <div class="card mb-3 couldbe">
-                            <div class="card-body">
-                                <div class="img-thumbnail">
-                                    {% if "placeholder" in post.header_image.url %}
-                                    <img class="card-img-top card-img-top-home"
-                                        src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
-                                    {% else %}
-                                    <img class="card-img-top card-img-top-home" src=" {{ post.header_image.url }}">
-                                    {% endif %}
-                                </div>
-                                    <div class="card-body">
-                                    <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
-                                    <br>
-                                    {{ post.post_author.profile.display_name }} | {{ post.created_date |date:"d M-Y" }}
-                                    <br>
-                                    </div>
+                {% if post.post_author.id == user.id %}
+                <div class="col-md-3 text-center">
+                    <div class="card mb-3 couldbe">
+                        <div class="card-body">
+                            <div class="img-thumbnail">
+                                {% if "placeholder" in post.header_image.url %}
+                                <img class="card-img-top card-img-top-home"
+                                    src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
+                                {% else %}
+                                <img class="card-img-top card-img-top-home" src=" {{ post.header_image.url }}">
+                                {% endif %}
+                            </div>
+                                <div class="card-body">
+                                <a href="{% url 'detail' post.pk %}">{{ post.post_title }}</a> 
+                                <br>
+                                {{ post.post_author.profile.display_name }} | {{ post.created_date |date:"d M-Y" }}
+                                <br>
                                 </div>
                             </div>
                         </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
                 <div class="row">
                     <div id="pagination" class="text-center">
             

@@ -31,3 +31,27 @@ if (window.location.pathname.includes('/detail')) {
     images[imageIndex-1].style.display = "block";
   }
 }
+
+// Create tabs for profile progress and achievements
+
+if (window.location.pathname.includes('/profile')) {
+  let progress_button = document.getElementById("progress-button")
+  let achievements_button = document.getElementById("achievements-button")
+
+  let progress = document.getElementById('progress')
+  let achievements = document.getElementById('achievements')
+
+  progress_button.addEventListener('click', showProgress);
+  achievements_button.addEventListener('click', showAchievements);
+
+
+  function showProgress() {
+    progress.style.display = "block";
+    achievements.style.display = "none";
+  }
+
+  function showAchievements() {
+    progress.style.display = "none";
+    achievements.style.display = "block";
+  }
+}
