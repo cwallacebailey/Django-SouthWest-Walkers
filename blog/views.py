@@ -189,6 +189,8 @@ class ProfileView(generic.DetailView):
                 mountains_walked.append(posts.third_cairn)
                 mountain_array.remove(posts.third_cairn)
 
+        peaks_reached = len(mountains_walked)
+
         return render(
             request,
             "profile.html",
@@ -197,7 +199,8 @@ class ProfileView(generic.DetailView):
                 "current_page": current_page,
                 "mountain_array": mountain_array,
                 "user_posts": user_posts,
-                "mountains_walked": mountains_walked
+                "mountains_walked": mountains_walked,
+                "peaks_reached": peaks_reached
             }
         )
 

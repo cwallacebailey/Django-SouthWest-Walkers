@@ -16,50 +16,75 @@
 
     <!-- Profile Stats Section  -->
 
-        <div class="col-md-9 border-bottom">
-            <div class="row no-gutters">
-                <div class="col heading my-auto">
-                    <h1 class="name">{{ profile.display_name }}</h1>
-                    <h2 class="title">Here we go</h2>
-                    <h3>Stat about Distance | Stat about Cairns reached</h3>
-                    <h4>
-                        <a href="{% url 'update_profile' profile.pk %}">Update Profile</a>
-                    </h4>
+        <div class="col-md-5 border-bottom">
+                <div class="row no-gutters">
+                    <div class="col heading my-auto">
+                        <h1 class="name">{{ profile.display_name }}</h1>
+                        <h3>Stat about Distance | Stat about Cairns reached</h3>
+                        <h4>
+                            <a href="{% url 'update_profile' profile.pk %}">Update Profile</a>
+                        </h4>
+                    </div>
                 </div>
-            </div>
     
     <!-- Social Media Links -->
-            <h5>See my Social Accounts</h5>
-            <div class="row no-gutters badge-height">
-                <ul class="list-inline social-links">
-                {% if profile.instagram_url != None %}
-                    <li class="list-inline-item">
-                        <a target="_blank" href="{{ profile.instagram_url }}">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                {% endif %}
-                {% if profile.linkedin_url != None %}
-                    <li class="list-inline-item">
-                        <a target="_blank" href="{{ profile.linkedin_url }}">
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                {% endif %}
-                {% if profile.strava_url != None %}
-                    <li class="list-inline-item">
-                        <a target="_blank" href="{{ profile.strava_url }}">
-                        <i class="fab fa-strava" aria-hidden="True"></i>
-                        </a>
-                    </li>
-                {% endif %}
-                </ul>
-            </div>
+                <h5>See my Social Accounts</h5>
+                <div class="row no-gutters badge-height">
+                    <ul class="list-inline social-links">
+                    {% if profile.instagram_url != None %}
+                        <li class="list-inline-item">
+                            <a target="_blank" href="{{ profile.instagram_url }}">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if profile.linkedin_url != None %}
+                        <li class="list-inline-item">
+                            <a target="_blank" href="{{ profile.linkedin_url }}">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if profile.strava_url != None %}
+                        <li class="list-inline-item">
+                            <a target="_blank" href="{{ profile.strava_url }}">
+                            <i class="fab fa-strava" aria-hidden="True"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                    </ul>
+                </div>
+        </div>
+        <div class="col-md-4 border-left">
+            <br>
+            <ul class="profile-mountain-list">
+            {% if 'Pen y Fan' in mountains_walked %}
+            <li>
+                <i class="fas fa-mountain"></i> - Highest Mountain Reached
+            </li>
+            {% endif %}
+            {% if peaks_reached >= 20 %}
+            <li>
+                <i class="fas fa-medal"></i> - Completed all 20 Peaks
+            </li>
+            {% endif %}
+            {% if peaks_reached >= 10 %}
+            <li>
+                <i class="fas fa-medal"></i> - Completed 10 of 20 Peaks
+            </li>
+            {% endif %}
+            {% if peaks_reached >= 5 %}
+            <li>
+                <i class="fas fa-medal"></i> - Completed 5 of 20 Peaks
+            </li>
+            {% endif %}
+            </ul>
         </div>
     </div>
 </section>
 
 <section>
+    <!-- Mountains reached and still left to go lists -->
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-md-3 border-end">
@@ -67,7 +92,7 @@
                 <div class="m-2">
                     <p>You've conquered:</p>
                 </div>
-                
+                <!-- Mountains reached -->
                 <ul class="profile-mountain-list m-2">
                     {% for mountains in mountains_walked %}
                     <div class="mountain-list-div">
@@ -75,7 +100,7 @@
                     </div>
                     {% endfor %}
                 </ul>
-
+                <!-- Mountains left to go -->
                 <div class="m-2">
                     <p>Still left to conquer:</p>
                 </div>
@@ -87,7 +112,6 @@
                     {% endfor %}
                 </ul>
             </div>
-
 
             <!-- Blog Items Arranged Below -->
             <div class="col-md-9">
@@ -119,24 +143,24 @@
                     {% endif %}
                     {% endfor %}
                 </div>
+                <div class="row">
+                    <div id="pagination" class="text-center">
+            
+                        {% if current_page.has_previous %}
+                            <a href="?site_page=1"><i class="fas fa-angle-double-left"></i></a>
+                            <a href="?site_page={{ current_page.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
+                        {% endif %}
+            
+                        Page {{ current_page.number }} of {{ current_page.paginator.num_pages }}
+            
+                        {% if current_page.has_next %}
+                            <a href="?site_page={{ current_page.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
+                            <a href="?site_page={{ current_page.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
+                        {% endif %}
+            
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div id="pagination" class="text-center">
-
-            {% if current_page.has_previous %}
-                <a href="?site_page=1"><i class="fas fa-angle-double-left"></i></a>
-                <a href="?site_page={{ current_page.previous_page_number }}"><i class="fas fa-chevron-left"></i></a>
-            {% endif %}
-
-            Page {{ current_page.number }} of {{ current_page.paginator.num_pages }}
-
-            {% if current_page.has_next %}
-                <a href="?site_page={{ current_page.next_page_number }}"><i class="fas fa-chevron-right"></i></a>
-                <a href="?site_page={{ current_page.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
-            {% endif %}
-
         </div>
     </div>
 </section>
