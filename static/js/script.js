@@ -47,11 +47,15 @@ if (window.location.pathname.includes('/profile')) {
 
   function showProgress() {
     progress.style.display = "block";
+    progress_button.classList.add('tabs-button-active')
     achievements.style.display = "none";
+    achievements_button.classList.remove('tabs-button-active')
   }
 
   function showAchievements() {
     progress.style.display = "none";
+    progress_button.classList.remove('tabs-button-active')
     achievements.style.display = "block";
+    achievements_button.classList.add('tabs-button-active')
   }
 }
