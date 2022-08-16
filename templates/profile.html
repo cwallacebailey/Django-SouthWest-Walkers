@@ -64,14 +64,20 @@
         <div class="row">
             <div class="col-md-3 border-end profile-info">
   
-                <!-- {% for post in user_posts %}
 
-                {{ post.first_cairn }} |
-                {{ post.second_cairn }} |
-                {{ post.third_cairn }} | -->
-                <!-- {% if post.first_cairn == 'Pen y Fan' or post.second_cairn == 'Pen y Fan' or post.third_cairn == 'Pen y Fan' %} -->
 
-                <p>You've conquered Pen y Fan <i class="fas fa-mountain"></i></p>
+                <p>You've conquered:</p>
+                <ol>
+                    {{ mountains_walked }}
+                    <!-- {% for post in user_posts %}
+
+                    {{ post.first_cairn }} |
+                    {{ post.second_cairn }} |
+                    {{ post.third_cairn }} | -->
+                    <!-- {% if post.first_cairn == 'Pen y Fan' or post.second_cairn == 'Pen y Fan' or post.third_cairn == 'Pen y Fan' %} -->
+                </ol>
+
+                {{ mountain_array }}
 
                 <!-- {% endif %} -->
 

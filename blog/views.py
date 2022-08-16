@@ -159,13 +159,45 @@ class ProfileView(generic.DetailView):
         # array for awards and achievements
         mountain_array = ['Pen y Fan', 'Corn Du', 'Fan y Big', 'Fan Brycheiniog', 'Pen Cerrig Calch', 'Picws Du', 'Fan Frynych', 'Cribyn', 'Mynydd Llangorse', 'Skirrid Fawr', 'Waun Fach', 'Twmpa', 'Mynydd Troed', 'The Blorenge', 'ay Bluff', 'Pen Y Gadair Fawr', 'Sugar Loaf', 'Fan Fawr', 'Crug Hywel', 'Tor Y Foel']
         
+        # def build_user_array():
+        mountains_walked = []
+
+        for posts in user_posts:
+            if posts.first_cairn in mountains_walked:
+                pass
+            elif posts.first_cairn is None or posts.first_cairn == '':
+                pass
+            else: 
+                mountains_walked.append(posts.first_cairn)
+                mountain_array.remove(posts.first_cairn)
+
+        for posts in user_posts:
+            if posts.second_cairn in mountains_walked:
+                pass
+            elif posts.second_cairn is None or posts.second_cairn == '':
+                pass
+            else: 
+                mountains_walked.append(posts.second_cairn)
+                mountain_array.remove(posts.second_cairn)
+                
+        for posts in user_posts:
+            if posts.third_cairn in mountains_walked:
+                pass
+            elif posts.third_cairn is None or posts.third_cairn == '':
+                pass
+            else: 
+                mountains_walked.append(posts.third_cairn)
+                mountain_array.remove(posts.third_cairn)
+
         return render(
             request,
             "profile.html",
             {            
                 "profile": obj,
+                "current_page": current_page,
                 "mountain_array": mountain_array,
-                'current_page': current_page,
+                "user_posts": user_posts,
+                "mountains_walked": mountains_walked
             }
         )
 
