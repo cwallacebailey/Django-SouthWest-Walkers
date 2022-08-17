@@ -7,11 +7,10 @@ from django.core.exceptions import ValidationError
 class PostForm(forms.ModelForm): 
     class Meta: 
         model = Post
-        fields = ('post_title', 'post_blurb', 'header_image', 'image_2', 'image_3', 'distance', 'meters_climbed', 'first_cairn', 'second_cairn', 'third_cairn',  'body',)
+        fields = ('post_title', 'header_image', 'image_2', 'image_3', 'distance', 'meters_climbed', 'first_cairn', 'second_cairn', 'third_cairn',  'body',)
 
         widgets = {
             'post_title': forms.TextInput(attrs={'class': 'form-control'}),
-            'post_blurb': forms.TextInput(attrs={'class': 'form-control'}),
             'distance': forms.NumberInput(attrs={'minlength': 1, 'maxlength': 5, 'type': 'number',}),
             'meters_climbed': forms.NumberInput(attrs={'minlength': 1, 'maxlength': 5, 'type': 'number',}),
             'first_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'firstCairnForm'}),
@@ -36,7 +35,7 @@ class ProfileForm(forms.ModelForm):
 
         widgets = {
         'display_name': forms.TextInput(attrs={'class': 'form-control'}),
-        'instagram_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Instagram.com/...'}),
-        'strava_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Strava.com/...'}),
-        'linkedin_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Linkedin.com/...'}),
+        'instagram_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Instagram.com/...', 'pattern': "https://www.Instagram.com/*"}),
+        'strava_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Strava.com/...', 'pattern': "https://www.Strava.com/*"}),
+        'linkedin_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Linkedin.com/...', 'pattern': "https://www.Linkedin.com/*"}),
         }

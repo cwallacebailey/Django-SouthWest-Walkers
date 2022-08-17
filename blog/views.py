@@ -166,6 +166,13 @@ class CreateProfile(generic.CreateView):
     template_name = 'create_profile.html'
     success_url = reverse_lazy('home')
 
+    # if request.method == 'POST':
+    #     if form.instance.instagram_url is not "":
+    #         if "https://www.instagram.com/" not in str(form.instance.instagram_url):
+
+    #         else: 
+    #             form = ProfileForm()
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
