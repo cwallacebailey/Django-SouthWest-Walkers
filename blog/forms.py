@@ -13,9 +13,9 @@ class PostForm(forms.ModelForm):
             'post_blurb': forms.TextInput(attrs={'class': 'form-control'}),
             'distance': forms.NumberInput(attrs={'minlength': 1, 'maxlength': 5, 'type': 'number',}),
             'meters_climbed': forms.NumberInput(attrs={'minlength': 1, 'maxlength': 5, 'type': 'number',}),
-            'first_cairn': forms.Select(attrs={'class': 'form-control'}),
-            'second_cairn': forms.Select(attrs={'class': 'form-control'}),
-            'third_cairn': forms.Select(attrs={'class': 'form-control'}),
+            'first_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'firstCairnForm'}),
+            'second_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'secondCairnForm'}),
+            'third_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'thirdCairnForm'}),
             'body': SummernoteWidget({ 'class': '.summernote'}),
         }
 

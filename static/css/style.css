@@ -96,6 +96,17 @@
     color: #12948d;
   }
 
+/* Add Post Form */
+
+.hidden_element {
+    display: none;
+}
+
+.shown_element {
+    display: block;
+}
+
+
 /* Profile Section */
 
 #profile-picture {
