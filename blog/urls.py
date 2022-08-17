@@ -9,7 +9,7 @@ urlpatterns = [
     path('delete/<int:pk>', DeletePost.as_view(), name='delete_post'),
     path('star_post/<int:pk>', StarPost.as_view(), name='star_post'),
 
-    path('detail/delete/<int:id>', DeleteComment.as_view(), name='delete_comment'),
+    path('detail/delete/<int:id>', DeleteComment.as_view(), name='delete_comment'), # THIS NEEDS TO BE UPDATED
 
     # Profile URLs below: 
     path('profile/<int:pk>', ProfileView.as_view(), name='profile'),

@@ -31,7 +31,16 @@ class Home(generic.ListView):
         })
 
 class PostDetailView(generic.DetailView):
+    """
+    renders details of the post
+    post allows comments to be posted on
+    the view and for users to star the post
+    """
     def get(self, request, pk, *args, **kwargs):
+        """
+        Retrieves the detailed post using its
+        PK, orders by created date. 
+        """
         queryset = Post.objects
         obj = get_object_or_404(queryset, pk=pk)
         comments = obj.comment.order_by("-created_date")
@@ -46,6 +55,10 @@ class PostDetailView(generic.DetailView):
         )
     
     def post(self, request, pk, *args, **kwargs):
+        """
+        allows comments to be posted on detail
+        view. 
+        """
         queryset = Post.objects
         obj = get_object_or_404(queryset, pk=pk)
         comments = obj.comment.order_by("-created_date")
@@ -85,6 +98,9 @@ class PostDetailView(generic.DetailView):
         )
 
 class StarPost(generic.View):
+    """
+    This is the blogs like function
+    """
     def post(self, request, pk):
         post = get_object_or_404(Post, id=request.POST.get('post_id'))
 
@@ -95,6 +111,10 @@ class StarPost(generic.View):
         return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
 
 class NewPost(generic.CreateView):
+    """
+    Allows user to create new post
+    takes user as author automatically
+    """
     model = Post
     form_class = PostForm
     template_name = 'new_post.html'
@@ -106,6 +126,11 @@ class NewPost(generic.CreateView):
     success_url = reverse_lazy('home')
 
 class UpdatePost(generic.UpdateView):
+    """
+    Allows user to update their post
+    sends user back to post once update
+    made
+    """    
     model = Post
     template_name = 'update_post.html'
     form_class = PostForm
@@ -115,6 +140,9 @@ class UpdatePost(generic.UpdateView):
         return reverse("detail", kwargs={"pk": pk})
 
 class DeletePost(generic.DeleteView):
+    """
+    Allows user to delete posts
+    """
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
@@ -129,6 +157,10 @@ class DeleteComment(generic.DeleteView):
 # Profile Section Below 
     
 class CreateProfile(generic.CreateView):
+    """
+    Allows user to create a profile. 
+    asigns user to the profile automatically
+    """
     model = Profile
     form_class = ProfileForm
     template_name = 'create_profile.html'
@@ -211,6 +243,10 @@ class ProfileView(generic.DetailView):
         )
 
 class UpdateProfile(generic.UpdateView):
+    """
+    Allows user to update their profile
+    details
+    """
     model = Profile
     template_name = 'update_profile.html'
     form_class = ProfileForm
@@ -220,6 +256,11 @@ class UpdateProfile(generic.UpdateView):
         return reverse("profile", kwargs={"pk": pk})
 
 class CustomSignupView(SignupView):
+    """
+    User automatically taken to 
+    create profile upon signing up
+    instead of home page
+    """
     success_url = reverse_lazy('create_profile')
 
 # Code below is from this source - https://studygyaan.com/django/django-custom-404-error-template-page

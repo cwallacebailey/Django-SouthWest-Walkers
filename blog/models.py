@@ -46,7 +46,6 @@ class Post(models.Model):
     updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
     starred = models.ManyToManyField(
         User, blank=True)
-
     
     def total_stars(self):
         return self.starred.count()
@@ -71,8 +70,6 @@ class Profile(models.Model):
     strava_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
     linkedin_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
 
-    # def __str__(self):
-    #     return str(self.user)
 
 class Comment(models.Model):
     Post = models.ForeignKey(
