@@ -1,6 +1,7 @@
 from django import forms
 from .models import Post, Profile, Comment
 from django_summernote.widgets import *
+from django.core.exceptions import ValidationError
 
 
 class PostForm(forms.ModelForm): 
@@ -35,7 +36,7 @@ class ProfileForm(forms.ModelForm):
 
         widgets = {
         'display_name': forms.TextInput(attrs={'class': 'form-control'}),
-        'instagram_url': forms.TextInput(attrs={'class': 'form-control'}),
-        'strava_url': forms.TextInput(attrs={'class': 'form-control'}),
-        'linkedin_url': forms.TextInput(attrs={'class': 'form-control'}),
+        'instagram_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Instagram.com/...'}),
+        'strava_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Strava.com/...'}),
+        'linkedin_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Linkedin.com/...'}),
         }
