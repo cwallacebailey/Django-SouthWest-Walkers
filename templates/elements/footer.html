@@ -1,5 +1,5 @@
 <!-- Footer bar -->
-
+{% load static %}
 <div id="footer-spacer">
 </div>
 <footer class="container-fluid footer">
@@ -54,7 +54,7 @@
 </footer>
 
 <!-- our own scripts -->
-<script type ="module" src="../static/js/script.js"></script>
+<script type ="module" src="{% static '/js/script.js' %}"></script>
 
 <!-- fontawesome scripts -->
 <script src="https://kit.fontawesome.com/8d6f6ebaae.js" crossorigin="anonymous"></script>

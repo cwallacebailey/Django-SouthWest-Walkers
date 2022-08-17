@@ -2,11 +2,12 @@
 
 if (document.getElementById('home-page-index')) {
   setTimeout(function() {
-    let messages = document.getElementById("msg")
-    let alert = new bootstrap.Alert(messages);
-    alert.close()
-  }, 3000);
-}
+    if (document.getElementById("msg")) {
+      let messages = document.getElementById("msg")
+      let alert = new bootstrap.Alert(messages);
+      alert.close()
+    }}, 3000);
+  };
 
 // Create Slide Show for Detail View
 
@@ -123,7 +124,7 @@ if (window.location.pathname.includes('/add_post')) {
 let updateProfileModal = document.getElementById('update-profile-modal')
 let profileModal = document.getElementById('profile-modal')
 let addPostModal = document.getElementById('add-post-modal')
-let updatePostModal = document.getElementById('update-post-modal')
+let detailPostModal = document.getElementById('detail-post-modal')
 let noTipModal = document.getElementById('no-tip-modal')
 let homePageModal = document.getElementById('home-page-modal')
 
@@ -134,7 +135,7 @@ noTipModal.style.display = "block";
 if (window.location.pathname.includes('/add_post')) {
   updateProfileModal.style.display = "none";
   profileModal.style.display = "none";
-  updatePostModal.style.display = "none";
+  detailPostModal.style.display = "none";
   noTipModal.style.display = "none";
   homePageModal.style.display = "none";
   addPostModal.style.display = "block";
@@ -145,7 +146,7 @@ if (window.location.pathname.includes('/add_post')) {
 if (window.location.pathname.includes('/profile/')) {
   updateProfileModal.style.display = "none";
   profileModal.style.display = "block";
-  updatePostModal.style.display = "none";
+  detailPostModal.style.display = "none";
   noTipModal.style.display = "none";
   homePageModal.style.display = "none";
   addPostModal.style.display = "none";
@@ -156,7 +157,7 @@ if (window.location.pathname.includes('/profile/')) {
 if (window.location.pathname.includes('/update_profile/')) {
   updateProfileModal.style.display = "block";
   profileModal.style.display = "none";
-  updatePostModal.style.display = "none";
+  detailPostModal.style.display = "none";
   noTipModal.style.display = "none";
   homePageModal.style.display = "none";
   addPostModal.style.display = "none";
@@ -164,10 +165,10 @@ if (window.location.pathname.includes('/update_profile/')) {
 
 // update post detail tips
 
-if (window.location.pathname.includes('/update-detail')) {
+if (window.location.pathname.includes('/detail')) {
   updateProfileModal.style.display = "none";
   profileModal.style.display = "none";
-  updatePostModal.style.display = "block";
+  detailPostModal.style.display = "block";
   noTipModal.style.display = "none";
   homePageModal.style.display = "none";
   addPostModal.style.display = "none";
@@ -178,7 +179,7 @@ if (window.location.pathname.includes('/update-detail')) {
 if (document.getElementById('home-page-index')) {
   updateProfileModal.style.display = "none";
   profileModal.style.display = "none";
-  updatePostModal.style.display = "none";
+  detailPostModal.style.display = "none";
   noTipModal.style.display = "none";
   homePageModal.style.display = "block";
   addPostModal.style.display = "none";
