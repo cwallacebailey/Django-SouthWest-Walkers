@@ -17,44 +17,50 @@
     <!-- Profile Stats Section  -->
 
         <div class="col-md-9 border-bottom">
-                <div class="row no-gutters">
-                    <div class="col heading my-auto">
-                        <h1 class="name">{{ profile.display_name }}</h1>
-                        <h3>Total Distance Hiked - {{ distance|intcomma }}Km</h3>
-                        <h3>Peaks Conquered - {{ peaks_reached }}</h3>
-                        <h4>
-                            <a href="{% url 'update_profile' profile.pk %}" class="achievement-list-item">Update Profile</a>
-                        </h4>
-                    </div>
+            <div class="row no-gutters">
+                <div class="col heading my-auto">
+                    <h2 class="mt-1">{{ profile.display_name }}</h2>
+                    <h4>Total Distance Hiked - {{ distance|intcomma }}Km</h3>
+                    <h4>Peaks Conquered - {{ peaks_reached }}</h3>
                 </div>
+            </div>
     
     <!-- Social Media Links -->
-                <h5>Social Accounts</h5>
+            <h5>Social Accounts:</h5>
+            {% if profile.instagram_url is None and profile.linkedin_url is None and profile.strava_url is None %}
                 <div class="row no-gutters badge-height">
-                    <ul class="list-inline social-links">
-                    {% if profile.instagram_url != None %}
-                        <li class="list-inline-item">
-                            <a target="_blank" href="{{ profile.instagram_url }}">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    {% endif %}
-                    {% if profile.linkedin_url != None %}
-                        <li class="list-inline-item">
-                            <a target="_blank" href="{{ profile.linkedin_url }}">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    {% endif %}
-                    {% if profile.strava_url != None %}
-                        <li class="list-inline-item">
-                            <a target="_blank" href="{{ profile.strava_url }}">
-                            <i class="fab fa-strava" aria-hidden="True"></i>
-                            </a>
-                        </li>
-                    {% endif %}
-                    </ul>
+                    <p> Well.... we'd add Social media links if you updated your profile</p>
+                    <i class="fas fa-hand-point-down"></i>
                 </div>
+            {% endif %}
+            <div class="row no-gutters badge-height">
+                <ul class="list-inline social-links">
+                {% if profile.instagram_url != None %}
+                    <li class="list-inline-item">
+                        <a target="_blank" href="{{ profile.instagram_url }}">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if profile.linkedin_url != None %}
+                    <li class="list-inline-item">
+                        <a target="_blank" href="{{ profile.linkedin_url }}">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if profile.strava_url != None %}
+                    <li class="list-inline-item">
+                        <a target="_blank" href="{{ profile.strava_url }}">
+                        <i class="fab fa-strava" aria-hidden="True"></i>
+                        </a>
+                    </li>
+                {% endif %}
+                </ul>
+            </div>
+            <p>
+                <a href="{% url 'update_profile' profile.pk %}" class="achievement-list-item">Update Profile</a>
+            </p>
         </div>
     </div>
 </section>
@@ -106,7 +112,7 @@
                 <div id="achievements" class="tabcontent">
                     <h3 class="m-2">Achievements</h3>
                     <div class="m-2">
-                        <p>You're achievements:</p>
+                        <p>Your achievements:</p>
                     </div>
                     <div>
                         <ul class="profile-mountain-list">

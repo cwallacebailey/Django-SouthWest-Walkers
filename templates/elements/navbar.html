@@ -1,24 +1,27 @@
     <!-- Nav bar -->
     <nav class="navbar navbar-expand-lg fixed-top nav-bar-height">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white" href="{% url 'home' %}">South West Walkers</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="container-fluid">
+        <a class="navbar-brand text-white" href="{% url 'home' %}">South West Walkers</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" aria-current="page" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link text-white modal-button" aria-current="page" data-toggle="modal" data-target="#exampleModalCenter">Tips</button>
+            </li>
+            {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" href="{% url 'home' %}">Home</a>
+                <a class="nav-link text-white" href="{% url 'add_post' %}">Add Post</a>
               </li>
-              {% if user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="{% url 'add_post' %}">Add Post</a>
-                </li>
-                <li>
-                  <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
-                </li>
-            </ul>
-          
+              <li>
+                <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
+              </li>
+          </ul>
+        
           <ul>
             {% if user.profile.pk %}
               <li>
@@ -41,16 +44,85 @@
               </li>
             {% endif %}
           </ul>
-
-              {% else %}
-                <li>
-                  <a class="nav-link text-white" href="{% url 'account_signup' %}">Sign Up</a>
-                </li>
-                <li>
-                  <a class="nav-link text-white" href="{% url 'account_login' %}">Login</a>
-                </li>
+            {% else %}
+              <li>
+                <a class="nav-link text-white" href="{% url 'account_signup' %}">Sign Up</a>
+              </li>
+              <li>
+                <a class="nav-link text-white" href="{% url 'account_login' %}">Login</a>
+              </li>  
+            {% endif %}
             </ul>
-              {% endif %}
+          </div>
+      </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center">South West Walkers<i class="fa-solid fa-person-hiking modal-hiker"></i></h5>
+          </div>
+          <div class="modal-body">
+            {% if user.is_authenticated %}
+              <!-- Home page modal info -->
+              <div id="home-page-modal" class="modal-text-info">
+                <p>
+                  Welcome to the home page. Here you can see hikes that you and other users
+                  have recently completed. Click any of the title links to see a detailed view
+                  of the hike where you can like or comment on their journey. 
+                </p>
+              </div>
+              <!-- Update Profile Modal -->
+              <div id="update-profile-modal" class="modal-text-info">
+                <p>This page can be used to create or update your profile. 
+                  Social media links must be in the format as below: 
+                  <ul>
+                    <li>https://www.Instagram.com/</li>
+                    <li>https://www.Strava.com/</li>
+                    <li>https://www.Linkedin.com/</li>
+                  </ul>
+                  If you're trying to submit but the form wont let you this is the most likely reason.
+                  You don't have to submit these but you do have to submit a username, otherwise we wont know 
+                  what to call you. 
+                </p>
+              </div>
+              <!-- Profile Modal -->
+              <div id="profile-modal" class="modal-text-info">
+                <p>Welcome to your profile</p>
+                <p>Here you can see your total distance walked, total meters climbed</p>
+                <p>You can see your achievements and progress towards hiking all 20 of the brecon beaks best peaks</p>
+                <p>You can also update your profile using the link below your social media links</p>
+                <p>Social media links can be added by following the update profile section</p>
+              </div>
+              <!-- add post Modal -->
+              <div id="add-post-modal" class="modal-text-info">
+                <p>Here you can add a post</p>
+                <p>You can add up to three peaks and three images</p>
+                <p>The option to add a second peak or image will appear once you've filled in the first</p>
+                <p>We trust you to be honest with the distance walked in KM and meters climbed</p>
+                <p>We recommend using strava or a similar recording device for the data until we come up with our own</p>
+              </div>
+              <!-- update post Modal -->
+              <div id="update-post-modal" class="modal-text-info">
+                <p>Here you can see all the detail on the journey</p>
+                <p>You can comment or star the walk to show how impressed you are</p>
+                <p>If this is your post then you can update it or should you need to delete it from here</p>
+                <p>Be kind and cheer people on</p>
+              </div>
+              <!-- no tip Modal -->
+              <div id="no-tip-modal" class="modal-text-info">
+                <p>No tip on this page, we thought it explained itself</p>
+                <p>If not, apologies. We will work on it as soon as possible</p>
+              </div>
+            {% else %}
+              <p>Welcome! We hope you are ready for your walking adventure. To start simply sign up or login using the links you can see in the navigation bar (top of screen) or the tiny links in the footer</p>
+            {% endif %}
+          </div>
+          <div class="modal-footer modal-footer-color">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
-    </nav>
+      </div>
+    </div>

@@ -2,6 +2,8 @@
     font-family: 'Uchen', sans-serif;
 }
 
+/* navbar */
+
 #icon {
     display: inline-block;
     vertical-align: middle;
@@ -50,6 +52,36 @@
 .card-img-top-home {
     height: 12rem;
     object-fit: cover;
+}
+
+/* navbar modal */
+
+.modal-button {
+    background-color: #36454F;
+    border-style: none;
+}
+
+.modal-button:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+.modal-header,
+.modal-footer-color {
+    background-color: #36454F !important;
+    color: white;
+}
+
+#home-page-modal,
+#update-profile-modal,
+#profile-modal, 
+#add-post-modal, 
+#update-post-modal {
+    display: none;
+}
+
+.modalTextInfo {
+    display: block;
 }
 
 /* Pagination bar */

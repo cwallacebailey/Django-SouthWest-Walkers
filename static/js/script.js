@@ -1,6 +1,6 @@
 // messages to timeout and go after 3 seconds
 
-if (document.getElementsByClassName('home-page-index')) {
+if (document.getElementById('home-page-index')) {
   setTimeout(function() {
     let messages = document.getElementById("msg")
     let alert = new bootstrap.Alert(messages);
@@ -117,3 +117,71 @@ if (window.location.pathname.includes('/add_post')) {
     id_image_3.parentNode.className = "shown_element"
   }
 }
+
+// allows the tips section to work
+
+let updateProfileModal = document.getElementById('update-profile-modal')
+let profileModal = document.getElementById('profile-modal')
+let addPostModal = document.getElementById('add-post-modal')
+let updatePostModal = document.getElementById('update-post-modal')
+let noTipModal = document.getElementById('no-tip-modal')
+let homePageModal = document.getElementById('home-page-modal')
+
+noTipModal.style.display = "block";
+
+// add post tips
+
+if (window.location.pathname.includes('/add_post')) {
+  updateProfileModal.style.display = "none";
+  profileModal.style.display = "none";
+  updatePostModal.style.display = "none";
+  noTipModal.style.display = "none";
+  homePageModal.style.display = "none";
+  addPostModal.style.display = "block";
+}
+
+// profile tips
+
+if (window.location.pathname.includes('/profile/')) {
+  updateProfileModal.style.display = "none";
+  profileModal.style.display = "block";
+  updatePostModal.style.display = "none";
+  noTipModal.style.display = "none";
+  homePageModal.style.display = "none";
+  addPostModal.style.display = "none";
+}
+
+// update profile tips
+
+if (window.location.pathname.includes('/update_profile/')) {
+  updateProfileModal.style.display = "block";
+  profileModal.style.display = "none";
+  updatePostModal.style.display = "none";
+  noTipModal.style.display = "none";
+  homePageModal.style.display = "none";
+  addPostModal.style.display = "none";
+}
+
+// update post detail tips
+
+if (window.location.pathname.includes('/update-detail')) {
+  updateProfileModal.style.display = "none";
+  profileModal.style.display = "none";
+  updatePostModal.style.display = "block";
+  noTipModal.style.display = "none";
+  homePageModal.style.display = "none";
+  addPostModal.style.display = "none";
+}
+
+// home page tips
+
+if (document.getElementById('home-page-index')) {
+  updateProfileModal.style.display = "none";
+  profileModal.style.display = "none";
+  updatePostModal.style.display = "none";
+  noTipModal.style.display = "none";
+  homePageModal.style.display = "block";
+  addPostModal.style.display = "none";
+}
+
+
