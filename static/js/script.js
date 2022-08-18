@@ -9,25 +9,26 @@ if (document.getElementById('home-page-index')) {
     }}, 3000);
   };
 
+if (window.location.pathname.includes('/detail')) {
+  let images = document.getElementsByClassName("journeyImages");
+  let next = document.getElementById("next")
+
+  if (images.length <= 1) {
+    next.style.display = "none";
+  }
+}
 // Create Slide Show for Detail View
 
 if (window.location.pathname.includes('/detail')) {
 
   let next = document.getElementById("next")
   next.addEventListener('click', nextImage);
-  let previous = document.getElementById("previous")
-  previous.addEventListener('click', backImage);
 
   let imageIndex = 1;
   showImage(imageIndex);
 
   function nextImage() {
       imageIndex += 1;
-      showImage(imageIndex);
-  }
-
-  function backImage() {
-      imageIndex -= 1;
       showImage(imageIndex);
   }
 
@@ -42,6 +43,7 @@ if (window.location.pathname.includes('/detail')) {
     images[imageIndex-1].style.display = "block";
   }
 }
+
 
 // Create tabs for profile progress and achievements
 
@@ -128,7 +130,9 @@ let detailPostModal = document.getElementById('detail-post-modal')
 let noTipModal = document.getElementById('no-tip-modal')
 let homePageModal = document.getElementById('home-page-modal')
 
-noTipModal.style.display = "block";
+if (noTipModal) {
+  noTipModal.style.display = "block";
+}
 
 // add post tips
 

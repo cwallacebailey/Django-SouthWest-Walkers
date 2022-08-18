@@ -12,25 +12,37 @@
 {% if user.is_authenticated %}
 
     {% if post.post_author.id == user.id %}
-        <h1>Update Us On Your Journey</h1>
-        <div class="form-group">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button class="btn btn-secondary">Update</button>
-            </form>
+    <div class="text-center p-4">
+        <h2>Update Your Journey</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
         </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-secondary">Post</button>
+                    </form>
+                </div>
+            </div>
+
+        <div class="col-md-4">
+
+        </div>
+    </div>
 
     {% else %}
 
-        This isn't your post
+    <p>This isn't your post</p>
 
     {% endif %}
     
 {% else %}
 
-        <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
-        <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+    <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
+    <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
 
 {% endif %}
 
@@ -38,3 +50,9 @@
 
 {% endblock %}
 
+<script>
+console.log("Working")
+$('.editor').summernote({
+  width: 150,
+});
+</script>
