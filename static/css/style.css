@@ -7,18 +7,8 @@
 #icon {
     display: inline-block;
     vertical-align: middle;
-    border-radius: 50%;
     max-width: 6rem;
     max-height: 2rem;
-}
-
-.profile-icon {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
-    z-index: -3;
-    overflow: hidden;
 }
 
 .navbar {
@@ -33,11 +23,11 @@
     padding-top: 60px;
 }
 
-.couldbe {
+.fading-article-item {
     transition: all 0.4s ease-in-out;
 }
 
-.couldbe:hover {
+.fading-article-item:hover {
     background: #36454F;
     color: white;
 }
@@ -239,7 +229,7 @@
 
 footer {
     margin: auto 0;
-    position: fixed;
+    position: relative;
     bottom: 0;
     padding: 0;
     font-size: 80%;
@@ -337,16 +327,15 @@ footer {
     footer {
         position: relative;
     }
+    #footer-spacer {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 600px) {
 
 footer h4 {
     text-align: center;
-}
-
-#footer-spacer {
-    display: none;
 }
 
 }
