@@ -11,7 +11,10 @@
               <a class="nav-link text-white" aria-current="page" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <button class="nav-link text-white modal-button" aria-current="page" data-toggle="modal" data-target="#exampleModalCenter">About/ Tips</button>
+              <button class="nav-link text-white modal-button" aria-current="page" data-toggle="modal" data-target="#exampleModalCenter">Tips</button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" aria-current="page" href="{% url 'about' %}">About</a>
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item">

@@ -30,6 +30,13 @@ class Home(generic.ListView):
             'object_list': object_list,
         })
 
+class About(generic.ListView):
+    """
+    Allows users to see about the website
+    """
+    model = Post
+    template_name = 'about.html'
+
 class PostDetailView(generic.DetailView):
     """
     renders details of the post
