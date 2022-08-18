@@ -136,7 +136,7 @@ if (noTipModal) {
 
 // add post tips
 
-if (window.location.pathname.includes('/add_post')) {
+if (window.location.pathname.includes('/add_post') || window.location.pathname.includes('/update-detail')) {
   updateProfileModal.style.display = "none";
   profileModal.style.display = "none";
   detailPostModal.style.display = "none";
@@ -189,4 +189,14 @@ if (document.getElementById('home-page-index')) {
   addPostModal.style.display = "none";
 }
 
+// All Auth tips
+
+if (window.location.pathname.includes('/accounts/logout/')) {
+  updateProfileModal.style.display = "none";
+  profileModal.style.display = "none";
+  detailPostModal.style.display = "none";
+  noTipModal.style.display = "block";
+  homePageModal.style.display = "none";
+  addPostModal.style.display = "none";
+}
 
