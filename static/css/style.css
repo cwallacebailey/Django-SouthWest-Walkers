@@ -245,10 +245,14 @@
     padding: 0;
 }
 
+.small-about-text {
+    display: none;
+}
+
 /* footer */
 
 #footer-spacer{
-    height: 140px !important;
+    height: 140px;
 }
 
 footer {
@@ -341,16 +345,20 @@ footer {
 
 .spacer {
     height: 100px;
-    border-style: solid;
-    border: #12948d;
 }
 
 /* Screen resolution controls */
 
-@media only screen and (max-width: 1100px) {
-    #footer-spacer {
-        display: none;
-    }
+@media only screen and (max-width: 1023px) {
+
+.spacer {
+    height: 20px;
+}
+
+#footer-spacer {
+    height: 10px;
+}
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -358,5 +366,34 @@ footer {
 footer h4 {
     text-align: center;
 }
+
+.social-links-footer {
+    display: none;
+}
+
+#about-us-text-box,
+.banner-image {
+    display: none;
+}
+
+#small-about-text {
+    display: block;
+}
+
+}
+
+@media only screen and (max-width: 411px) {
+    
+    footer {
+        position: inherit;
+        margin: 0;
+    }
+    .spacer {
+        height: 20px;
+    }
+    
+    #sign-up-text {
+        display: block;
+    }
 
 }

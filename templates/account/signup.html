@@ -11,9 +11,9 @@
       <div class="spacer">
       </div>
       <h2>{% trans "Sign Up" %}</h2>
-
-      <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">sign in here</a>.{% endblocktrans %}</p>
-      
+      <div id="sign-up-text">
+        <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">sign in here</a>.{% endblocktrans %}</p>
+      </div>
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         {{ form.as_p }}
@@ -24,6 +24,9 @@
       </form>
     </div>
   </div>
+</div>
+<div id="footer-spacer">
+
 </div>
 
 {% endblock %}
