@@ -2,6 +2,11 @@
     font-family: 'Uchen', sans-serif;
 }
 
+.container-padding-0 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
 /* navbar */
 
 #icon {
@@ -20,7 +25,7 @@
 }
 
 .message-box {
-    padding-top: 60px;
+    padding-top: 50px;
 }
 
 .fading-article-item {
@@ -218,12 +223,17 @@
 .banner-image-div {
     width: 100%;
     height: 100%;
+    background-size: cover;
 }
 
 .banner-image {
     width: 100%;
     height: 100%;
     background-image: url("https://res.cloudinary.com/dkzungvzx/image/upload/v1660849585/pexels-owen-fon-williams-10874914_hgqrgm.jpg");
+}
+
+#about-header {
+    display: none;
 }
 
 #about-us-text-box {
@@ -241,19 +251,14 @@
     color: white;
 }
 
-.padding-none {
-    padding: 0;
-}
-
-.small-about-text {
+#small-about-text {
     display: none;
+    font-size: 80%;
 }
 
 /* footer */
 
-#footer-spacer{
-    height: 140px;
-}
+
 
 footer {
     margin: auto 0;
@@ -363,6 +368,16 @@ footer {
 
 @media only screen and (max-width: 600px) {
 
+
+#about-header {
+    display: block;
+    color: #36454F;
+}
+
+.message-box {
+    padding-top: 70px;
+}
+
 footer h4 {
     text-align: center;
 }
@@ -378,6 +393,7 @@ footer h4 {
 
 #small-about-text {
     display: block;
+    height: fit-content;
 }
 
 }
