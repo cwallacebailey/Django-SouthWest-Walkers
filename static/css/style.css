@@ -12,8 +12,6 @@
 #icon {
     display: inline-block;
     vertical-align: middle;
-    max-width: 6rem;
-    max-height: 2rem;
 }
 
 .navbar {
@@ -21,7 +19,7 @@
 }
 
 .nav-bar-spacer {
-    height: 60px;
+    height: 20px;
 }
 
 .message-box {

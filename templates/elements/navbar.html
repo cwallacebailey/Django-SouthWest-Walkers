@@ -29,12 +29,10 @@
             {% if user.profile.pk %}
               <li>
                 <a class="text-white text-center" href="{% url 'profile' user.id %}">
-                    <div id="icon">
-                      <div id="icon">
+                      <!-- <div id="icon">
                         <img class="card-img-top"
                           src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
-                      </div>
-                    </div>
+                      </div> -->
                     <p class="margin-none">Profile</p>
                 </a>
               </li>
@@ -59,7 +57,9 @@
           </div>
       </div>
     </nav>
-
+    <div class="nav-bar-spacer">
+            
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">

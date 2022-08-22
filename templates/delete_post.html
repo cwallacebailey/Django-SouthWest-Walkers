@@ -8,25 +8,33 @@
 
 {% if user.is_authenticated %}
 
-    {% if post.post_author.id == user.id %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-2 offset-md-2">
+            <div class="spacer">
+            </div>
+            {% if post.post_author.id == user.id %}
+            <div class="text-center">
+                <h2>Delete Your Journey</h2>
+                <br>
+                <h3>Delete {{ post.title }}</h3>
+                <br>
+                <div class="form-group">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-secondary">Delete Post</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+        
+        This isn't your post
 
-    <h1>Delete Your Journey</h1>
-    <br>
-    <h3>Delete {{ post.title }}</h3>
-    <br>
-    <div class="form-group">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-secondary">Delete Post</button>
-        </form>
+        {% endif %}
+        </div>
     </div>
-
-    {% else %}
-    
-    This isn't your post
-
-    {% endif %}
+</div>
 
 {% else %}
 
@@ -36,3 +44,4 @@
 {% endif %}
 
 {% endblock %}
+
