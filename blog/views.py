@@ -34,8 +34,9 @@ class About(generic.ListView):
     """
     Allows users to see about the website
     """
-    model = Post
-    template_name = 'about.html'
+    def get(self, request):
+        return render (request,
+            'about.html')
 
 class PostDetailView(generic.DetailView):
     """
@@ -172,13 +173,6 @@ class CreateProfile(generic.CreateView):
     form_class = ProfileForm
     template_name = 'create_profile.html'
     success_url = reverse_lazy('home')
-
-    # if request.method == 'POST':
-    #     if form.instance.instagram_url is not "":
-    #         if "https://www.instagram.com/" not in str(form.instance.instagram_url):
-
-    #         else: 
-    #             form = ProfileForm()
 
     def form_valid(self, form):
         form.instance.user = self.request.user

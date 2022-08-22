@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .forms import PostForm, ProfileForm
+from django.contrib.auth.models import User
 
 class TestPostForm(TestCase):
 
@@ -9,9 +10,10 @@ class TestPostForm(TestCase):
         self.assertIn('post_title', form.errors.keys())
         self.assertEqual(form.errors['post_title'][0], 'This field is required.')
 
-    # def test_form_submission(self):
-    #     form = PostForm({'post_title': 'Nice Walk', 'post_author': 'default', 'distance': 100, 'created_date': 'Aug. 14, 2022, 12:45 p.m'})
-    #     self.assertTrue(form.is_valid())
+    def test_form_submission(self):
+        user = User.objects.create(username = "user")
+        form = PostForm({'post_title': 'Nice Walk', 'post_author': user, 'distance': 100, 'created_date': 'Aug. 14, 2022, 12:45 p.m', 'body': 'test'})
+        self.assertTrue(form.is_valid())
 
     # def test_fields_are_showing_correctly(self):
     #     form = PostForm
