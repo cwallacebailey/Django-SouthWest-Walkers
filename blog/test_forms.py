@@ -1,8 +1,11 @@
 from django.test import TestCase
-from .forms import PostForm, ProfileForm
+from .forms import PostForm, ProfileForm, CommentForm
 from django.contrib.auth.models import User
 
 class TestPostForm(TestCase):
+    """
+    Test for the Post form
+    """
 
     def test_form_title(self):
         form = PostForm({'post_title': ''})
@@ -11,34 +14,59 @@ class TestPostForm(TestCase):
         self.assertEqual(form.errors['post_title'][0], 'This field is required.')
 
     def test_form_submission(self):
+        """
+        Test that the display name must be entered
+        for the form to be valid
+        """
         user = User.objects.create(username = "user")
-        form = PostForm({'post_title': 'Nice Walk', 'post_author': user, 'distance': 100, 'created_date': 'Aug. 14, 2022, 12:45 p.m', 'body': 'test'})
+        form = PostForm({'post_title': 'Nice Walk 2', 'post_author': user, 'distance': 100, 'created_date': 'Aug. 14, 2022, 12:45 p.m', 'body': 'test', 'meters_climbed': 40})
         self.assertTrue(form.is_valid())
-
-    # def test_fields_are_showing_correctly(self):
-    #     form = PostForm
-    #     self.assertEqual(form.Meta.fields, ['post_title', 'header_image', 'distance', 'meters_climbed', 'first_cairn', 'body',])
 
 
 class TestProfileForm(TestCase):
+    """
+    Test for the Profile form
+    """
 
     def test_profile_form_empty_display_name(self):
+        """
+        Test that the display name must be entered
+        for the form to be valid
+        """
         form = ProfileForm({'display_name': ''})
         self.assertFalse(form.is_valid())
         self.assertIn('display_name', form.errors.keys())
         self.assertEqual(form.errors['display_name'][0], 'This field is required.')
     
     def test_profile_form_completed_display_name(self):
+        """
+        Test that only the display name needs to be entered
+        for the form to be valid
+        """
         form = ProfileForm({'display_name': 'Big_Chungus'})
         self.assertTrue(form.is_valid())
 
-    def test_profile_form_completed_correct_social_links(self):
-        form = ProfileForm({'display_name': 'Big_Chungus', 'instagram_url': 'https://www.instagram.com/', 'strava_url': 'https://www.strava.com', 'linkedin_url': 'https://www.linkedin.com'})
+
+class TestCommentForm(TestCase):
+    """
+    Test for the comment form
+    """
+    
+    def test_comment_form_empty(self):
+        """
+        Test that the body must be entered
+        for the form to be valid
+        """
+        form = CommentForm({'body': ''})
+        self.assertFalse(form.is_valid())
+        self.assertIn('body', form.errors.keys())
+        self.assertEqual(form.errors['body'][0], 'This field is required.')
+
+    def test_comment_form_empty(self):
+        """
+        Test that the body must be entered
+        for the form to be valid
+        """
+        form = CommentForm({'body': 'Test'})
         self.assertTrue(form.is_valid())
 
-    def test_profile_form_incorrect_instagram_links(self):
-        form = ProfileForm({'display_name': 'Big_Chungus', 'instagram_url': 'www.facebook.com',})
-        self.assertTrue(form.is_valid())
-
-        
-        

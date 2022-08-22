@@ -42,7 +42,7 @@ class Post(models.Model):
     second_cairn = models.CharField(max_length = 20, choices = cairn_choices , default = '', null=True, blank='true')
     third_cairn = models.CharField(max_length = 20, choices = cairn_choices , default = '', null=True, blank='true')
     created_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True) # updates the date instead of creating it anew
+    updated_date = models.DateTimeField(auto_now=True)
     starred = models.ManyToManyField(
         User, blank=True)
     
