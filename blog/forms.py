@@ -35,7 +35,7 @@ class ProfileForm(forms.ModelForm):
 
         widgets = {
         'display_name': forms.TextInput(attrs={'class': 'form-control'}),
-        'instagram_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Instagram.com/...', 'pattern': "https://www.Instagram.com/*"}),
-        'strava_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Strava.com/...', 'pattern': "https://www.Strava.com/*"}),
-        'linkedin_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.Linkedin.com/...', 'pattern': "https://www.Linkedin.com/*"}),
+        'instagram_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.instagram.com/...', 'pattern': "https://www.instagram.com/*"}),
+        'strava_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.strava.com/...', 'pattern': "https://www.strava.com/*"}),
+        'linkedin_url': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'https://www.linkedin.com/...', 'pattern': "https://www.linkedin.com/*"}),
         }

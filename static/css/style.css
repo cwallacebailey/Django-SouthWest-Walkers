@@ -256,11 +256,8 @@
 
 /* footer */
 
-
-
 footer {
     margin: auto 0;
-    position: absolute;
     bottom: 0;
     padding: 0;
     font-size: 80%;
@@ -342,12 +339,6 @@ footer {
 
 .bronze-hike {
     color: #CD7F32;
-}
-
-/* AllAuth General Items */
-
-.spacer {
-    height: 100px;
 }
 
 /* Screen resolution controls */
