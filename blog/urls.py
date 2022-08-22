@@ -10,8 +10,6 @@ urlpatterns = [
     path('star_post/<int:pk>', StarPost.as_view(), name='star_post'),
     path('about/', About.as_view(), name='about'),
 
-    path('detail/delete/<int:id>', DeleteComment.as_view(), name='delete_comment'), # THIS NEEDS TO BE UPDATED
-
     # Profile URLs below: 
     path('profile/<int:pk>', ProfileView.as_view(), name='profile'),
     path('update_profile/<int:pk>', UpdateProfile.as_view(), name='update_profile'),
