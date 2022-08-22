@@ -286,6 +286,12 @@ footer {
     color: #12948d;
 }
 
+/* allauth */
+
+.allauth-body-size {
+    height: 80vh;
+}
+
 /* font awesome icons */
 
 .fa-star {
@@ -345,45 +351,49 @@ footer {
 
 @media only screen and (max-width: 1023px) {
 
-.spacer {
-    height: 20px;
-}
+    .spacer {
+        height: 20px;
+    }
 
-#footer-spacer {
-    height: 10px;
-}
+    .allauth-body-size {
+        height: auto;
+    }
+
+    #footer-spacer {
+        height: 10px;
+    }
 
 }
 
 @media only screen and (max-width: 600px) {
 
 
-#about-header {
-    display: block;
-    color: #36454F;
-}
+    #about-header {
+        display: block;
+        color: #36454F;
+    }
 
-.message-box {
-    padding-top: 70px;
-}
+    .message-box {
+        padding-top: 70px;
+    }
 
-footer h4 {
-    text-align: center;
-}
+    footer h4 {
+        text-align: center;
+    }
 
-.social-links-footer {
-    display: none;
-}
+    .social-links-footer {
+        display: none;
+    }
 
-#about-us-text-box,
-.banner-image {
-    display: none;
-}
+    #about-us-text-box,
+    .banner-image {
+        display: none;
+    }
 
-#small-about-text {
-    display: block;
-    height: fit-content;
-}
+    #small-about-text {
+        display: block;
+        height: fit-content;
+    }
 
 }
 
