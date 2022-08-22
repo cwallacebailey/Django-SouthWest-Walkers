@@ -30,9 +30,19 @@ Tell Us About Your Journey
         </div>
     </div>
 {% else %}
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+            <div class="col-md-4 text-center">
+                <h3>Best to Login or Sign Up</h3>
+                <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
+                <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+            </div>
 
-    <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
-    <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+        <div class="col-md-4">
+
+        </div>
+    </div>
 </section>
 {% endif %}
     <br>

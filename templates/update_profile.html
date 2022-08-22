@@ -19,15 +19,26 @@
                 <button class="btn btn-secondary">Update</button>
             </form>
         </div>
-
-        {% else %}
-
-        <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
-        <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
-
-        {% endif %}
     </div>
   </div>
 </div>
+
+{% else %}
+
+<div class="row">
+  <div class="col-md-4">
+  </div>
+      <div class="col-md-4">
+          <h3>Best to Sign in or Sign Up</h3>
+          <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
+          <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+      </div>
+
+  <div class="col-md-4">
+
+  </div>
+</div>
+
+{% endif %}
 
 {% endblock %}
