@@ -52,10 +52,17 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
 
 ## User Experience
 
+### Site aims
 
-[Back to contents](#contents)
+While strava exists to map peoples runs and walks, it tracks time, distance and the route. It then offers medals for speed of each segments. It does not, however, reward reaching the peaks of mountains in certain ranges and as mountain peaks are usually reached by walking / hiking the medal system in strava is not as rewarding to hikers who would never travel fast. 
 
-### Initial Discussion
+All trails and kamoot offers fantastic hiking routes but do not track which you have completed. They also do not reward reaching the peaks of trails and mountains. 
+
+Hiking is a fantastic way to lose weight and improve your mental health, to spend time with friends and family. By 'gamifying' it more people would hike and learn to love a great sport that people of all ages can take part in. 
+
+This site aims to allow users to track walks / hikes which they have completed, the peaks they reached on this walk, the distance travelled and meters climbed. This is stored in a database which then shows on the users profile which peaks they have to reach, those they've completed and achievements they have... achieved. This will be for the brecon beacons, a mountain range in south wales with an aim to expand to all ranges as soon as I have learnt the skills necessary to do this. 
+
+### Initial Discussion 
 
 * I wanted to create a website linked to a database, which is able to authenticate a user by having them log in. 
 * The site would allow users to track which Cairns (aka hill / mountain) peaks they have climbed. To offer challenges for hiking distances and reached a number of peaks in the area and to allow other details of the walk such as notes on how it felt and images of the walk to inspire others to get out there and hike. 
@@ -95,22 +102,24 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
     * Create an interactive map showing the location of peaks / cairns to be climbed and if they have or have not been climbed yet
     * View and connect with other users profiles
 
-
-
-[Back to contents](#contents)
-
-### Project Goals
 [Back to contents](#contents)
 
 ---
 
 ## Design
-[Back to contents](#contents)
 
 ### Color Scheme
+
+I went with a Scandanavian vibe for the sites colours which have been used throughout the site. 
+
+![Color scheme](static/media/site_colours.png)
+
 [Back to contents](#contents)
 
 ### Typography
+
+Two fonts were used for this project, 'Uchen' from google fonts and where this would not work, sans-serif takes over. Sans-serif fonts are easy to read for people with dyslexia and partially visually impaired users. 'Ulchen' is also very easily read. 
+
 [Back to contents](#contents)
 
 ### Imagery
