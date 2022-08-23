@@ -2,17 +2,13 @@
 
 [Please see link to the final project]() (holding ctrl when clicking this link will open it in a new tab)
 
-South West Walkers is a social media blog. 
-
-
-
+South West Walkers is django built blog to record treks in the brecon beacons. It gamify's hiking allowing users to 'collect' peaks and achievements by walking distance challenges and climbing different mountains in the region. 
 
 This site was built using Django as its framework with HTML, CSS, Bootstrap, JavaScript & Python. The database is created using SQL through PostgreSQL.
 
 # The below needs to be updated
 
 ![Final project responsive image below]() 
-
 
 ## Contents
 
@@ -55,12 +51,52 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
     * [Acknowledgements](#acknowledgements)
 
 ## User Experience
+
+
 [Back to contents](#contents)
 
 ### Initial Discussion
+
+* I wanted to create a website linked to a database, which is able to authenticate a user by having them log in. 
+* The site would allow users to track which Cairns (aka hill / mountain) peaks they have climbed. To offer challenges for hiking distances and reached a number of peaks in the area and to allow other details of the walk such as notes on how it felt and images of the walk to inspire others to get out there and hike. 
+* This would be tracked through the user making posts similar to strava (though without mapping / user tracking abilities as this would be outside of the course material) where they record a walk they had done
+* I wanted to be able to add, edit and delete posts, to comment and like others and your own posts. 
+* I want the user to have a profile which tracks their progress, shows their posts, their progress and achievements. 
+
 [Back to contents](#contents)
 
 ### User Stories
+
+* As an Admin I should be able to:
+    * Log into a user interface so that I can easily manage the database/s
+    * Filter and search models data from the admin page to easily find posts / profiles and delete them if necessary
+    * Navigate the admin panel with relative ease to view, search, add and delete posts and or profiles if needs be.
+    * Users will be able to comment. If offensive the admin should be able to delete the comment
+
+* The project will require authentication. An un-authenticated user will be able to: 
+    * Immediately understand the sites purpose to see if is to their taste and if they want to register
+    * Create / register for an account to be able to post and build their profile
+    * Browse posts of all users and look at detail only (no comments or likes)
+
+* A register & logged in user will be able to: 
+    * Create posts and record peaks / cairns reached, distance walked and meters climbed, edit and delete their own previously created posts
+    * Comment on their own and others posts
+    * Like or "star" posts to show they are impressed 
+    * View their profile where they can add social media links and a profile picture, view progress towards climbing the regions hills and achievements they've completed. 
+    * access a detailed guide or 'tips' on how each page can and should be used. 
+    
+* Any user of the site will get to: 
+    * Be met with an enjoyable colour scheme and uniform site style in order for the entire site to stimulate a positive response.
+    * Enjoy the site from any screen size (within reason)
+    * Follow smooth navigation or, in theory, type in a URL in order to reach a page of the site
+    * See a guide for how each page should be used
+
+* User Stories dropped as part of the agile process
+    * Create an interactive map showing the location of peaks / cairns to be climbed and if they have or have not been climbed yet
+    * View and connect with other users profiles
+
+
+
 [Back to contents](#contents)
 
 ### Project Goals
