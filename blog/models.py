@@ -34,7 +34,7 @@ class Post(models.Model):
     )
     distance = models.FloatField()
     meters_climbed = models.FloatField(default=0, null=True)
-    body = models.TextField()
+    notes = models.TextField(max_length = 150, null=True)
     header_image = CloudinaryField('image', default='placeholder', null=True, blank=True)
     image_2 = CloudinaryField('image', default='placeholder', null=True, blank=True)
     image_3 = CloudinaryField('image', default='placeholder', null=True, blank=True)

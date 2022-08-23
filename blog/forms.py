@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 class PostForm(forms.ModelForm): 
     class Meta: 
         model = Post
-        fields = ('post_title', 'header_image', 'image_2', 'image_3', 'distance', 'meters_climbed', 'first_cairn', 'second_cairn', 'third_cairn',  'body',)
+        fields = ('post_title', 'header_image', 'image_2', 'image_3', 'distance', 'meters_climbed', 'first_cairn', 'second_cairn', 'third_cairn',  'notes',)
 
         widgets = {
             'post_title': forms.TextInput(attrs={'class': 'form-control'}),
@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
             'first_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'firstCairnForm'}),
             'second_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'secondCairnForm'}),
             'third_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'thirdCairnForm'}),
-            'body': forms.Textarea(attrs={'size': 80, 'rows' : 5, 'title': 'Notes'}),
+            'notes': forms.Textarea(attrs={'size': 80, 'rows' : 5, 'title': 'Notes'}),
         }
 
 class CommentForm(forms.ModelForm): 
