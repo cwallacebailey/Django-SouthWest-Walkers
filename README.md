@@ -131,13 +131,84 @@ Two fonts were used for this project, 'Uchen' from google fonts and where this w
 ### Features
 [Back to contents](#contents)
 
-#### Create a user profile
-[Back to contents](#contents)
-
 #### Navigation bar
 
-The navigation bar changes depending on user status and screen size:
+The navigation bar changes depending on user status and screen size and allows the user to easily login, sign up and logout. The can access all key areas of the site through the nav bar which appears on each page. If logged with a profile created in this includes:
+
+* Home - shows the blogs posts which can be clicked through to see the detailed views
+* About - gives an overview of the sites purpose
+* Tips - This changes depending on the page the user is viewing or if they are logged in or not
+* Logout - allows user to logout
+* Profile - view the users profile, created 
+
+![Full Navigation Bar](static/media/navbar_full.png)
+
+If the user is logged in with no profile instead of a link to profile they see "Create Profile" instead:
+
+![Full Navigation Bar No Profile](static/media/nav_bar_no_profile.png)
+
+If not logged in / a new user with no account: 
+
+* Home - as described above
+* About - as described above
+* Tips - as described above, as not logged in this will always prompt the user to sign up or sign in. 
+* Login - allows user to login
+* Sign Up - allows the user to create an account
+
+![Full Navigation Bar Not Logged In](static/media/nav_bar_not_logged_in.png)
+
+When viewed on a smaller screen, such as a phone, the navbar compresses to look like the below:
+
+![Truncated Navigation Bar](static/media/nav_bar_compressed.png)
+
+The Navbar shows the site logo, which is also a link to home. On the footer a hiker is included, this was excluded on the nav bar due to the additional space it took up which made the site look less neat. 
+
+![Site Logo from Footer](static/media/site_logo.png)
+
 [Back to contents](#contents)
+
+### All Auth
+
+#### Sign Up
+
+If a user is new to the sign they have the option to sign up. This uses allauth so I wont go into a huge amount of detail however when the user 
+
+![Sign Up](static/media/sign_up.png)
+
+If the username has already been taken the form refreshes and the user is asked to pick another one. 
+
+![Sign Up Check Username](static/media/signup_check_user.png)
+
+If the password is not deemed strong enough the user will see the below: 
+
+![Sign Up Check Password](static/media/site_check.png)
+
+#### Login
+
+If the user has an account already they are able to sign in, they can even select "remember me" on the login page. If they enter a password that is incorrect they get the error message seen below:  
+
+![Login Check Password](static/media/sign_in_check.png)
+
+Once they have logged in they will be met by a message to confirm they have logged in as they are redirected to the home page
+
+![Login message](static/media/logged_in_message.png)
+
+#### Logout
+
+If the user is logged in they are able to logout through the link in the nav bar and the footer. They will be met with the page below
+
+![Sign Out message](static/media/sign_out_page.png)
+
+Once signed out they will be redirected to the home page and see the message below: 
+
+![Sign Out message](static/media/sign_out.png)
+
+#### Create a user profile
+
+Once a 
+[Back to contents](#contents)
+
+
 
 ### Future Features
 [Back to contents](#contents)
