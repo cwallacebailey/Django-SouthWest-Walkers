@@ -197,7 +197,7 @@ Once they have logged in they will be met by a message to confirm they have logg
 
 If the user is logged in they are able to logout through the link in the nav bar and the footer. They will be met with the page below
 
-![Sign Out message](static/media/sign_out_page.png)
+![Sign Out page](static/media/sign_out_page.png)
 
 Once signed out they will be redirected to the home page and see the message below: 
 
@@ -205,8 +205,51 @@ Once signed out they will be redirected to the home page and see the message bel
 
 #### Create a user profile
 
-Once a 
+Once a user has signed in they are able to create a profile using the link in the navbar. They are taken to the page below: 
+
+![Create Profile Page](static/media/create_profile_page.png)
+
+The only section of this form that has to be completed is the display name. If the user tries to update their profile without one they will be met with the message below: 
+
+![Create Profile Page](static/media/create_profile_display_name_check.png)
+
+To prevent the user putting sordid or incorrect links into their user profile checks are in place that the instagram link has to include https://www.instagram.com. This pushes the user to copy and past a link and stops any other social media site being put in this section of the form. 
+
+If they attempt to they are met with the message below: 
+
+![Create Profile Page](static/media/create_profile_social_links_check.png)
+
+If they successfully create their profile they are redirected to the home page and will see the 'profile' link in the navbar. 
+
 [Back to contents](#contents)
+
+#### User Profile
+
+The user profile has multiple roles. At the top the users profile picture is shown alongside their display name, the total distance they have walked, the number of mountain peaks they have reached as well as their social media links and the option to update their profile if they should want to change their display name or profile picture / social media links. 
+
+If the user has not added social media links they are met with a paragraph saying they would be able to see links to them if they added any in the update profile section. 
+
+![Profile Page](static/media/profile_no_profile_picture.png)
+
+If they do add social media links font awesome icons are added depending on the social media link they have added to their profile: 
+
+![Profile Page without social media links](static/media/profile_view.png)
+
+The user has the option to add a profile picture. If no profile picture is used then a default image is used seen in the snap shot above. If they add their own the default image is replaced with this
+
+The user profile displays all posts the user has made, paginated by 6 shown in rows of 3. This allows the user to see everything they have done and feel a sense of pride over their achievements. Note pagination will be explained in the home section. 
+
+The user is able to see their progress towards walking all of the brecon beacons major peaks which is picked up from any posts they have added to the blog. Peaks reached get a gold mountain next to them and are put into the "You've conquered:" section. Peaks still left to walk have a silver hiker symbol and are left in the "Still left to conquer:" section
+
+![Profile Progress](static/media/progress.png)
+
+This section of the profile picture has buttons which switch the tabs the user sees. If they hit "Achievements" they see the achievements and if they hit "progress" they go back to the progress page. Achievements are a result of accumulated posts so if the user covers 50km distance walked over any number of posts they receive an award, if they reach 5 cairns / mountains they receive another award. This is designed to keep the user moving and posting. 
+
+![Profile Progress](static/media/achievements.png)
+
+
+
+
 
 
 

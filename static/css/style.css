@@ -135,6 +135,10 @@
     overflow: hidden;
 }
 
+#achievements {
+    display: none;
+}
+
 .overflow {
     overflow: hidden
 }
