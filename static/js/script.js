@@ -160,7 +160,7 @@ if (window.location.pathname.includes('/profile/')) {
 
 // update profile tips
 
-if (window.location.pathname.includes('/update_profile/')) {
+if (window.location.pathname.includes('/update_profile/') || window.location.pathname.includes('/create_profile')) {
   updateProfileModal.style.display = "block";
   profileModal.style.display = "none";
   detailPostModal.style.display = "none";
@@ -193,7 +193,7 @@ if (document.getElementById('home-page-index')) {
 
 // All Auth tips
 
-if (window.location.pathname.includes('/accounts/logout/')) {
+if (window.location.pathname.includes('/accounts/logout/') || window.location.pathname.includes('/about/')) {
   updateProfileModal.style.display = "none";
   profileModal.style.display = "none";
   detailPostModal.style.display = "none";
