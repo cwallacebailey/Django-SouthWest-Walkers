@@ -25,22 +25,21 @@
               </li>
           </ul>
         
-          <ul>
+          <ul class="mb-2 mb-lg-0 list-style">
             {% if user.profile.pk %}
               <li>
-                <a class="text-white text-center" href="{% url 'profile' user.id %}">
-                  Profile
+                <a class="text-white nav-link" href="{% url 'profile' user.id %}">
+                  <p class="margin-none">Profile</p>
                 </a>
               </li>
             {% else %}
               <li>
-                <a class="text-white text-center" href="{% url 'create_profile' %}">
-                      <br>
-                      <p class="margin-none">Create Profile</p>
+                <a class="text-white nav-link" href="{% url 'create_profile' %}">
+                  <br>
+                  <p class="margin-none">Create Profile</p>
                 </a>
               </li>
             {% endif %}
-          </ul>
             {% else %}
               <li>
                 <a class="nav-link text-white" href="{% url 'account_signup' %}">Sign Up</a>

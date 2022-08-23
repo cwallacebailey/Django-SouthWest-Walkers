@@ -9,17 +9,16 @@
 
 /* navbar */
 
-#icon {
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .navbar {
     background-color: #36454F;
 }
 
 .nav-bar-spacer {
     height: 20px;
+}
+
+.list-style {
+    list-style: none;
 }
 
 .message-box {
