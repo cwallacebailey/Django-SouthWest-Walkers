@@ -193,7 +193,7 @@ if (document.getElementById('home-page-index')) {
 
 // All Auth tips
 
-if (window.location.pathname.includes('/accounts/logout/') || window.location.pathname.includes('/about/')) {
+if (document.getElementById("no-tip")) {
   updateProfileModal.style.display = "none";
   profileModal.style.display = "none";
   detailPostModal.style.display = "none";
