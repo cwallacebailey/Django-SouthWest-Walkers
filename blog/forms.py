@@ -25,7 +25,7 @@ class CommentForm(forms.ModelForm):
         fields = ('body',)
 
         widgets = {
-            'body': SummernoteWidget(),
+            'body': forms.Textarea(attrs={'size': 80, 'rows' : 5, 'title': 'Notes'}),
         }
 
 class ProfileForm(forms.ModelForm): 

@@ -9,6 +9,8 @@ if (document.getElementById('home-page-index')) {
     }}, 3000);
   };
 
+// Creates slideshow of images uploaded onto detailed view
+
 if (window.location.pathname.includes('/detail')) {
   let images = document.getElementsByClassName("journeyImages");
   let next = document.getElementById("next")
@@ -17,6 +19,7 @@ if (window.location.pathname.includes('/detail')) {
     next.style.display = "none";
   }
 }
+
 // Create Slide Show for Detail View
 
 if (window.location.pathname.includes('/detail')) {
@@ -43,7 +46,6 @@ if (window.location.pathname.includes('/detail')) {
     images[imageIndex-1].style.display = "block";
   }
 }
-
 
 // Create tabs for profile progress and achievements
 
