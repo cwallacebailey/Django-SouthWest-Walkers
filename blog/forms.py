@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
             'first_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'firstCairnForm'}),
             'second_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'secondCairnForm'}),
             'third_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'thirdCairnForm'}),
-            'body': SummernoteWidget({ 'class': 'summernote', 'cols': '5', 'width': '50px'}),
+            'body': forms.Textarea(attrs={'size': 80, 'rows' : 5, 'title': 'Notes'}),
         }
 
 class CommentForm(forms.ModelForm): 
