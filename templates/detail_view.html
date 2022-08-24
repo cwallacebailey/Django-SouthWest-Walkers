@@ -9,7 +9,7 @@
 <div class="nav-bar-spacer">
                 
 </div>
-<div class="container text-center border-blue">
+<div class="container text-center">
     <br>
     <div class="row">
         <h1>
@@ -24,7 +24,7 @@
     <div>
         <div>
             <div>
-                <div class="image-container-div">
+                <div class="image-container-div detail-image-view">
                     {% if "placeholder" in post.header_image.url %}
                         <img class="card-img-top placeholder journeyImages"
                             src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
@@ -133,7 +133,7 @@
             <br>
 
             {% for comment in comments %}
-            {% if comment.response == None %}
+
             <blockquote>
                 {{ comment.comment_author }} : {{ comment.created_date | timesince }} ago
                 <br>
@@ -141,26 +141,6 @@
                 <br>
             </blockquote>
             
-            {% for response in comment.responses %}
-
-                <blockquote>
-                    {{ response.comment_author }} : {{ response.created_date | timesince }} ago
-                    <br>
-                    {{ response.body | safe }}
-                    <br>
-                </blockquote>
-            
-            {% endfor %}
-
-                <form method="post">
-                    {{ comment_form }}
-                    {% csrf_token %}
-                    <br>
-                    <input type="hidden" name="parent_id" value="{{ comment.id }}">
-                    <button type="submit" class="btn btn-secondary" name="response" value="response">Post Response</button>
-                </form>
-
-            {% endif %}
             {% endfor %}
 
             <hr>
@@ -175,8 +155,38 @@
             <br>
 
             {% else %}
+            <div>  
+                <h3>Journey Stats</h3>
+                <br>
+                {% if post.first_cairn or post.second_cairn or post.third_cairn %}
+                <strong><p>Peak/s Reached:</p></strong>
+                    {% if post.first_cairn %}
+                        {{ post.first_cairn }} <i class="fas fa-mountain"></i>
 
-                <button class="star-icon" type="submit", name="post_id", value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} Stars
+                    {% endif %}
+                    {% if post.second_cairn %}
+                        | {{ post.second_cairn }} <i class="fas fa-hiking"></i>
+
+                    {% endif %}
+                    {% if post.third_cairn %} 
+                        | {{ post.third_cairn }} <i class="fas fa-mountain"></i>
+
+                    {% endif %}
+                {% else %}
+                    <p>No Cairns Reached - Still Proud.</p>
+                {% endif %}
+                <br>
+                <br>
+                {% if post.distance > 0 %}
+                {{ post.distance }}Km Covered 
+                {% endif %}
+                
+                {% if post.meters_climbed > 0 %}
+                | {{ post.distance }} Meters Total Ascent
+                {% endif %}
+            </div>
+            <br>
+            <button class="star-icon" type="submit", name="post_id", value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} Stars
 
             {% endif %}
         </div>

@@ -231,7 +231,7 @@ If the user has not added social media links they are met with a paragraph sayin
 
 ![Profile Page](static/media/profile_no_profile_picture.png)
 
-If they do add social media links font awesome icons are added depending on the social media link they have added to their profile: 
+If they do add social media links font awesome icons are added which change color on hovering, the icons change depending on the social media link they have added to their profile: 
 
 ![Profile Page without social media links](static/media/profile_view.png)
 
@@ -247,13 +247,151 @@ This section of the profile picture has buttons which switch the tabs the user s
 
 ![Profile Progress](static/media/achievements.png)
 
+#### Home
 
+The home page simply shows the posts made by all users, paginated by 8 in rows of four on a larger screen, rows of 1 post on mobile. When you hover over the posts they change colour to highlight that you are hovering over them. This interactivity is designed to provoke a positive response with the user. 
 
+![Profile Progress](static/media/home_page_post_hover.png)
 
+##### Pagination
 
+Pagination comes with a navigation bar at the bottom, available on both the home and profile page. if the user is on the first page they are only able to see right pointing arrows as there is no previous page to go to. Clicking the double arrows will take you all the way to the last page, single arrow will take the user to the next page. 
 
+![Pagination](static/media/pagination_1.png)
+
+If there are previous pages of posts to view the user will see left facing arrows, as shown below: 
+
+![Pagination](static/media/pagination_2.png)
+
+This allows clear navigation of posts for the user. 
+
+#### Tips
+
+In order for usage of the site to be clear at all times I added a "tip" function to the navbar which relies on javascript to change the modal's message depending on the page the user is viewing. The tips item clearly seen in the navigation bar gives the user instructions on how each page can and should be used. It appears as a modal on each page and the text changes depending on whether the user is logged in, logged out or where they are in the site. 
+
+If the user is not logged in they are welcomed to the page and prompted to log in or sign up, this message will occur regardless of where they are in the site: 
+
+![Tips](static/media/tip_not_logged_in.png)
+
+If the user is logged in on the home page they see the below: 
+
+![Tips Home Page](static/media/tip_home_page.png)
+
+If the user is creating or updating their profile they see the below making the URL item clear: 
+
+![Tips Create Profile](static/media/tip_create_profile.png)
+
+If the user is on the about page or logging out they see the message below as in theory no explanation would be required for anyone on these pages. 
+
+![Tips about or logout](static/media/tip_logout.png)
+
+If the user is creating or editing a post they see the tip below which makes clear that up to 3 images and 3 cairns / mountains can be added to each hike: 
+
+![Tips about or logout](static/media/tip_add_post.png)
+
+#### About
+
+The about page shows the sites purpose and is available through the navbar: 
+
+![About Page](static/media/about_main_view.png)
+
+When viewed on a mobile the image is no longer visible and a simple text box appears: 
+
+![About Page](static/media/about_main_mobile.png)
+
+#### Add Post
+
+A user can add a post once they have logged in. They are prompted to complete the form through a series of checks. The only sections of the form which must be filled in to submit the form are the title, distance (all works would have a distance, otherwise they would be a stand) and the notes to review their walk.  
+
+![Add Post](static/media/add_post_first.png)
+
+Up to three images can be added and three cairns / mountains. As the three peaks is an enormous challenge in the brecons it is likely that three walks would be the most someone would do in a day. If they do more this would be pushed to two walks. 
+
+The option to fill in a second cairn / mountain or second image appears once the first has been filled in. 
+
+The first cairn can be deleted once entered and the second mountain / cairn  kept with no ill effects however this is all summed into a single column in the profile view so does not matter. 
+
+![Add Post second image](static/media/add_post_second.png)
+
+The the user tries to submit the form without a title or distance they are met with the below: 
+
+![Add Post warning](static/media/add_post_no_name.png)
+
+No distance: 
+
+![Add Post warning distance](static/media/add_post_no_distance.png)
+
+Once they have submit the post correctly they will be taken to the main home page where they can see it as the most recent post. 
+
+#### Detailed View
+
+The detailed view allows users to see a greater level of detail on each post than presented on the home page including the three images the user added (if they used this option) presented as a slide show. Otherwise a default image will be shown if no images were added to the post. Finally if only one image added by the user then no slide show is available and the "next image" link is hidden. 
+
+![detail view](static/media/detail_header.png)
+![detail view second image](static/media/detail_second_image.png)
+
+This appears under the title and the users chosen display name. 
+
+If the user reached the top of mountains / cairns these will be displayed on the detail view. If they did not then the caption reads "No cairns reached, still proud". We want to inspire users to walk regardless of reaching the tops of mountains for the site to be fully inclusive. 
+
+Defensive design is employed here as the user will only see the links to update or delete the post if they are the creator of the post
+
+If a user is logged in they will be able to star or comment on the users post: 
+
+![detail view comment 1](static/media/detail_post_comment.png)
+
+The comments are then ordered by date created. 
+
+![detail view comment 2](static/media/detail_post_comment_2.png)
+
+I have not opted to approve any comments or posts similar to facebook or strava. Instead the user if bullying or antisocial in anyway can simply be deleted from the admin panel. 
+
+A post can be 'starred' similar to a like system, the method for this was taken from the code institute tutorial video. When not starred by a user the star appears empty. If you star it then it fills with gold: 
+
+![star 1](static/media/star_not_clicked.png)
+![star 2](static/media/star_clicked.png)
+
+If the user is not logged in or signed up they will see the below level of detail with the aim of inspiring people to join and signup by letting them see what other people are achieving: 
+
+![detail view not logged in](static/media/detail_not_logged_in.png)
+
+#### Delete Post
+
+A post can be deleted using djangos built in system. Any user can delete their own posts using the delete post button on the detail view. They are taken to a new screen to confirm and then taken to the home screen if they confirm. 
+
+#### Footer
+
+The footer holds the site logo, social links for the site (fillers used for now) and the option to logout when logged in. If not logged in the footer shows the option to sign up or login. 
+
+![Footer](static/media/footer_full.png)
+
+When compressed the footer items are hidden to make viewing easier
+
+![Footer compressed](static/media/footer_compressed.png)
+
+When you hover over items on the footer they change colour to give a greater sense of user interactivity
+
+![Footer hover](static/media/hover.png)
+
+#### accessing tabs if not logged in
+
+If any user somehow gets to the add post page, create profile page they are met with the below and cannot perform other actions. 
+
+![accessing tabs if not logged in](static/media/login_prompt.png)
+
+If the access another users post and attempt to delete it or update is they are met with the below
+
+![delete or update post if not logged in](static/media/not_your_post.png)
 
 ### Future Features
+
+These are endless, however key items below
+
+* I would like to design a map which lights up in sections when a user has hiked that section of the map to further gamify the system. In addition it would show the location of the other major peaks of the region which they have yet to do with details of the peak upon hovering over it. 
+* allow posts to be loaded in from strava and the peaks identified automatically. This and the item above would have to be done for this project to become a viable project. 
+* I had everything in place to comment on comments, so users could respond to any comment made on their post however the django system I had in place would only take a comment from the first text box on the screen rather than that the user was typing into. I ran out of time to fix this. 
+* Block swear words and profanities, though the only way I could think to do this was to create a list of them as an array and then ensure they were not in the comment or post notes when a user submitted. To do this I would have to myself write a list of the swear words and don't think its suitable for a course reviewer to have to read all of these. 
+
 [Back to contents](#contents)
 
 ### Defensive Design

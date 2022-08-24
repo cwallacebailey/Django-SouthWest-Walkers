@@ -7,6 +7,10 @@
     padding-right: 0 !important;
 }
 
+body {
+    overflow-x:hidden;
+}
+
 /* navbar */
 
 .navbar {
@@ -83,6 +87,10 @@
     max-height: 600px;
     max-width: 600px;
     flex-direction: column;
+}
+
+.journeyImages {
+    cursor: default;
 }
 
 .journeyImages {
@@ -291,8 +299,8 @@ footer {
 
 /* allauth */
 
-.allauth-body-size {
-    height: 80vh;
+.allauth-height {
+    height: 75vh;
 }
 
 /* font awesome icons */
@@ -370,7 +378,6 @@ footer {
 
 @media only screen and (max-width: 600px) {
 
-
     #about-header {
         display: block;
         color: #36454F;
@@ -380,6 +387,10 @@ footer {
         padding-top: 70px;
     }
 
+    .allauth-height {
+        height: 60vh;
+    }
+    
     footer h4 {
         text-align: center;
     }

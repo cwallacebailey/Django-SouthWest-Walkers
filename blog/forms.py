@@ -16,7 +16,7 @@ class PostForm(forms.ModelForm):
             'first_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'firstCairnForm'}),
             'second_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'secondCairnForm'}),
             'third_cairn': forms.Select(attrs={'class': 'form-control', 'id': 'thirdCairnForm'}),
-            'notes': forms.Textarea(attrs={'size': 80, 'rows' : 5, 'title': 'Notes'}),
+            'notes': forms.Textarea(attrs={'cols': 30, 'rows' : 5, 'title': 'Notes'}),
         }
 
 class CommentForm(forms.ModelForm): 
@@ -25,7 +25,7 @@ class CommentForm(forms.ModelForm):
         fields = ('body',)
 
         widgets = {
-            'body': forms.Textarea(attrs={'size': 80, 'rows' : 5, 'title': 'Notes'}),
+            'body': forms.Textarea(attrs={'size': 30, 'rows' : 5,}),
         }
 
 class ProfileForm(forms.ModelForm): 
