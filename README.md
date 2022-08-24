@@ -122,14 +122,10 @@ Two fonts were used for this project, 'Uchen' from google fonts and where this w
 
 [Back to contents](#contents)
 
-### Imagery
-[Back to contents](#contents)
-
 ### Wireframes
 [Back to contents](#contents)
 
 ### Features
-[Back to contents](#contents)
 
 #### Navigation bar
 
@@ -183,6 +179,8 @@ If the password is not deemed strong enough the user will see the below:
 
 ![Sign Up Check Password](static/media/site_check.png)
 
+[Back to contents](#contents)
+
 #### Login
 
 If the user has an account already they are able to sign in, they can even select "remember me" on the login page. If they enter a password that is incorrect they get the error message seen below:  
@@ -193,6 +191,8 @@ Once they have logged in they will be met by a message to confirm they have logg
 
 ![Login message](static/media/logged_in_message.png)
 
+[Back to contents](#contents)
+
 #### Logout
 
 If the user is logged in they are able to logout through the link in the nav bar and the footer. They will be met with the page below
@@ -202,6 +202,8 @@ If the user is logged in they are able to logout through the link in the nav bar
 Once signed out they will be redirected to the home page and see the message below: 
 
 ![Sign Out message](static/media/sign_out.png)
+
+[Back to contents](#contents)
 
 #### Create a user profile
 
@@ -247,11 +249,15 @@ This section of the profile picture has buttons which switch the tabs the user s
 
 ![Profile Progress](static/media/achievements.png)
 
+[Back to contents](#contents)
+
 #### Home
 
 The home page simply shows the posts made by all users, paginated by 8 in rows of four on a larger screen, rows of 1 post on mobile. When you hover over the posts they change colour to highlight that you are hovering over them. This interactivity is designed to provoke a positive response with the user. 
 
 ![Profile Progress](static/media/home_page_post_hover.png)
+
+[Back to contents](#contents)
 
 ##### Pagination
 
@@ -264,6 +270,8 @@ If there are previous pages of posts to view the user will see left facing arrow
 ![Pagination](static/media/pagination_2.png)
 
 This allows clear navigation of posts for the user. 
+
+[Back to contents](#contents)
 
 #### Tips
 
@@ -289,6 +297,8 @@ If the user is creating or editing a post they see the tip below which makes cle
 
 ![Tips about or logout](static/media/tip_add_post.png)
 
+[Back to contents](#contents)
+
 #### About
 
 The about page shows the sites purpose and is available through the navbar: 
@@ -298,6 +308,8 @@ The about page shows the sites purpose and is available through the navbar:
 When viewed on a mobile the image is no longer visible and a simple text box appears: 
 
 ![About Page](static/media/about_main_mobile.png)
+
+[Back to contents](#contents)
 
 #### Add Post
 
@@ -322,6 +334,8 @@ No distance:
 ![Add Post warning distance](static/media/add_post_no_distance.png)
 
 Once they have submit the post correctly they will be taken to the main home page where they can see it as the most recent post. 
+
+[Back to contents](#contents)
 
 #### Detailed View
 
@@ -355,9 +369,13 @@ If the user is not logged in or signed up they will see the below level of detai
 
 ![detail view not logged in](static/media/detail_not_logged_in.png)
 
+[Back to contents](#contents)
+
 #### Delete Post
 
 A post can be deleted using djangos built in system. Any user can delete their own posts using the delete post button on the detail view. They are taken to a new screen to confirm and then taken to the home screen if they confirm. 
+
+[Back to contents](#contents)
 
 #### Footer
 
@@ -373,6 +391,8 @@ When you hover over items on the footer they change colour to give a greater sen
 
 ![Footer hover](static/media/hover.png)
 
+[Back to contents](#contents)
+
 #### accessing tabs if not logged in
 
 If any user somehow gets to the add post page, create profile page they are met with the below and cannot perform other actions. 
@@ -382,6 +402,14 @@ If any user somehow gets to the add post page, create profile page they are met 
 If the access another users post and attempt to delete it or update is they are met with the below
 
 ![delete or update post if not logged in](static/media/not_your_post.png)
+
+[Back to contents](#contents)
+
+### Further Defensive Design
+
+404 errors and 500 errors 
+
+[Back to contents](#contents)
 
 ### Future Features
 
@@ -394,50 +422,28 @@ These are endless, however key items below
 
 [Back to contents](#contents)
 
-### Defensive Design
-[Back to contents](#contents)
-
 ## Database Design
 [Back to contents](#contents)
 
 ## Technologies Used
-[Back to contents](#contents)
 
-### Languages Used
 
-#### HTML
+### Languages, frameworks and add ons used
 
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-
-#### CSS
-
-* [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3#:~:text=CSS3%20is%20the%20latest%20evolution,flexible%20box%20or%20grid%20layouts.)
-
-#### JavaScript
-
+* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* This project uses JavaScript ES6 and jQuery.
-
-#### Python
-
 * [Python](https://www.python.org/)
-* This project uses Python 3.8.11.
+* [Bootstrap](https://getbootstrap.com/) was used for quick formatting
+* [Font Awesome](https://fontawesome.com/) used across the site for icons
 
-### Workspace
+[Back to contents](#contents)
 
-#### GitPod
+#### Workspace
 
-[GitPod](https://gitpod.io/) was used as a virtual IDE workspace to build this site.
+[Git](https://gitpod.io/) was used as a workspace to build this project, and fulfilled the version control aspect of the course through regular commits with pushes to github
 
-### Version Control
-
-#### Git
-
-[Git](https://git-scm.com/) was used for version control by utilizing the Gitpod terminal to add and commit to Git and push to GitHub.
-
-#### GitHub
-
-[GitHub](https://github.com/) is used to store the code for this project after being pushed from Git.
+[Back to contents](#contents)
 
 ### Wireframing
 
@@ -459,41 +465,9 @@ These are endless, however key items below
 
 ---
 
-### Site Design
-
-#### Font Awesome
-
-[Font Awesome](https://fontawesome.com/) was used on all pages to add the icons.
-
-#### Google Fonts
-
-[Google Fonts](https://fonts.google.com/) was used to select all the fonts on the site.
-
 #### Favicon.io
 
-[favicon.io](https://favicon.io/) used to create a site favicon.
-
-### Packages
-
-| Name | Purpose |
-|------|---------|
-| Django | Framework |
-| Flake-8 | Syntax |
-| Pylint | Syntax |
-| Pillow | Images |
-| django-allauth | Authentication |
-| Stripe | Secure Payment Services |
-| Boto3 | AWS Management |
-| django-storages | Custom Storage Backends |
-| django-countries | Country Form Field |
-| python-magic | Audio Form Field |
-| gunicorn | WSGI HTTP Server |
-| django-crispy-forms | Front End Form Rendering |
-| dj-database-url | Database Configuration |
-| psycopg2-binary | PostgreSQL DB Adaptor |
-| coverage | Test Coverage |
-| travis.ci | Testing |
-| | |
+The favicon was made from a screen shot of a font awesome icon
 
 [Back to contents](#contents)
 
@@ -503,23 +477,7 @@ These are endless, however key items below
 
 #### Heroku
 
-[Heroku](https://www.heroku.com) was used to deploy the live site.
-
-### Frameworks, Libraries, and Others
-
-#### Google DevTools
-
-[Google DevTools]() was used to help find what code correlated to which feature.
-
-#### Lighthouse
-
-[Lighthouse](https://developers.google.com/web/tools/lighthouse) was used to ensure that the code was as performant as possible, conforming to best practices, and SEO and Accessibility guidelines.
-
-#### WebPageTest
-
-#### Bootstrap
-
-[Bootstrap](https://getbootstrap.com/) was used 
+[Heroku](https://www.heroku.com) deploys the live site.
 
 ## Deployment
 
@@ -533,121 +491,10 @@ These are endless, however key items below
 
 ### Solved Bugs
 
-### Known Bugs
-
-
 ## Credits
 
 ### Code
 
-* [Font Awesome](https://fontawesome.com/): Library of icons used for social media and download links.
-* This website was made with the help of the tutorials from Code institute for the 
-* [Django Documentation](https://docs.djangoproject.com/en/3.2/) has been used to ensure correct syntax usage throughout the code.
-* [Stack Overflow](https://stackoverflow.com/) has been used to help with deciphering the django error codes, and searching for bug fixes.
-* 
-* 
-* 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Django-SouthWest-Walkers
-
-pip3 install django gunicorn
-
-pip3 install dj_database_url psycopg2
-
-# To run cloudinary
-
-pip3 install dj3-cloudinary-storage
-
-# To create a requirements.txt
-
-pip3 freeze --local > requirements.txt
-
-# To create a new Django Project
-
-django-admin startproject southwestwalkers .
-
-# To create the app 
-
-python3 manage.py startapp blog
-
->> This now needs to be added to settings.py in the install apps section add 'blog', to the end
-
-# To migrate these changes
-
-python3 manage.py migrate
-
-# To see these changes have worked
-
-python3 manage.py runserver
-
->> you will see the little rocket if it worked
-
-# Contents of env.py for now: 
-
-import os
-
-os.environ["DATABASE_URL"] = "postgres://soybsfcfvfpvkf:6f2c9e7d69d9062e9e8a03962d99a49dd196ba9443f113fb5bb194b734fca5e6@ec2-34-242-84-130.eu-west-1.compute.amazonaws.com:5432/d6cqgnjbeo3jng"
-os.environ["SECRET_KEY"] = "s@uthwest!84"
-os.environ["CLOUDINARY_URL"] = "cloudinary://624189548942148:RmTrYOVf13gQzqCqeo-cJuTy12o@dkzungvzx"
-
-# Allow Multiple Images
-
-https://stackoverflow.com/questions/34006994/how-to-upload-multiple-images-to-a-blog-post-in-django
-
-
-Using AllAuth because there are advantages such as account and password and single sign on with google or facebook 
-# https://learndjango.com/tutorials/django-allauth-tutorial
-
-
-to find the allauth directory
-
-python
-help(‘allauth')
-
-cp -r /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/allauth/templates/* templates/allauth/
-
-have to create an allauth folder in the templates folder in the general area. 
-
-to add dropdown to form for region
-
-https://thewebdev.info/2022/04/05/how-to-create-a-dropdown-in-python-django-model-form/#:~:text=To%20create%20a%20dropdown%20in%20Python%20Django%20model%20form%2C%20we,the%20model%20for%20the%20form.&text=to%20add%20the%20color%20field%20to%20the%20MyModel%20model%20class.
-
-
-
-List of all the hills in the mendips
-
-https://peakvisor.com/park/mendip-hills-aonb.html
-
-
-Add summernote to blog post creation
-https://github.com/summernote/django-summernote
-
-
-Image: 
+### Images: 
 
 https://www.pexels.com/photo/brown-and-green-mountains-under-white-sky-10874914/
