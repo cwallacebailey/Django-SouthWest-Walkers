@@ -1,40 +1,40 @@
 ## Initial Deployment
 Below the steps to to deploy the site to Heroku are outlined with console commands needed to initiate the processes steps
 
-#### Create repository:
+### Create repository:
 
 Create a new repository in GitHub or clone it using the below: 
 
 Note - If you are cloning the project, non pip installs are required. Instead a shorter method can be followed by entering the below command to install all the required libraries/packages at once:
 
-* pip install -r requirements.txt
+  * pip install -r requirements.txt
 
 Its important to note that if developing on your local device, the virtual environment must be set up as the first step, followed by loading the the requirements.txt. 
 
-##### Set the workspace up:
+#### Set the workspace up:
 
 1. Install Django and gunicorn
 
-* Terminal Command - pip3 install django gunicorn
+  * Terminal Command - pip3 install django gunicorn
 
 2. Install the supporting libraries 
 
-* Terminal Command for psycopg2 - pip3 install dj_database_url psycopg2
-* Terminal Command for cloudinary - pip install dj3-cloudinary-storage
+  * Terminal Command for psycopg2 - pip3 install dj_database_url psycopg2
+  * Terminal Command for cloudinary - pip install dj3-cloudinary-storage
 
 3. Create requirements.txt:
 
-* Terminal Command - pip freeze --local > requirements.txt
+  * Terminal Command - pip freeze --local > requirements.txt
 
 4. Create a new Django Project
 
-* Terminal Command - django-admin startproject southwestwalkers 
+  * Terminal Command - django-admin startproject southwestwalkers 
 
 Note southwestwalkers is my project name. You can insert any project name you like here. 
 
 5. To create the app 
 
-* Terminal Command - python3 manage.py startapp blog
+  * Terminal Command - python3 manage.py startapp blog
 
 Note blog is my app name. You can insert any name you like here. 
 
@@ -42,15 +42,15 @@ Note blog is my app name. You can insert any name you like here.
 
 7. Migrate changes:
 
-* Terminal Command to migrate - python manage.py migrate
+  * Terminal Command to migrate - python manage.py migrate
 
 8. To see these changes have worked
 
-* Terminal Command to run project - python3 manage.py runserver
+  * Terminal Command to run project - python3 manage.py runserver
 
 Note a successfull run will show the little rocket aka the Django success page
 
-##### Create Heroku App:
+#### Create Heroku App:
 
 The below works on the assumption that you already have an account with Heroku and are signed in. If you do not create an account in the normal way for any site. 
 
@@ -62,15 +62,15 @@ In the top right corner of the landing page click "New", then hit "Create new ap
 3. Select the nearest location to you
 4. Add your Database to your Heroku app
 
-* Head to the Resources tab of the app dashboard. Under heading for "Add ons," search for and select "Heroku Postgres"
-* Select what applies to you, here its probably "Hobby Dev - Free" from the plan name drop-down menu.
-* Click "Submit Order Form"
+  * Head to the Resources tab of the app dashboard. Under heading for "Add ons," search for and select "Heroku Postgres"
+  * Select what applies to you, here its probably "Hobby Dev - Free" from the plan name drop-down menu.
+  * Click "Submit Order Form"
 
 5. From the editor, head to your projects settings.py file, copy the SECRET_KEY variable and add this to the same name variable in the Heroku App's "config vars" where the left box will read variable key
 6. Directly beneath the config vars (variable VALUE) = Value copied from settings.py in project.
 
 
-##### Creating Environmental Variables Locally:
+#### Creating Environmental Variables Locally:
 
 1. Install env package:
 
@@ -78,9 +78,9 @@ Terminal Command to run project - pip install python-dotenv
 
 2. env.py file requirements:
 
-* The Heroku app settings tab will have items required to be entered into your env.py file.
-* Click "reveal config vars" and copy the variable DATABASE_URL "value". 
-* Add this value to a variable called DATABASE_URL in your create .env file:
+  * The Heroku app settings tab will have items required to be entered into your env.py file.
+  * Click "reveal config vars" and copy the variable DATABASE_URL "value". 
+  * Add this value to a variable called DATABASE_URL in your create .env file:
 
   * DATABASE_URL= Paste the value from heroku here
   * From the settings.py file, copy the SECRET_KEY value assign it the variable SECRET_KEY in env.py
@@ -91,12 +91,12 @@ Terminal Command to run project - pip install python-dotenv
 
 Example for all fields below: 
 
-os.environ["DATABASE_URL"] = "postgres://qgcfwbmpvwyxdz:acca32316e072a7ec331296c744c8a44985b0c1deec9a1b9cbc48cc92a9aad76@ec2-54-155-110-181.eu-west-1.compute.amazonaws.com:5432/d78q9bdjpk2vnc"
-os.environ["SECRET_KEY"] = "xyz123yxz456"
-os.environ["CLOUDINARY_URL"] = "cloudinary://624189548942148:RmTrYOVf13gQzqCqeo-cJuTy12o@dkzungvzx"
-os.environ["PORT"]="8000"
+      os.environ["DATABASE_URL"] = "postgres://qgcfwbmpvwyxdz:acca32316e072a7ec331296c744c8a44985b0c1deec9a1b9cbc48cc92a9aad76@ec2-54-155-110-181.eu-west-1.compute.amazonaws.com:5432/d78q9bdjpk2vnc"
+      os.environ["SECRET_KEY"] = "xyz123yxz456"
+      os.environ["CLOUDINARY_URL"] = "cloudinary://624189548942148:RmTrYOVf13gQzqCqeo-cJuTy12o@dkzungvzx"
+      os.environ["PORT"]="8000"
 
-##### Settings.py file
+#### Settings.py file
 
 1. Setting up settings.py File:
 
@@ -153,22 +153,22 @@ ALLOWED_HOSTS = ['south-west-walkers.herokuapp.com', 'localhost']
 
 8. Commit and push the code to the GitHub Repository.
 
-* Terminal Command - git add .
-* Terminal Command - git commit -m "write whatever you like here that is meaningful to you and others who may see your code"
-* Terminal Command - git push
+  * Terminal Command - git add .
+  * Terminal Command - git commit -m "write whatever you like here that is meaningful to you and others who may see your code"
+  * Terminal Command - git push
 
 
-#### Cloning on a Local machine
+### Cloning on a Local machine
 
 Head to the GitHub repository then follow the steps below to clone the project:
 
 1. Gitpod requires you to have the web extension installed. From here click the green Gitpod button from the main page of the repository. 
 2. Install the requirements listed in requirements.txt 
 
-* Terminal command - pip3 install -r requirements.txt
+  * Terminal command - pip3 install -r requirements.txt
 
 3. Create your .env file.
 4. Run the server
 
-* Terminal command - python mange.py runserver
+  * Terminal command - python mange.py runserver
 
