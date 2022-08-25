@@ -30,9 +30,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = 'DEVELOPMENT' in os.environ
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['south-west-walkers.herokuapp.com', 'localhost', 'testserver']
+ALLOWED_HOSTS = ['south-west-walkers.herokuapp.com', 'localhost',]
 
 
 # Application definition
@@ -70,7 +70,6 @@ MESSAGE_TAGS = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

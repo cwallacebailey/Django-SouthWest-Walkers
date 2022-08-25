@@ -73,6 +73,12 @@ body {
     display: block;
 }
 
+/* index.html */
+
+#home-page-index {
+    min-height: 75vh;
+}
+
 /* Pagination bar */
 
 #pagination {

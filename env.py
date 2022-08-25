@@ -1,6 +1,6 @@
 import os
 
-os.environ["DATABASE_URL"] = "postgres://qgcfwbmpvwyxdz:acca32316e072a7ec331296c744c8a44985b0c1deec9a1b9cbc48cc92a9aad76@ec2-54-155-110-181.eu-west-1.compute.amazonaws.com:5432/d78q9bdjpk2vnc"
-os.environ["SECRET_KEY"] = "s@uthwest!84"
+os.environ["DATABASE_URL"] = "postgres://owumvojxztoygj:1d34f431bec69f9c4500a5b26e3bc3b88abeafe442fa00d3e3c4d7baf5c1cac3@ec2-52-208-164-5.eu-west-1.compute.amazonaws.com:5432/dcs6efs2v9m73e"
+os.environ["SECRET_KEY"] = "s@uthwest!94"
 os.environ["CLOUDINARY_URL"] = "cloudinary://624189548942148:RmTrYOVf13gQzqCqeo-cJuTy12o@dkzungvzx"
 os.environ["PORT"]="8000"
