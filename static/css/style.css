@@ -38,6 +38,10 @@ body {
     color: white;
 }
 
+.fading-article-item a:hover {
+    color: white;
+}
+
 .card-img-top-home {
     height: 12rem;
     object-fit: cover;
