@@ -273,18 +273,18 @@ class CustomSignupView(SignupView):
 
 # Code below is from this source - https://studygyaan.com/django/django-custom-404-error-template-page
 
-def error_404(request, exception):
-    """"
-    HTTP 404 errors - diverts to user
-    friendly page
-    """
+# def error_404(request, exception):
+#     """"
+#     HTTP 404 errors - diverts to user
+#     friendly page
+#     """
 
-    return render(request, 'templates/errors/404.html')
+#     return render(request, 'templates/errors/404.html')
 
-def error_500(request,):
-    """"
-    HTTP 500 errors - diverts to user
-    friendly page
-    """
+# def error_500(request,):
+#     """"
+#     HTTP 500 errors - diverts to user
+#     friendly page
+#     """
 
-    return render(request, 'templates/errors/500.html')
+#     return render(request, 'templates/errors/500.html')
