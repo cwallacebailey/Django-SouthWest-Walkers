@@ -73,10 +73,14 @@ body {
     display: block;
 }
 
-/* index.html */
+/* minimum height tabs */
 
 #home-page-index {
     min-height: 75vh;
+}
+
+#profile-page-index {
+    min-height: 50vh;
 }
 
 /* Pagination bar */
@@ -383,6 +387,11 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
+
+    #profile-page-index,
+    #home-page-index {
+        min-height: 0vh;
+    }
 
     #about-header {
         display: block;

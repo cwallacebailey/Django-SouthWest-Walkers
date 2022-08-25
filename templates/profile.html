@@ -2,14 +2,14 @@
 {% load humanize %}
 {% block content %}
 
-<section>
+<section class="small-center">
 
     <!-- Profile Picture Section  -->
 
     <div class="row no-gutters small-center">
         {% if 'placeholder' in profile.profile_picture.url %}
             <img class="col-md-3 margin-none" id="profile-picture"
-                src="https://res.cloudinary.com/dkzungvzx/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency//v1658827279/mendip_hills_ep6hxc.jpg">
+                src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg">
         {% else %}
             <img class="col-md-3 margin-none" id="profile-picture" src="{{ profile.profile_picture.url }}" alt="profile-picture">
         {% endif %}
@@ -67,7 +67,7 @@
 
 <section>
     <!-- Achievements / Progress -->
-    <div class="container-fluid p-0">
+    <div class="container-fluid p-0" id="profile-page-index">
         <div class="row">
             <div class="col-md-3 border-end">
 
