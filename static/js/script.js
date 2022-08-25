@@ -77,7 +77,7 @@ if (window.location.pathname.includes('/profile')) {
 
 // Expand 'create post' form if image entered into first image slot
 
-if (window.location.pathname.includes('/add_post')) {
+if (window.location.pathname.includes('/add_post') || window.location.pathname.includes('/update-detail')) {
   let first_cairn = document.getElementById("firstCairnForm")
   let second_cairn = document.getElementById("secondCairnForm")
   let third_cairn = document.getElementById("thirdCairnForm")
