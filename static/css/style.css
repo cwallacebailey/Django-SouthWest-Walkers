@@ -97,7 +97,6 @@ body {
 
 .image-container-div {
     margin: auto;
-    padding: auto;
     max-height: 600px;
     max-width: 600px;
     flex-direction: column;
@@ -223,7 +222,6 @@ body {
 
 .mountain-list-div {
     border-style: solid;
-    border-color: #386a8b;
     background-color: #386a8b;
     width: 70%;
     margin-top: 2px;
@@ -231,9 +229,20 @@ body {
     border-radius: 10px;
 }
 
+.update-profile-button {
+    border-style: solid;
+    background-color: #36454F;
+    border-color: #33424d;
+    width: 70%;
+    margin-top: 2px;
+    padding: 4px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+
 .achievement-list-item {
     border-style: solid;
-    border-color: #36454F;
     background-color: #36454F;
     width: 70%;
     margin-top: 2px;

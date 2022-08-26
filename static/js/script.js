@@ -3,17 +3,17 @@
 if (document.getElementById('home-page-index')) {
   setTimeout(function() {
     if (document.getElementById("msg")) {
-      let messages = document.getElementById("msg")
+      let messages = document.getElementById("msg");
       let alert = new bootstrap.Alert(messages);
-      alert.close()
+      alert.close();
     }}, 3000);
-  };
+  }
 
 // Creates slideshow of images uploaded onto detailed view
 
 if (window.location.pathname.includes('/detail')) {
   let images = document.getElementsByClassName("journeyImages");
-  let next = document.getElementById("next")
+  let next = document.getElementById("next");
 
   if (images.length <= 1) {
     next.style.display = "none";
@@ -22,115 +22,121 @@ if (window.location.pathname.includes('/detail')) {
 
 // Create Slide Show for Detail View
 
+let imageIndex = 1;
+
 if (window.location.pathname.includes('/detail')) {
 
-  let next = document.getElementById("next")
+  let next = document.getElementById("next");
   next.addEventListener('click', nextImage);
-
-  let imageIndex = 1;
   showImage(imageIndex);
-
-  function nextImage() {
-      imageIndex += 1;
-      showImage(imageIndex);
+  if (document.getElementById("journeyImage3")) {
+    console.log("here")
   }
+}
 
-  function showImage(n) {
-    let i;
-    let images = document.getElementsByClassName("journeyImages");
-    if (n > images.length) {imageIndex = 1}
-    if (n < 1) {slideIndex = images.length}
-    for (i = 0; i < images.length; i++) {
-      images[i].style.display = "none";
-    }
-    images[imageIndex-1].style.display = "block";
+function nextImage() {
+  imageIndex += 1;
+  showImage(imageIndex);
+}
+
+function showImage(n) {
+  let i;
+  let images = document.getElementsByClassName("journeyImages");
+  if (n > images.length) {imageIndex = 1};
+  if (n < 1) {slideIndex = images.length}
+  for (i = 0; i < images.length; i++) {
+    images[i].style.display = "none";
   }
+  images[imageIndex-1].style.display = "block";
 }
 
 // Create tabs for profile progress and achievements
 
 if (window.location.pathname.includes('/profile')) {
-  let progress_button = document.getElementById("progress-button")
-  let achievements_button = document.getElementById("achievements-button")
-
-  let progress = document.getElementById('progress')
-  let achievements = document.getElementById('achievements')
-
+  let progress_button = document.getElementById("progress-button");
+  let achievements_button = document.getElementById("achievements-button");
   progress_button.addEventListener('click', showProgress);
   achievements_button.addEventListener('click', showAchievements);
+}
+
+function showAchievements() {
+  let progress_button = document.getElementById("progress-button");
+  let achievements_button = document.getElementById("achievements-button");
+  let progress = document.getElementById('progress');
+  let achievements = document.getElementById('achievements');
+  progress.style.display = "none";
+  progress_button.classList.remove('tabs-button-active');
+  achievements.style.display = "block";
+  achievements_button.classList.add('tabs-button-active');
+}
 
 
-  function showProgress() {
-    progress.style.display = "block";
-    progress_button.classList.add('tabs-button-active')
-    achievements.style.display = "none";
-    achievements_button.classList.remove('tabs-button-active')
-  }
-
-  function showAchievements() {
-    progress.style.display = "none";
-    progress_button.classList.remove('tabs-button-active')
-    achievements.style.display = "block";
-    achievements_button.classList.add('tabs-button-active')
-  }
+function showProgress() {
+  let progress_button = document.getElementById("progress-button");
+  let achievements_button = document.getElementById("achievements-button");
+  let progress = document.getElementById('progress');
+  let achievements = document.getElementById('achievements');
+  progress.style.display = "block";
+  progress_button.classList.add('tabs-button-active');
+  achievements.style.display = "none";
+  achievements_button.classList.remove('tabs-button-active');
 }
 
 // Expand 'create post' form if image entered into first image slot
 
 if (window.location.pathname.includes('/add_post') || window.location.pathname.includes('/update-detail')) {
-  let first_cairn = document.getElementById("firstCairnForm")
-  let second_cairn = document.getElementById("secondCairnForm")
-  let third_cairn = document.getElementById("thirdCairnForm")
+  let first_cairn = document.getElementById("firstCairnForm");
+  let second_cairn = document.getElementById("secondCairnForm");
+  let third_cairn = document.getElementById("thirdCairnForm");
 
-  second_cairn.parentNode.className = "hidden_element"
-  third_cairn.parentNode.className = "hidden_element"
+  second_cairn.parentNode.className = "hidden_element";
+  third_cairn.parentNode.className = "hidden_element";
 
-  first_cairn.addEventListener('change', showSecondCairn)
-  second_cairn.addEventListener('change', showThirdCairn)
+  first_cairn.addEventListener('change', showSecondCairn);
+  second_cairn.addEventListener('change', showThirdCairn);
 
-  function showSecondCairn() {
-    if (first_cairn.value != "") {
-      second_cairn.parentNode.className = "shown_element"
-    }
-  }
+}
 
-  function showThirdCairn() {
-    if (second_cairn.value != "") {
-      third_cairn.parentNode.className = "shown_element";
-    }
-  }
+function showSecondCairn() {
+  let second_cairn = document.getElementById("secondCairnForm");
+  second_cairn.parentNode.className = "shown_element";
+}
+
+function showThirdCairn() {
+  let third_cairn = document.getElementById("thirdCairnForm");
+  third_cairn.parentNode.className = "shown_element";
 }
 
 // Expand 'create post' form if cairn entered
 
 if (window.location.pathname.includes('/add_post')) {
-  let id_image_1 = document.getElementById("id_header_image")
-  let id_image_2 = document.getElementById("id_image_2")
-  let id_image_3 = document.getElementById("id_image_3")
+  let id_image_1 = document.getElementById("id_header_image");
+  let id_image_2 = document.getElementById("id_image_2");
+  let id_image_3 = document.getElementById("id_image_3");
 
-  id_image_2.parentNode.className = "hidden_element"
-  id_image_3.parentNode.className = "hidden_element"
+  id_image_2.parentNode.className = "hidden_element";
+  id_image_3.parentNode.className = "hidden_element";
 
-  id_image_1.addEventListener('change', showSecondImage)
-  id_image_2.addEventListener('change', showThirdImage)
+  id_image_1.addEventListener('change', showSecondImage);
+  id_image_2.addEventListener('change', showThirdImage);
+}
 
-  function showSecondImage() {
-    id_image_2.parentNode.className = "shown_element"
-  }
+function showSecondImage() {
+  id_image_2.parentNode.className = "shown_element";
+}
 
-  function showThirdImage() {
-    id_image_3.parentNode.className = "shown_element"
-  }
+function showThirdImage() {
+  id_image_3.parentNode.className = "shown_element";
 }
 
 // allows the tips section to work
 
-let updateProfileModal = document.getElementById('update-profile-modal')
-let profileModal = document.getElementById('profile-modal')
-let addPostModal = document.getElementById('add-post-modal')
-let detailPostModal = document.getElementById('detail-post-modal')
-let noTipModal = document.getElementById('no-tip-modal')
-let homePageModal = document.getElementById('home-page-modal')
+let updateProfileModal = document.getElementById('update-profile-modal');
+let profileModal = document.getElementById('profile-modal');
+let addPostModal = document.getElementById('add-post-modal');
+let detailPostModal = document.getElementById('detail-post-modal');
+let noTipModal = document.getElementById('no-tip-modal');
+let homePageModal = document.getElementById('home-page-modal');
 
 if (noTipModal) {
   noTipModal.style.display = "block";
