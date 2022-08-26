@@ -6,11 +6,6 @@
   * [Devices and Browsers](#devices-and-browsers)
   * [User Story Testing](#testing-user-stories) - To Do
   * [Testing Technologies](#testing-technologies)
-  * [Navigation](#links-and-navigation)
-    * [Navigation Bar](#navigation-bar)
-    * [Modals](#modals)
-  * [External Links](#external-links)
-  * [Styling and Layout](#styling-and-layout)
 
 * [User Access](#user-access)
 
@@ -28,9 +23,6 @@
 
 * [Validation](#Validations)
 
-* [Database](#database)
-
-* [Responsive Design](#responsive-design)
 * [Lighthouse](#lighthouse)
 
 #### Desktop
@@ -67,17 +59,16 @@
   * iPad
   * iPad Pro
 
-
 ### Testing tech
 
 * HTML markup validator was used for all HTML code - [W3C HTML Markup Validator](https://validator.w3.org/).
 * CSS was validated with [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/).
 * JavaScript was validated with [JSHint](https://jshint.com/).
-* Python was validated using [pep8](http://pep8online.com/).
+* Python was validated using [pep8](http://pep8online.com/)
 * Responsive design was tested with [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 
 1. W3C HTML Markup Validator
-    * [Homepage](https://validator.w3.org/nu/?doc=https%3A%2F%2Fms4-lead-shot-hazard.herokuapp.com%2F)
+    * All pages were checked, only one note of unclosed Divs on the update profile page however on inspections these divs are definitely closed. 
 
 2. W3C CSS Validator
     * No errors in the CSS file, see results below: 

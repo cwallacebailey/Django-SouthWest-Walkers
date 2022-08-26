@@ -491,10 +491,53 @@ The favicon was made from a screen shot of a font awesome icon
 
 ### Solved Bugs
 
+This is undoubtedly a list thats should come with a trigger warning. Key bugs noted below:
+
+1. The details from my static files would not load onto heroku. This was a long session with the tutors who have my everlasting thanks. Ultimately it was a rogue "/" infront of my {% static 'js/script.js' %} so {% static '/js/script.js' %}. Once removed and pushed through everything started to work.
+
+2. JS wouldn't run and would produce console errors. This is because when the script ran on each page it would look for all classes of which only some are on certain pages. I added if statements to these sections of code so they would only run on the pages in which the id's and classes they are looking for could be found. This led to another error in which my IF statements were in blocks. I had to remove these from the blocks in order for the code to run through js hint. 
+
+3. In order for {{ distance|intcomma }}Km to work on my profile pages, which formats the figures used in the total distance walked, I had to load {% load humanize %} at the top of the screen. I had no idea about this and spent some time staring at an error page before finding out. 
+
+4. I wanted the users posts to appear on their profile, similar to strava. I had no idea how this would work with the Profile model being run on the profile view but the posts being part of the Posts view. I feel like I missed this in the tutorial videos and cannot believe how long it took me to find the answer. In the end the below additions to my code is all it took: 
+
+site_page = request.GET.get('site_page')
+
+Then render: 
+
+"current_page": current_page,
+
+Ultimately running it as a variable and then passing it through the view meant I could use a for loop on it to find all the users own posts. 
+
+5. My tip modal was displaying the tips for adding a new post. This had to be solved by adding a id="no-tip" to the about page as well as the allauth logout page and then using JS to look for this ID which if present was used to block text appearing in the modal. 
+
+6. The profile shows progress and achievements in the same section using a button to decide which you would like to see. This runs by changing the div css of the item you do not want to view to display: none. However this wasn't working for achievements which was appearing at the bottom of the progress bar. I updated achievements display to always be none unless the JS function changes it to "Block". 
+
+7. Horrifically, my env.py file was exposed. I could not work out how it happened, instead I had to delete and re-create the git ignore, delete my env.py and then create a new cloudinary and postgres database losing a lot of my walks. This shows the dangers of being exposed and a lesson I will take forwards as it was a few hours of work to fix. 
+
+8. 
+
+
+
+### Unsolved Bugs
+
+None at the time of submission
+
 ## Credits
+
+All thanks to the code institute tutors. 
 
 ### Code
 
+Key items here and a nod to code institute lessons: 
+
+1. In order for the commentary and star system to work I used the knowledge and notes made during the code institute lessons as well as the log in and log out messages. 
+2. I used https://www.w3schools.com/howto/howto_js_slideshow.asp for the slideshow on the detailed view, changed only slightly to fit my needs
+3. the 404 and 500 error method was taken from the following link https://studygyaan.com/django/django-custom-404-error-template-page
+4. Pagination was learned from here, thank you John Eldar https://www.youtube.com/watch?v=N-PB-HMFmdo
+
 ### Images: 
+
+Image below which has not been changed in any way. 
 
 https://www.pexels.com/photo/brown-and-green-mountains-under-white-sky-10874914/
