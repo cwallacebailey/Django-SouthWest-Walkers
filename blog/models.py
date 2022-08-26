@@ -26,8 +26,11 @@ cairn_choices = (
     ('Tor Y Foel', 'Tor Y Foel'),
 )
 
-class Post(models.Model):
 
+class Post(models.Model):
+    """
+    Model for user posts
+    """
     post_title = models.CharField(max_length=150, unique=True)
     post_author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"

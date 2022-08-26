@@ -15,7 +15,7 @@ from pathlib import Path
 from django.contrib.messages import constants as messages
 
 import dj_database_url
-if os.path.isfile('env.py'):  # This prevents an import error if env does not exist
+if os.path.isfile('env.py'):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['south-west-walkers.herokuapp.com', 'localhost',]
+ALLOWED_HOSTS = ['south-west-walkers.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -53,10 +53,10 @@ INSTALLED_APPS = [
     'blog',
 ]
 
-SITE_ID = 1 # we have to tell Django the site number
+SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_EMAIL_VERIFICATION = 'none' # prevents 500 type errors
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',

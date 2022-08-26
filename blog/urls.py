@@ -10,8 +10,9 @@ urlpatterns = [
     path('star_post/<int:pk>', StarPost.as_view(), name='star_post'),
     path('about/', About.as_view(), name='about'),
 
-    # Profile URLs below: 
+    # Profile URLs below:
     path('profile/<int:pk>', ProfileView.as_view(), name='profile'),
-    path('update_profile/<int:pk>', UpdateProfile.as_view(), name='update_profile'),
+    path('update_profile/<int:pk>', UpdateProfile.as_view(), 
+        name='update_profile'),
     path('create_profile', CreateProfile.as_view(), name='create_profile'),
 ]
