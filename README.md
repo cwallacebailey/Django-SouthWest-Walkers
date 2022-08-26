@@ -1,6 +1,6 @@
 # South West Walkers
 
-[Please see link to the final project]() (holding ctrl when clicking this link will open it in a new tab)
+[Please see link to the final project](https://south-west-walkers.herokuapp.com) (holding ctrl when clicking this link will open it in a new tab)
 
 South West Walkers is django built blog to record treks in the brecon beacons. It gamify's hiking allowing users to 'collect' peaks and achievements by walking distance challenges and climbing different mountains in the region. 
 

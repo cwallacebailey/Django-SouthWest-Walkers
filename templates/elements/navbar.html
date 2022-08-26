@@ -17,25 +17,25 @@
           <a class="nav-link text-white" aria-current="page" href="{% url 'about' %}">About</a>
         </li>
         {% if user.is_authenticated %}
-          <li class="nav-item">
-            <a class="nav-link text-white" href="{% url 'add_post' %}">Add Post</a>
-          </li>
-          <li>
-            <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{% url 'add_post' %}">Add Post</a>
+        </li>
+        <li>
+          <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
+        </li>
       </ul>
     
-      <ul class="mb-2 mb-lg-0 list-style me-auto navbar-nav">
+      <ul class="mb-2 mb-lg-0 list-style">
         {% if user.profile.pk %}
           <li>
             <a class="text-white nav-link" href="{% url 'profile' user.id %}">
-              <p class="margin-none">Profile
+              Profile
             </a>
           </li>
         {% else %}
           <li>
             <a class="text-white nav-link" href="{% url 'create_profile' %}">
-              <p class="margin-none">Create Profile</p>
+              Create Profile
             </a>
           </li>
         {% endif %}
