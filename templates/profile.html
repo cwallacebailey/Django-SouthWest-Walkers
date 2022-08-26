@@ -16,9 +16,9 @@
 
     <!-- Profile Stats Section  -->
 
-        <div class="col-md-9 border-bottom">
-            <div class="row no-gutters">
-                <div class="col heading my-auto">
+        <div class="col-md-9 border-bottom text-small-center">
+            <div class="row no-gutters ml-2">
+                <div class="col">
                     <h2 class="mt-1">{{ profile.display_name }}</h2>
                     <h4>Total Distance Hiked - {{ distance|intcomma }}Km</h3>
                     <h4>Peaks Conquered - {{ peaks_reached }}</h3>
@@ -67,9 +67,9 @@
 
 <section>
     <!-- Achievements / Progress -->
-    <div class="container-fluid p-0" id="profile-page-index">
-        <div class="row">
-            <div class="col-md-3 border-end">
+    <div class="container-fluid p-0 text-small-center" id="profile-page-index">
+        <div class="row text-small-center">
+            <div class="col-md-3 border-end text-small-center">
 
                 <!-- Buttons for tabs -->
                 <div class="tabs mt-1 text-center">
@@ -78,7 +78,7 @@
                 </div>
 
                 <!-- Progress Section -->
-                <div id="progress">
+                <div id="progress" class="text-small-center">
                     <h3 class="m-2">Progress</h3>
                     <div class="m-2">
                         {% if peaks_reached == 0 %}

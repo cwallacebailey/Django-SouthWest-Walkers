@@ -60,10 +60,10 @@
 
                 <form action="{% url 'star_post' post.pk %}" method="POST">
                     {% csrf_token %}
-                    {% if post.starred %}
+                    {% if post.total_stars > 0 %} 
                         <button type="submit" name="post_id" value="{{ post.id }}" class="star-clicked"><i class="fas fa-star star-clicked"></i></button> - {{ post.total_stars }} star
                     {% else %}
-                        <button type="submit" name="post_id" value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} star
+                        <button type="submit" name="post_id" value="{{ post.id }}" class="star-icon"><i class="far fa-star"></i></button> - {{ post.total_stars }} star
                     {% endif %}
                 </form>     
                 <hr>
@@ -184,7 +184,11 @@
             </div>
             <br>
             <!-- Star Section -->
-            <button class="star-icon" type="submit", name="post_id", value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} Stars
+            {% if post.total_stars > 0 %} 
+                <button class="star-icon star-clicked" type="submit", name="post_id", value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} Stars
+            {% else %}
+                <button class="star-icon" type="submit", name="post_id", value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} Stars
+            {% endif %}
             {% endif %}
         </div>
         <br>  

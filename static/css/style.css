@@ -157,6 +157,10 @@ body {
     overflow: hidden;
 }
 
+.text-lg-left {
+    text-align: left;
+}
+
 #achievements {
     display: none;
 }
@@ -405,6 +409,14 @@ footer {
     #profile-page-index,
     #home-page-index {
         min-height: 0vh;
+    }
+
+    .mountain-list-div {
+        width: 95%
+    }
+
+    .text-small-center {
+        text-align: center;
     }
 
     #about-header {
