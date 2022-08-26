@@ -1,7 +1,4 @@
 {% extends 'structure/base.html' %}
-{% block title %}
-Tell Us About Your Journey
-{% endblock %}
 
 {% block content %}
 
@@ -15,24 +12,28 @@ Tell Us About Your Journey
     </div>
 
     <div class="row">
+        <!-- a spacer -->
         <div class="col-md-4">
+        
         </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button class="btn btn-secondary">Post</button>
-                    </form>
-                </div>
+        <!-- The form -->
+        <div class="col-md-4">
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-secondary">Post</button>
+                </form>
             </div>
-
+        </div>
+        <!-- a spacer -->
         <div class="col-md-4">
 
         </div>
     </div>
     <br>
 {% else %}
+<!-- If not authenticated -->
     <div class="row">
         <div class="col-md-4">
         </div>

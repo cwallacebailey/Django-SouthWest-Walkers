@@ -2,14 +2,14 @@
 {% load humanize %}
 {% block content %}
 
-<section class="small-center">
+<section>
 
     <!-- Profile Picture Section  -->
 
     <div class="row no-gutters small-center">
         {% if 'placeholder' in profile.profile_picture.url %}
             <img class="col-md-3 margin-none" id="profile-picture"
-                src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg">
+                src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg" alt="default image">
         {% else %}
             <img class="col-md-3 margin-none" id="profile-picture" src="{{ profile.profile_picture.url }}" alt="profile-picture">
         {% endif %}
@@ -37,21 +37,21 @@
                 <ul class="list-inline social-links">
                 {% if profile.instagram_url != None %}
                     <li class="list-inline-item">
-                        <a target="_blank" href="{{ profile.instagram_url }}">
+                        <a target="_blank" href="{{ profile.instagram_url }}" rel="noopener">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
                     </li>
                 {% endif %}
                 {% if profile.linkedin_url != None %}
                     <li class="list-inline-item">
-                        <a target="_blank" href="{{ profile.linkedin_url }}">
+                        <a target="_blank" href="{{ profile.linkedin_url }}" rel="noopener">
                         <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                     </li>
                 {% endif %}
                 {% if profile.strava_url != None %}
                     <li class="list-inline-item">
-                        <a target="_blank" href="{{ profile.strava_url }}">
+                        <a target="_blank" href="{{ profile.strava_url }}" rel="noopener">
                         <i class="fab fa-strava" aria-hidden="True"></i>
                         </a>
                     </li>
@@ -194,9 +194,9 @@
                             <div class="img-thumbnail">
                                 {% if "placeholder" in post.header_image.url %}
                                 <img class="card-img-top card-img-top-home"
-                                    src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg">
+                                    src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg" alt="default image">
                                 {% else %}
-                                <img class="card-img-top card-img-top-home" src=" {{ post.header_image.url }}">
+                                <img class="card-img-top card-img-top-home" src=" {{ post.header_image.url }}" alt="header image">
                                 {% endif %}
                             </div>
                                 <div class="card-body">

@@ -7,6 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 mt-2 offset-md-4">
+      <!-- a spacer -->  
       <div class="spacer">
       </div>
       {% if user.is_authenticated %}
@@ -24,21 +25,21 @@
 </div>
 
 {% else %}
-
+<!-- If the user is not authenticated -->
 <div class="row">
+  <!-- a spacer -->  
   <div class="col-md-4">
   </div>
-      <div class="col-md-4">
-          <h3>Best to Sign in or Sign Up</h3>
-          <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
-          <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
-      </div>
-
+  <!-- The sign up links --> 
   <div class="col-md-4">
-
+    <h3>Best to Sign in or Sign Up</h3>
+    <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
+    <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
+  </div>
+  <!-- a spacer -->
+  <div class="col-md-4">
   </div>
 </div>
-
 {% endif %}
 <br>
 {% endblock %}

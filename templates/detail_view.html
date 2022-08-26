@@ -23,23 +23,23 @@
                 <div class="image-container-div detail-image-view">
                     {% if "placeholder" in post.header_image.url %}
                         <img class="card-img-top placeholder journeyImages"
-                            src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg">
+                            src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg" alt="default image">
                     
                     {% else %}
 
                         <!-- Header Image -->
                         {% if post.header_image.url %}
-                            <img class="card-img-top journeyImage1 journeyImages fade-animation" src=" {{ post.header_image.url }}">
+                            <img class="card-img-top journeyImage1 journeyImages fade-animation" src=" {{ post.header_image.url }}" alt="header image">
                         {% endif %}
 
                         <!-- Image 2 -->
                         {% if "placeholder" not in post.image_2.url %}
-                            <img class="card-img-top journeyImages fade-animation" id="journeyImage2" src=" {{ post.image_2.url }}">                
+                            <img class="card-img-top journeyImages fade-animation" id="journeyImage2" src=" {{ post.image_2.url }}" alt="second image">                
                         {% endif %}
 
                         <!-- Image 3 -->
                         {% if "placeholder" not in post.image_3.url %}
-                            <img class="card-img-top journeyImage3 journeyImages fade-animation" id="journeyImage3" src=" {{ post.image_3.url }}">
+                            <img class="card-img-top journeyImage3 journeyImages fade-animation" id="journeyImage3" src=" {{ post.image_3.url }}" alt="third image">
                         {% endif %}
                     
                     {% endif %}
@@ -68,7 +68,7 @@
                 </form>     
                 <hr>
             </div>
-
+            <!-- Journey Stats -->
             <div>  
                 <h3>Journey Stats</h3>
                 <br>
@@ -110,7 +110,7 @@
                     </div>
                 <hr>
             {% endif %}
-
+            <!-- Update / Delete Buttons -->
             {% if post.post_author.id == user.id %}
 
             <a href="{% url 'update_post' post.pk %}" class="btn btn-secondary">Update</a> 
@@ -122,8 +122,8 @@
 
             {% endif %}
 
-            <hr>
-            
+            <hr>            
+            <!-- Comments Section -->
             <h2>Comments:</h2>
 
             <br>
@@ -138,7 +138,7 @@
             </blockquote>
             
             {% endfor %}
-
+            <!-- Comments Form -->
             <hr>
             <h4>Leave a comment:</h4>
                 <form method="post">
@@ -151,6 +151,7 @@
             <br>
 
             {% else %}
+            <!-- If user not authenticated -->
             <div>  
                 <h3>Journey Stats</h3>
                 <br>
@@ -182,6 +183,7 @@
                 {% endif %}
             </div>
             <br>
+            <!-- Star Section -->
             <button class="star-icon" type="submit", name="post_id", value="{{ post.id }}"><i class="far fa-star"></i></button> - {{ post.total_stars }} Stars
             {% endif %}
         </div>

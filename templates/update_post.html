@@ -14,23 +14,25 @@
         <h2>Update Your Journey</h2>
     </div>
     <div class="row">
+        <!-- a spacer -->
         <div class="col-md-4">
         </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <form method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button class="btn btn-secondary">Post</button>
-                    </form>
-                </div>
-            </div>
-
+        <!-- post form -->
         <div class="col-md-4">
-
+            <div class="form-group">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-secondary">Post</button>
+                </form>
+            </div>
+        </div>
+        <!-- a spacer -->
+        <div class="col-md-4">
         </div>
     </div>
     <br>
+    <!-- If the user is not the author they see the below -->
     {% else %}
 
     <p>This isn't your post</p>
@@ -38,8 +40,9 @@
     {% endif %}
     
 {% else %}
-
+    <!-- If the user is not authenticated they see the below -->
     <div class="row">
+        <!-- a spacer -->
         <div class="col-md-4">
         </div>
             <div class="col-md-4 text-center">
@@ -47,9 +50,8 @@
                 <a class="btn btn-secondary" href="{% url 'account_signup' %}">Sign Up</a>
                 <a class="btn btn-secondary" href="{% url 'account_login' %}">Login</a>
             </div>
-
+        <!-- a spacer -->
         <div class="col-md-4">
-
         </div>
     </div>
 

@@ -17,9 +17,9 @@
                                 <div class="img-thumbnail">
                                     {% if "placeholder" in post.header_image.url %}
                                     <img class="card-img-top card-img-top-home"
-                                        src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg">
+                                        src="https://res.cloudinary.com/dg0zmsaoc/image/upload/v1661443098/pexels-owen-fon-williams-10874914_hgqrgm_imhusi.jpg" alt="default image">
                                     {% else %}
-                                    <img class="card-img-top card-img-top-home" src=" {{ post.header_image.url }}">
+                                    <img class="card-img-top card-img-top-home" src=" {{ post.header_image.url }}" alt="header image">
                                     {% endif %}
                                 </div>
                                     <div class="card-body">
@@ -35,6 +35,7 @@
             </div>
         </div>
     </div>
+    <!-- Pagination -->
     <div class="row">
         <div id="pagination" class="text-center">
 

@@ -5,28 +5,31 @@
 <footer class="container-fluid mt-auto">
     <div class="row">
         <div class="col-sm-4 mt-4">
+            <!-- Logo -->
             <h4>South West</h4>
             <h4>Walkers <i class="fas fa-hiking"></i></h4>
         </div>
+        <!-- Social Media Links -->
         <div class="col-sm-4 mt-2 social-links-footer">
             <div class="text-center">
                 <p>
-                    <a href="https://www.instagram.com/" target="_blank" class="footer-social-link">Instagram - <i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer-social-link" rel="noopener">Instagram - <i class="fa fa-instagram" aria-hidden="true"></i></a>
                 </p>
             </div>
             <div class="text-center">
                 <p>
-                    <a href="https://www.Facebook.com/" target="_blank" class="footer-social-link">Facebook - <i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://www.Facebook.com/" target="_blank" class="footer-social-link" rel="noopener">Facebook - <i class="fa fa-facebook" aria-hidden="true"></i></a>
                 </p>
             </div>
             <div class="text-center">
                 <p>
-                    <a href="https://www.Youtube.com/" target="_blank" class="footer-social-link">Youtube - <i class="fa fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://www.Youtube.com/" target="_blank" class="footer-social-link" rel="noopener">Youtube - <i class="fa fa-youtube" aria-hidden="true"></i></a>
                 </p>
             </div>
         </div>
 
         {% if user.is_authenticated %}
+        <!-- Log Out Section -->
         <div class="col-sm-4 mt-4">
             <div class="text-center">
                 <p>
@@ -36,7 +39,7 @@
         </div>     
 
         {% else %}
-
+        <!-- Sign Up Section -->
         <div class="col-sm-4 mt-4">
             <div class="text-center">
                 <p>
