@@ -19,24 +19,28 @@ class Home(generic.ListView):
         # retrieve object list from Post
         object_list = Post.objects.all()
 
-        # allow pagination 
+        # allow pagination
 
         pagination = Paginator(Post.objects.all(), 8)
         site_page = request.GET.get('site_page')
         current_page = pagination.get_page(site_page)
-        return render (request,
-        'index.html', {
-            'current_page': current_page,
-            'object_list': object_list,
-        })
+        return render(
+            request, 'index.html',
+            {
+                'current_page': current_page,
+                'object_list': object_list,
+            })
+
 
 class About(generic.ListView):
     """
     Allows users to see about the website
     """
     def get(self, request):
-        return render (request,
-            'about.html')
+        return render(
+            request, 'about.html'
+            )
+
 
 class PostDetailView(generic.DetailView):
     """
@@ -47,7 +51,7 @@ class PostDetailView(generic.DetailView):
     def get(self, request, pk, *args, **kwargs):
         """
         Retrieves the detailed post using its
-        PK, orders by created date. 
+        PK, orders by created date.
         """
         queryset = Post.objects
         obj = get_object_or_404(queryset, pk=pk)
@@ -61,11 +65,11 @@ class PostDetailView(generic.DetailView):
                 "comment_form": CommentForm()
             }
         )
-    
+
     def post(self, request, pk, *args, **kwargs):
         """
         allows comments to be posted on detail
-        view. 
+        view.
         """
         queryset = Post.objects
         obj = get_object_or_404(queryset, pk=pk)
@@ -74,21 +78,7 @@ class PostDetailView(generic.DetailView):
 
         if comment_form.is_valid():
             comment_form.instance.comment_author = self.request.user
-            comment_id = request.POST.get("") 
-            parent_obj = None
-            parent_id = None
-            try:
-                parent_id = int(request.POST.get("parent_id")) # https://www.youtube.com/watch?v=KrGQ2Nrz4Dc
-            except:
-                parent_id = None
-
-            if parent_id:
-                parent_qs = Comment.objects.filter(id=parent_id)
-                if parent_qs.exists():
-                    parent_obj = parent_qs.first()
-
             comment = comment_form.save(commit=False)
-            comment.response = parent_obj
             comment.Post = obj
             comment.save()
             return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
@@ -105,6 +95,7 @@ class PostDetailView(generic.DetailView):
             }
         )
 
+
 class StarPost(generic.View):
     """
     This is the blogs like function
@@ -114,9 +105,10 @@ class StarPost(generic.View):
 
         if post.starred.filter(id=request.user.id).exists():
             post.starred.remove(request.user)
-        else: 
+        else:
             post.starred.add(request.user)
         return HttpResponseRedirect(reverse('detail', args=[str(pk)]))
+
 
 class NewPost(generic.CreateView):
     """
@@ -133,12 +125,13 @@ class NewPost(generic.CreateView):
 
     success_url = reverse_lazy('home')
 
+
 class UpdatePost(generic.UpdateView):
     """
     Allows user to update their post
     sends user back to post once update
     made
-    """    
+    """
     model = Post
     template_name = 'update_post.html'
     form_class = PostForm
@@ -146,6 +139,7 @@ class UpdatePost(generic.UpdateView):
     def get_success_url(self):
         pk = self.kwargs["pk"]
         return reverse("detail", kwargs={"pk": pk})
+
 
 class DeletePost(generic.DeleteView):
     """
@@ -155,18 +149,12 @@ class DeletePost(generic.DeleteView):
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
-# Comments Section 
+# Profile Section Below
 
-class DeleteComment(generic.DeleteView):
-    model = Comment
-    template_name = 'delete_comment.html'
-    success_url = reverse_lazy('home')
 
-# Profile Section Below 
-    
 class CreateProfile(generic.CreateView):
     """
-    Allows user to create a profile. 
+    Allows user to create a profile.
     asigns user to the profile automatically
     """
     model = Profile
@@ -177,6 +165,7 @@ class CreateProfile(generic.CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
 
 class ProfileView(generic.DetailView):
     """
@@ -197,8 +186,29 @@ class ProfileView(generic.DetailView):
         current_page = pagination.get_page(site_page)
 
         # array for awards and achievements
-        mountain_array = ['Pen y Fan', 'Corn Du', 'Fan y Big', 'Fan Brycheiniog', 'Pen Cerrig Calch', 'Picws Du', 'Fan Frynych', 'Cribyn', 'Mynydd Llangorse', 'Skirrid Fawr', 'Waun Fach', 'Twmpa', 'Mynydd Troed', 'The Blorenge', 'ay Bluff', 'Pen Y Gadair Fawr', 'Sugar Loaf', 'Fan Fawr', 'Crug Hywel', 'Tor Y Foel']
-        
+        mountain_array = [
+            'Pen y Fan',
+            'Corn Du',
+            'Fan y Big',
+            'Fan Brycheiniog',
+            'Pen Cerrig Calch',
+            'Picws Du',
+            'Fan Frynych',
+            'Cribyn',
+            'Mynydd Llangorse',
+            'Skirrid Fawr',
+            'Waun Fach',
+            'Twmpa',
+            'Mynydd Troed',
+            'The Blorenge',
+            'ay Bluff',
+            'Pen Y Gadair Fawr',
+            'Sugar Loaf',
+            'Fan Fawr',
+            'Crug Hywel',
+            'Tor Y Foel'
+            ]
+
         # calculate number of peaks reached and which peaks have been climbed
         mountains_walked = []
 
@@ -207,7 +217,7 @@ class ProfileView(generic.DetailView):
                 pass
             elif posts.first_cairn is None or posts.first_cairn == '':
                 pass
-            else: 
+            else:
                 mountains_walked.append(posts.first_cairn)
                 mountain_array.remove(posts.first_cairn)
 
@@ -216,21 +226,20 @@ class ProfileView(generic.DetailView):
                 pass
             elif posts.second_cairn is None or posts.second_cairn == '':
                 pass
-            else: 
+            else:
                 mountains_walked.append(posts.second_cairn)
                 mountain_array.remove(posts.second_cairn)
-                
+
         for posts in user_posts:
             if posts.third_cairn in mountains_walked:
                 pass
             elif posts.third_cairn is None or posts.third_cairn == '':
                 pass
-            else: 
+            else:
                 mountains_walked.append(posts.third_cairn)
                 mountain_array.remove(posts.third_cairn)
 
         peaks_reached = len(mountains_walked)
-
 
         # get total distance walked
         distance = 0
@@ -240,7 +249,7 @@ class ProfileView(generic.DetailView):
         return render(
             request,
             "profile.html",
-            {            
+            {
                 "profile": obj,
                 "current_page": current_page,
                 "distance": distance,
@@ -249,6 +258,7 @@ class ProfileView(generic.DetailView):
                 "peaks_reached": peaks_reached
             }
         )
+
 
 class UpdateProfile(generic.UpdateView):
     """
@@ -263,28 +273,32 @@ class UpdateProfile(generic.UpdateView):
         pk = self.kwargs["pk"]
         return reverse("profile", kwargs={"pk": pk})
 
+
 class CustomSignupView(SignupView):
     """
-    User automatically taken to 
+    User automatically taken to
     create profile upon signing up
     instead of home page
     """
     success_url = reverse_lazy('create_profile')
 
-# Code below is from this source - https://studygyaan.com/django/django-custom-404-error-template-page
+# Code below is from this source -
+# https://studygyaan.com/django/django-custom-404-error-template-page
 
-# def error_404(request, exception):
-#     """"
-#     HTTP 404 errors - diverts to user
-#     friendly page
-#     """
 
-#     return render(request, 'templates/errors/404.html')
+def error_404(request, exception):
+    """"
+    HTTP 404 errors - diverts to user
+    friendly page
+    """
 
-# def error_500(request,):
-#     """"
-#     HTTP 500 errors - diverts to user
-#     friendly page
-#     """
+    return render(request, 'templates/errors/404.html')
 
-#     return render(request, 'templates/errors/500.html')
+
+def error_500(request,):
+    """"
+    HTTP 500 errors - diverts to user
+    friendly page
+    """
+
+    return render(request, 'templates/errors/500.html')

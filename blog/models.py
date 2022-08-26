@@ -37,24 +37,48 @@ class Post(models.Model):
     )
     distance = models.FloatField()
     meters_climbed = models.FloatField(default=0, null=True)
-    notes = models.TextField(max_length = 150, null=True)
-    header_image = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    image_2 = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    image_3 = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    first_cairn = models.CharField(max_length = 20, choices = cairn_choices , default = '', null=True, blank='true')
-    second_cairn = models.CharField(max_length = 20, choices = cairn_choices , default = '', null=True, blank='true')
-    third_cairn = models.CharField(max_length = 20, choices = cairn_choices , default = '', null=True, blank='true')
+    notes = models.TextField(max_length=150, null=True)
+    header_image = CloudinaryField(
+        'image', default='placeholder', null=True, blank=True
+        )
+    image_2 = CloudinaryField(
+        'image', default='placeholder', null=True, blank=True
+        )
+    image_3 = CloudinaryField(
+        'image', default='placeholder', null=True, blank=True
+        )
+    first_cairn = models.CharField(
+        max_length=20,
+        choices=cairn_choices,
+        default='',
+        null=True,
+        blank='true'
+        )
+    second_cairn = models.CharField(
+        max_length=20,
+        choices=cairn_choices,
+        default='',
+        null=True,
+        blank='true'
+        )
+    third_cairn = models.CharField(
+        max_length=20,
+        choices=cairn_choices,
+        default='',
+        null=True,
+        blank='true'
+        )
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     starred = models.ManyToManyField(
         User, blank=True)
-    
+
     def total_stars(self):
         return self.starred.count()
 
-    class Meta: 
+    class Meta:
         ordering = ['-created_date', 'post_author']
-    
+
     def __str__(self):
         return self.post_title + ' | ' + str(self.post_author)
 
@@ -67,10 +91,29 @@ class Profile(models.Model):
         User, on_delete=models.CASCADE, related_name="profile"
     )
     display_name = models.CharField(max_length=150, unique=True,)
-    profile_picture = CloudinaryField('image', default='placeholder', null=True, blank=True)
-    instagram_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
-    strava_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
-    linkedin_url = models.CharField(max_length=150, unique=False, null=True, blank=True, default='',)
+    profile_picture = CloudinaryField(
+        'image',
+        default='placeholder',
+        null=True,
+        blank=True)
+    instagram_url = models.CharField(
+        max_length=150,
+        unique=False,
+        null=True,
+        blank=True,
+        default='',)
+    strava_url = models.CharField(
+        max_length=150,
+        unique=False,
+        null=True,
+        blank=True,
+        default='',)
+    linkedin_url = models.CharField(
+        max_length=150,
+        unique=False,
+        null=True,
+        blank=True,
+        default='',)
 
 
 class Comment(models.Model):
@@ -81,12 +124,14 @@ class Comment(models.Model):
     body = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    response = models.ForeignKey("self", null=True, blank=True, on_delete=models.CASCADE)
+    response = models.ForeignKey(
+        "self",
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE)
 
-    class Meta: 
+    class Meta:
         ordering = ['-created_date']
 
     def __str__(self):
         return str(self.comment_author) + ' : ' + self.body
-
-
