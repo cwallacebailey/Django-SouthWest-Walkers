@@ -4,6 +4,9 @@
 
 South West Walkers is Django built blog to record treks in the Brecon beacons. It gamify's hiking allowing user's to 'collect' peaks and achievements by walking distance challenges and climbing different mountains in the region. By completing hikes and uploading new posts the blog tracks a user's profile and adds their achievements to it which can be viewed by the user on their own profile page to inspire them to keep going. 
 
+![Header Image](static/media/south_west_walkers_header.png)
+
+
 This site was built using Django as its framework with HTML, CSS, Bootstrap, JavaScript & Python. The database is created using SQL through PostgreSQL. 
 
 ## Contents
