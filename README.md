@@ -313,7 +313,7 @@ The user is able to see their progress towards walking all of the Brecon beacons
 
 This section of the profile picture has buttons which switch the tabs the user sees. If they hit "Achievements" they see the achievements and if they hit "progress" they go back to the progress page. Achievements are a result of accumulated posts so if the user covers 50km distance walked over any number of posts they receive an award, if they reach 5 cairns / mountains they receive another award. This is designed to keep the user moving and posting. 
 
-![Profile Progress View](static/media/achievements.png)
+![Profile Achievements View](static/media/achievements.png)
 
 [Back to contents](#contents)
 
