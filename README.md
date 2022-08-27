@@ -16,6 +16,7 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
 * [Design](#design)
     * [Colours](#colour-scheme)
     * [Typography](#typography)
+    * [Wire Frames](#wire-frames)
     * [Features](#features)
     * [Future Features](#future-features)
     * [Navigation bar](#navigation-bar)
@@ -34,8 +35,6 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
     * [Delete Post](#delete-post)
     * [Footer](#footer)
     * [Further Defensive Design](#further-defensive-design)
-
-* [Wire Frames](#wire-frames)
 
 * [Future Features](#future-features)
 
@@ -134,6 +133,56 @@ I went with a Scandanavian vibe for the sites colours which have been used throu
 Two fonts were used for this project, 'Uchen' from google fonts and where this would not work, sans-serif takes over. Sans-serif fonts are easy to read for people with dyslexia and partially visually impaired user's. 'Ulchen' is also very easily read. 
 
 [Back to contents](#contents)
+
+### Wireframes
+
+#### Home Page 
+
+Home page views below: 
+
+Desktop
+
+![wireframe_homepage](static/media/wireframe_homepage.png)
+
+Mobile
+
+![wireframe_homepage_mobile](static/media/wireframe_homepage.png)
+
+#### About Page
+
+About page views below: 
+
+Desktop
+
+![wireframe_about](static/media/wireframe_about_page.png)
+
+Mobile
+
+![wireframe_about_mobile](static/media/wireframe_about_page.png)
+
+#### Form Page
+
+Form page views below including allauth: 
+
+Desktop
+
+![wireframe_form_page](static/media/wireframe_form_page.png)
+
+Mobile
+
+![wireframe_mobile_form_page](static/media/wireframe_mobile_form_page.png)
+
+#### Profile
+
+Profile views below: 
+
+Desktop
+
+![wireframe_profile](static/media/wireframe_profile_page.png)
+
+Mobile
+
+![wireframe_mobile_profile](static/media/wireframe_mobile_profile.png)
 
 ### Features
 
@@ -430,16 +479,6 @@ The same process is used to prevent them from updating someone elses profile:
 ![not_profile](static/media/not_profile.png)
 
 [Back to contents](#contents)
-
-### Wireframes
-
-### Home Page 
-
-
-
-
-
-
 
 ### Future Features
 
