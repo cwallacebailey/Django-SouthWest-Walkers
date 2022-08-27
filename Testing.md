@@ -7,8 +7,6 @@
   * [User Story Testing](#testing-user-stories) - To Do
   * [Testing Technologies](#testing-technologies)
 
-* [User Access](#user-access)
-
 * [Site Functions](#functions)
   * [Register](#register)
   * [Log In](#log-in)
@@ -87,6 +85,73 @@
 ![jshint_validator_results](static/media/jshint_validator_results.png)
 
 [Back to contents](#contents)
+
+### Site Functions
+
+Ultimately all links and navigation tools work from any page the user is on at all times on any browser except IE which is no longer functional. The users can access all pages and there is defensive design to stop users being able to access posts which are not theirs as well as profiles which they do not own. Details of what was tested can be seen below: 
+
+#### Register
+
+* Users are able to register using the allauth form which takes them to the home page upon compeltion. They can acces this from any page where the nav bar is showing and the option is only available if they are not logged in which occurs upon signing up.
+
+#### Log In
+
+* Users are able to login using the allauth form which takes them to the home page upon completion. They can acces the link to login from any page where the nav bar is showing and the option is only available if they are not logged in which occurs upon hitting the log in button in either the nav bar or the footer. 
+
+#### Log Out
+
+* Users are able to log out using the allauth form which takes them to the home page upon completion. They can acces the link to logout from any page where the nav bar is showing and the option is only available if they are currently logged in. The log out button is then viewable / accessible from either the nav bar or the footer. 
+
+#### Add Posts
+
+* Users are able to create posts using the add post form which takes them to the home page upon completion. They can acces the link from any page where the nav bar is showing and the option is only available if they are currently logged in. 
+
+#### Update Post
+
+* Users are able to update only their own posts using the update post form which takes them to the detailed view of the post upon completion. They can acces the link from any post to update that particular post. The option is only available if they are currently logged in and it is their post. If they try to update someone else's post they are told to return to the home page. 
+
+#### Delete Post
+
+* Users are able to update only their own posts using the delete post function provided by Django which takes them to the home view upon completion. They can acces the link from any post to delete that particular post. The option is only available if they are currently logged in and it is their post. If they try to delete someone else's post they are told to return to the home page. 
+
+
+#### Create Profile
+
+* Users are able to create a profile using the Profile Form which takes them to the home page upon completion. They can acces the link from any page where the nav bar is showing and the option is only available if they are currently logged in. 
+
+#### Update Profile
+
+* Users are able to update only their own profile using the update profile link which takes them to the update profile form using the update view. They can acces the link from any post to update that particular post. The option is only available if they are currently logged in and it is their post. If they try to update someone else's post they are told to return to the home page. 
+
+#### 404
+
+404 errors and 500 errors are met with the page below that allows a user to head home instead of being stuck on that page, regardless of how they got there. This has been thoroughly tested on the site and works at all times
+
+![404_500_errors](static/media/500_errors.png)
+
+If a user manages to get to the update or delete page of another users post they are met with the below, preventing them from actually updating the post: 
+
+![not_post](static/media/not_post.png)
+
+The same process is used to prevent them from updating someone elses profile: 
+
+![not_profile](static/media/not_profile.png)
+
+#### 500
+
+As above, tested throughout the site where possible through altering the we address manually. Same notes for 404 below: 
+
+404 errors and 500 errors are met with the page below that allows a user to head home instead of being stuck on that page, regardless of how they got there. This has been thoroughly tested on the site and works at all times
+
+![404_500_errors](static/media/500_errors.png)
+
+If a user manages to get to the update or delete page of another users post they are met with the below, preventing them from actually updating the post: 
+
+![not_post](static/media/not_post.png)
+
+The same process is used to prevent them from updating someone elses profile: 
+
+![not_profile](static/media/not_profile.png)
 
 ### Lighthouse
 
