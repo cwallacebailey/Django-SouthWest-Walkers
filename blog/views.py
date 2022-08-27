@@ -4,7 +4,6 @@ from .models import Post, Profile, Comment
 from .forms import PostForm, ProfileForm, CommentForm
 from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
-from allauth.account.views import SignupView
 from django.core.paginator import Paginator
 
 
@@ -273,15 +272,6 @@ class UpdateProfile(generic.UpdateView):
         pk = self.kwargs["pk"]
         return reverse("profile", kwargs={"pk": pk})
 
-
-class CustomSignupView(SignupView):
-    """
-    User automatically taken to
-    create profile upon signing up
-    instead of home page
-    """
-    success_url = reverse_lazy('create_profile')
-
 # Code below is from this source -
 # https://studygyaan.com/django/django-custom-404-error-template-page
 
@@ -292,7 +282,7 @@ def error_404(request, exception):
     friendly page
     """
 
-    return render(request, 'templates/errors/404.html')
+    return render(request, 'errors/404.html')
 
 
 def error_500(request,):
@@ -301,4 +291,4 @@ def error_500(request,):
     friendly page
     """
 
-    return render(request, 'templates/errors/500.html')
+    return render(request, 'errors/500.html')

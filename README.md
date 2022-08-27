@@ -38,7 +38,7 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
     * [Database Design](#database-design)
     * [Frameworks, Libraries and Others](#frameworks-libraries-and-others)
 
-* [How to Deploy](#how-to-deploy)
+* [How to Deploy](#deployment)
 
 * [Testing](#testing)
     * [Solved Bugs](#solved-bugs)
@@ -515,9 +515,13 @@ Ultimately running it as a variable and then passing it through the view meant I
 
 7. Horrifically, my env.py file was exposed. I could not work out how it happened, instead I had to delete and re-create the git ignore, delete my env.py and then create a new cloudinary and postgres database losing a lot of my walks. This shows the dangers of being exposed and a lesson I will take forwards as it was a few hours of work to fix. 
 
-8. 
+8. When creating automated tests the lessons from Code Institute did not prepare me for the tests alwasy failing because I did not run them with --debug at the end of Python3 manage.py test. I take it debug was automatically switching to false so testing could not be done. In addition I had to switch to the SQlite database in order for tests to run 
 
+9. When registering with an email a 500 error was given and this was caused by settings being absent in my settings.py file for my all auth files. 
 
+10. when refreshing a page, particularly the detailed view of a post after submitting a comment, the comment would be re-added to the database creating a duplicate. I used a "return HttpResponseRedirect(reverse(...." to fix this issue. 
+
+11. Between coding sessions I received an error message telling me my project could not connect to my Heroku Postgres database when running the server locally. This was due to a heroku database update and I needed to add in a new "DATABASE_URL".
 
 ### Unsolved Bugs
 
