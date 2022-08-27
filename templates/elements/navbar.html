@@ -24,8 +24,9 @@
           <a class="nav-link text-white" href="{% url 'account_logout' %}">Logout</a>
         </li>
       </ul>
-    
-      <ul class="mb-2 mb-lg-0 list-style">
+
+      <!-- Profile Section of Nav Bar -->
+      <ul class="navbar-nav mb-2 mb-lg-0 list-style text-small-left">
         {% if user.profile.pk %}
           <li>
             <a class="text-white nav-link" href="{% url 'profile' user.id %}">
@@ -48,6 +49,7 @@
           </li>  
         {% endif %}
         </ul>
+
       </div>
   </div>
 </nav>
