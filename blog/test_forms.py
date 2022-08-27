@@ -2,6 +2,7 @@ from django.test import TestCase
 from .forms import PostForm, ProfileForm, CommentForm
 from django.contrib.auth.models import User
 
+
 class TestPostForm(TestCase):
     """
     Test for the Post form
@@ -18,7 +19,7 @@ class TestPostForm(TestCase):
         Test that the display name must be entered
         for the form to be valid
         """
-        user = User.objects.create(username = "user")
+        user = User.objects.create(username="user")
         form = PostForm({'post_title': 'Nice Walk 2', 'post_author': user, 'distance': 100, 'created_date': 'Aug. 14, 2022, 12:45 p.m', 'body': 'test', 'meters_climbed': 40})
         self.assertTrue(form.is_valid())
 
@@ -37,7 +38,7 @@ class TestProfileForm(TestCase):
         self.assertFalse(form.is_valid())
         self.assertIn('display_name', form.errors.keys())
         self.assertEqual(form.errors['display_name'][0], 'This field is required.')
-    
+
     def test_profile_form_completed_display_name(self):
         """
         Test that only the display name needs to be entered
@@ -51,7 +52,7 @@ class TestCommentForm(TestCase):
     """
     Test for the comment form
     """
-    
+
     def test_comment_form_empty(self):
         """
         Test that the body must be entered
@@ -69,4 +70,3 @@ class TestCommentForm(TestCase):
         """
         form = CommentForm({'body': 'Test'})
         self.assertTrue(form.is_valid())
-

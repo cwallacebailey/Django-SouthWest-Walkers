@@ -9,22 +9,37 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
 ## Contents
 
 * [User Experience](#user-experience)
+    * [Site Aims](#site-aims)
     * [Opening Discussions](#opening-discussions)
     * [User Stories](#user-stories)
-    * [Project Goals](#project-goals)
 
 * [Design](#design)
     * [Colours](#colour-scheme)
     * [Typography](#typography)
-    * [Wireframe](#wireframes)
     * [Features](#features)
     * [Future Features](#future-features)
     * [Navigation bar](#navigation-bar)
+    * [All Auth](#all-auth)
+        * [Sign Up](#sign-up)
+        * [Login](#login)
+        * [Logout](#logout)
+    * [Create a user profile](#create-a-user-profile)
+    * [User Profile](#user-profile)
+    * [Home](#home)
+    * [Pagination](#pagination)
+    * [Tips](#tips)
+    * [About](#about)
+    * [Add Post](#add-post)
+    * [Detailed View](#detailed-view)
+    * [Delete Post](#delete-post)
     * [Footer](#footer)
+    * [Further Defensive Design](#further-defensive-design)
+
+* [Wire Frames](#wire-frames)
+
+* [Future Features](#future-features)
 
 * [Agile Working](#agile-working)
-
-* [Database](#database)
 
 * [Technologies Used](#technologies-used)
     * [Languages](#languages)
@@ -60,7 +75,7 @@ Hiking is a fantastic way to lose weight and improve your mental health, to spen
 
 This site aims to allow user's to track walks / hikes which they have completed, the peaks they reached on this walk, the distance travelled and meters climbed. This is stored in a database which then shows on the user's profile which peaks they have to reach, those they've completed and achievements they have... achieved. This will be for the Brecon beacons, a mountain range in south wales with an aim to expand to all ranges as soon as I have learnt the skills necessary to do this. 
 
-### Initial Discussion 
+### Opening Discussions 
 
 * I wanted to create a website linked to a database, which is able to authenticate a user by having them log in. 
 * The site would allow user's to track which Cairns (aka hill / mountain) peaks they have climbed. To offer challenges for hiking distances and reached a number of peaks in the area and to allow other details of the walk such as notes on how it felt and images of the walk to inspire others to get out there and hike. 
@@ -106,7 +121,7 @@ This site aims to allow user's to track walks / hikes which they have completed,
 
 ## Design
 
-### Coluor Scheme
+### Colours
 
 I went with a Scandanavian vibe for the sites colours which have been used throughout the site. 
 
@@ -118,9 +133,6 @@ I went with a Scandanavian vibe for the sites colours which have been used throu
 
 Two fonts were used for this project, 'Uchen' from google fonts and where this would not work, sans-serif takes over. Sans-serif fonts are easy to read for people with dyslexia and partially visually impaired user's. 'Ulchen' is also very easily read. 
 
-[Back to contents](#contents)
-
-### Wireframes
 [Back to contents](#contents)
 
 ### Features
@@ -418,6 +430,16 @@ The same process is used to prevent them from updating someone elses profile:
 ![not_profile](static/media/not_profile.png)
 
 [Back to contents](#contents)
+
+### Wireframes
+
+### Home Page 
+
+
+
+
+
+
 
 ### Future Features
 

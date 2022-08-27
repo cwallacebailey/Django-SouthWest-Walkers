@@ -4,7 +4,6 @@
 
 * [Manual Testing](#manual-testing)
   * [Devices and Browsers](#devices-and-browsers)
-  * [User Story Testing](#testing-user-stories) - To Do
   * [Testing Technologies](#testing-technologies)
 
 * [Site Functions](#functions)
@@ -22,6 +21,10 @@
 * [Lighthouse](#lighthouse)
 
 * [Automated Testing](#automated-testing)
+
+### Manual Testing
+
+### Devices and Browsers
 
 #### Desktop
 
@@ -62,7 +65,7 @@
 
 [Back to contents](#contents)
 
-### Testing tech
+### Testing Technologies
 
 * HTML markup validator was used for all HTML code - [W3C HTML Markup Validator](https://validator.w3.org/).
 * CSS was validated with [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/).
@@ -84,44 +87,67 @@
 
 ![jshint_validator_results](static/media/jshint_validator_results.png)
 
+4. PEP8 
+
+While PEP8 found no errors in the all used files for the blog the two automated testing files have lines over 83 characters long. I have left this as the files belong only to test the existing code of my work and do not cause errors or running issues. 
+
+All other files ran without issue. 
+
 [Back to contents](#contents)
 
 ### Site Functions
 
 Ultimately all links and navigation tools work from any page the user is on at all times on any browser except IE which is no longer functional. The users can access all pages and there is defensive design to stop users being able to access posts which are not theirs as well as profiles which they do not own. Details of what was tested can be seen below: 
 
+[Back to contents](#contents)
+
 #### Register
 
 * Users are able to register using the allauth form which takes them to the home page upon compeltion. They can acces this from any page where the nav bar is showing and the option is only available if they are not logged in which occurs upon signing up.
+
+[Back to contents](#contents)
 
 #### Log In
 
 * Users are able to login using the allauth form which takes them to the home page upon completion. They can acces the link to login from any page where the nav bar is showing and the option is only available if they are not logged in which occurs upon hitting the log in button in either the nav bar or the footer. 
 
+[Back to contents](#contents)
+
 #### Log Out
 
 * Users are able to log out using the allauth form which takes them to the home page upon completion. They can acces the link to logout from any page where the nav bar is showing and the option is only available if they are currently logged in. The log out button is then viewable / accessible from either the nav bar or the footer. 
+
+[Back to contents](#contents)
 
 #### Add Posts
 
 * Users are able to create posts using the add post form which takes them to the home page upon completion. They can acces the link from any page where the nav bar is showing and the option is only available if they are currently logged in. 
 
+[Back to contents](#contents)
+
 #### Update Post
 
 * Users are able to update only their own posts using the update post form which takes them to the detailed view of the post upon completion. They can acces the link from any post to update that particular post. The option is only available if they are currently logged in and it is their post. If they try to update someone else's post they are told to return to the home page. 
+
+[Back to contents](#contents)
 
 #### Delete Post
 
 * Users are able to update only their own posts using the delete post function provided by Django which takes them to the home view upon completion. They can acces the link from any post to delete that particular post. The option is only available if they are currently logged in and it is their post. If they try to delete someone else's post they are told to return to the home page. 
 
+[Back to contents](#contents)
 
 #### Create Profile
 
 * Users are able to create a profile using the Profile Form which takes them to the home page upon completion. They can acces the link from any page where the nav bar is showing and the option is only available if they are currently logged in. 
 
+[Back to contents](#contents)
+
 #### Update Profile
 
 * Users are able to update only their own profile using the update profile link which takes them to the update profile form using the update view. They can acces the link from any post to update that particular post. The option is only available if they are currently logged in and it is their post. If they try to update someone else's post they are told to return to the home page. 
+
+[Back to contents](#contents)
 
 #### 404
 
@@ -136,6 +162,8 @@ If a user manages to get to the update or delete page of another users post they
 The same process is used to prevent them from updating someone elses profile: 
 
 ![not_profile](static/media/not_profile.png)
+
+[Back to contents](#contents)
 
 #### 500
 
@@ -152,6 +180,8 @@ If a user manages to get to the update or delete page of another users post they
 The same process is used to prevent them from updating someone elses profile: 
 
 ![not_profile](static/media/not_profile.png)
+
+[Back to contents](#contents)
 
 ### Lighthouse
 
@@ -184,3 +214,5 @@ The best practice alert can be seen below. This references the Jquery script for
 #### Automated Testing
 
 I have created a number of automated testing functions, to test views and URLS. The testing coverage is not complete and has to be run with "--debug" added at the end of the command "python3 manage.py test ..." in order to work. This was found with the help of the tutors as unfortunately I could not get any tests to function before adding this to the command. 
+
+[Back to contents](#contents)

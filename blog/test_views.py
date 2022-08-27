@@ -4,6 +4,7 @@ from .models import Profile, Post
 from django.contrib.auth.models import User
 from django.test.utils import override_settings
 
+
 class TestViews(TestCase):
 
     @override_settings(DEBUG=True)
@@ -15,7 +16,7 @@ class TestViews(TestCase):
         response = self.client.get('')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'index.html')
-    
+
     def test_get_home_page_by_name(self):
         """
         ensure page can be reached and
@@ -48,7 +49,7 @@ class TestViews(TestCase):
         """
         response = self.client.get(reverse('create_profile'))
         self.assertEqual(response.status_code, 200)
-    
+
     def test_get_add_post(self):
         """
         ensure page can be reached and
