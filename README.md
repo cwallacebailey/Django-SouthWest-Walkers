@@ -2,7 +2,7 @@
 
 [Please see link to the final project](https://south-west-walkers.herokuapp.com) (holding ctrl when clicking this link will open it in a new tab)
 
-South West Walkers is django built blog to record treks in the brecon beacons. It gamify's hiking allowing users to 'collect' peaks and achievements by walking distance challenges and climbing different mountains in the region. By completing hikes and uploading new posts the blog tracks a users profile and adds their achievements to it which can be viewed by the user on their own profile page to inspire them to keep going. 
+South West Walkers is Django built blog to record treks in the Brecon beacons. It gamify's hiking allowing user's to 'collect' peaks and achievements by walking distance challenges and climbing different mountains in the region. By completing hikes and uploading new posts the blog tracks a user's profile and adds their achievements to it which can be viewed by the user on their own profile page to inspire them to keep going. 
 
 This site was built using Django as its framework with HTML, CSS, Bootstrap, JavaScript & Python. The database is created using SQL through PostgreSQL. 
 
@@ -14,7 +14,7 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
     * [Project Goals](#project-goals)
 
 * [Design](#design)
-    * [Colours](#color-scheme)
+    * [Colours](#colour-scheme)
     * [Typography](#typography)
     * [Wireframe](#wireframes)
     * [Features](#features)
@@ -52,18 +52,18 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
 
 ### Site aims
 
-While strava exists to map peoples runs and walks, it tracks time, distance and the route. It then offers medals for speed of each segments. It does not, however, reward reaching the peaks of mountains in certain ranges and as mountain peaks are usually reached by walking / hiking the medal system in strava is not as rewarding to hikers who would never travel fast. 
+While Strava exists to map peoples runs and walks, it tracks time, distance and the route. It then offers medals for speed of each segments. It does not, however, reward reaching the peaks of mountains in certain ranges and as mountain peaks are usually reached by walking / hiking the medal system in Strava is not as rewarding to hikers who would never travel fast. 
 
-All trails and kamoot offers fantastic hiking routes but do not track which you have completed. They also do not reward reaching the peaks of trails and mountains. 
+All trails and Kamoot offers fantastic hiking routes but do not track which you have completed. They also do not reward reaching the peaks of trails and mountains. 
 
 Hiking is a fantastic way to lose weight and improve your mental health, to spend time with friends and family. By 'gamifying' it more people would hike and learn to love a great sport that people of all ages can take part in. 
 
-This site aims to allow users to track walks / hikes which they have completed, the peaks they reached on this walk, the distance travelled and meters climbed. This is stored in a database which then shows on the users profile which peaks they have to reach, those they've completed and achievements they have... achieved. This will be for the brecon beacons, a mountain range in south wales with an aim to expand to all ranges as soon as I have learnt the skills necessary to do this. 
+This site aims to allow user's to track walks / hikes which they have completed, the peaks they reached on this walk, the distance travelled and meters climbed. This is stored in a database which then shows on the user's profile which peaks they have to reach, those they've completed and achievements they have... achieved. This will be for the Brecon beacons, a mountain range in south wales with an aim to expand to all ranges as soon as I have learnt the skills necessary to do this. 
 
 ### Initial Discussion 
 
 * I wanted to create a website linked to a database, which is able to authenticate a user by having them log in. 
-* The site would allow users to track which Cairns (aka hill / mountain) peaks they have climbed. To offer challenges for hiking distances and reached a number of peaks in the area and to allow other details of the walk such as notes on how it felt and images of the walk to inspire others to get out there and hike. 
+* The site would allow user's to track which Cairns (aka hill / mountain) peaks they have climbed. To offer challenges for hiking distances and reached a number of peaks in the area and to allow other details of the walk such as notes on how it felt and images of the walk to inspire others to get out there and hike. 
 * This would be tracked through the user making posts similar to strava (though without mapping / user tracking abilities as this would be outside of the course material) where they record a walk they had done
 * I wanted to be able to add, edit and delete posts, to comment and like others and your own posts. 
 * I want the user to have a profile which tracks their progress, shows their posts, their progress and achievements. 
@@ -76,12 +76,12 @@ This site aims to allow users to track walks / hikes which they have completed, 
     * Log into a user interface so that I can easily manage the database/s
     * Filter and search models data from the admin page to easily find posts / profiles and delete them if necessary
     * Navigate the admin panel with relative ease to view, search, add and delete posts and or profiles if needs be.
-    * Users will be able to comment. If offensive the admin should be able to delete the comment
+    * user's will be able to comment. If offensive the admin should be able to delete the comment
 
 * The project will require authentication. An un-authenticated user will be able to: 
     * Immediately understand the sites purpose to see if is to their taste and if they want to register
     * Create / register for an account to be able to post and build their profile
-    * Browse posts of all users and look at detail only (no comments or likes)
+    * Browse posts of all user's and look at detail only (no comments or likes)
 
 * A register & logged in user will be able to: 
     * Create posts and record peaks / cairns reached, distance walked and meters climbed, edit and delete their own previously created posts
@@ -98,7 +98,7 @@ This site aims to allow users to track walks / hikes which they have completed, 
 
 * User Stories dropped as part of the agile process
     * Create an interactive map showing the location of peaks / cairns to be climbed and if they have or have not been climbed yet
-    * View and connect with other users profiles
+    * View and connect with other user's profiles
 
 [Back to contents](#contents)
 
@@ -106,17 +106,17 @@ This site aims to allow users to track walks / hikes which they have completed, 
 
 ## Design
 
-### Color Scheme
+### Coluor Scheme
 
 I went with a Scandanavian vibe for the sites colours which have been used throughout the site. 
 
-![Color scheme](static/media/site_colours.png)
+![Coluor scheme](static/media/site_colours.png)
 
 [Back to contents](#contents)
 
 ### Typography
 
-Two fonts were used for this project, 'Uchen' from google fonts and where this would not work, sans-serif takes over. Sans-serif fonts are easy to read for people with dyslexia and partially visually impaired users. 'Ulchen' is also very easily read. 
+Two fonts were used for this project, 'Uchen' from google fonts and where this would not work, sans-serif takes over. Sans-serif fonts are easy to read for people with dyslexia and partially visually impaired user's. 'Ulchen' is also very easily read. 
 
 [Back to contents](#contents)
 
@@ -127,13 +127,13 @@ Two fonts were used for this project, 'Uchen' from google fonts and where this w
 
 #### Navigation bar
 
-The navigation bar changes depending on user status and screen size and allows the user to easily login, sign up and logout. The can access all key areas of the site through the nav bar which appears on each page. If logged with a profile created in this includes:
+The navigation bar changes depending on user status and screen size and allows the user to easily login, sign up and logout. They can access all key areas of the site through the nav bar which appears on each page. If logged with a profile created in this includes:
 
 * Home - shows the blogs posts which can be clicked through to see the detailed views
 * About - gives an overview of the sites purpose
 * Tips - This changes depending on the page the user is viewing or if they are logged in or not
 * Logout - allows user to logout
-* Profile - view the users profile, created 
+* Profile - view the user's profile, created 
 
 ![Full Navigation Bar](static/media/navbar_full.png)
 
@@ -225,13 +225,13 @@ If they successfully create their profile they are redirected to the home page a
 
 #### User Profile
 
-The user profile has multiple roles. At the top the users profile picture is shown alongside their display name, the total distance they have walked, the number of mountain peaks they have reached as well as their social media links and the option to update their profile if they should want to change their display name or profile picture / social media links. 
+The user profile has multiple roles. At the top the user's profile picture is shown alongside their display name, the total distance they have walked, the number of mountain peaks they have reached as well as their social media links and the option to update their profile if they should want to change their display name or profile picture / social media links. 
 
 If the user has not added social media links they are met with a paragraph saying they would be able to see links to them if they added any in the update profile section. 
 
 ![Profile Page](static/media/profile_no_profile_picture.png)
 
-If they do add social media links font awesome icons are added which change color on hovering, the icons change depending on the social media link they have added to their profile: 
+If they do add social media links font awesome icons are added which change coluor on hovering, the icons change depending on the social media link they have added to their profile: 
 
 ![Profile Page without social media links](static/media/profile_view.png)
 
@@ -239,7 +239,7 @@ The user has the option to add a profile picture. If no profile picture is used 
 
 The user profile displays all posts the user has made, paginated by 6 shown in rows of 3. This allows the user to see everything they have done and feel a sense of pride over their achievements. Note pagination will be explained in the home section. 
 
-The user is able to see their progress towards walking all of the brecon beacons major peaks which is picked up from any posts they have added to the blog. Peaks reached get a gold mountain next to them and are put into the "You've conquered:" section. Peaks still left to walk have a silver hiker symbol and are left in the "Still left to conquer:" section
+The user is able to see their progress towards walking all of the Brecon beacons major peaks which is picked up from any posts they have added to the blog. Peaks reached get a gold mountain next to them and are put into the "You've conquered:" section. Peaks still left to walk have a silver hiker symbol and are left in the "Still left to conquer:" section
 
 ![Profile Progress](static/media/progress.png)
 
@@ -251,7 +251,7 @@ This section of the profile picture has buttons which switch the tabs the user s
 
 #### Home
 
-The home page simply shows the posts made by all users, paginated by 8 in rows of four on a larger screen, rows of 1 post on mobile. When you hover over the posts they change colour to highlight that you are hovering over them. This interactivity is designed to provoke a positive response with the user. 
+The home page simply shows the posts made by all user's, paginated by 8 in rows of four on a larger screen, rows of 1 post on mobile. When you hover over the posts they change colour to highlight that you are hovering over them. This interactivity is designed to provoke a positive response with the user. 
 
 ![Profile Progress](static/media/home_page_post_hover.png)
 
@@ -315,7 +315,7 @@ A user can add a post once they have logged in. They are prompted to complete th
 
 ![Add Post](static/media/add_post_first.png)
 
-Up to three images can be added and three cairns / mountains. As the three peaks is an enormous challenge in the brecons it is likely that three walks would be the most someone would do in a day. If they do more this would be pushed to two walks. 
+Up to three images can be added and three cairns / mountains. As the three peaks is an enormous challenge in the Brecons it is likely that three walks would be the most someone would do in a day. If they do more this would be pushed to two walks. 
 
 The option to fill in a second cairn / mountain or second image appears once the first has been filled in. 
 
@@ -337,18 +337,18 @@ Once they have submit the post correctly they will be taken to the main home pag
 
 #### Detailed View
 
-The detailed view allows users to see a greater level of detail on each post than presented on the home page including the three images the user added (if they used this option) presented as a slide show. Otherwise a default image will be shown if no images were added to the post. Finally if only one image added by the user then no slide show is available and the "next image" link is hidden. 
+The detailed view allows user's to see a greater level of detail on each post than presented on the home page including the three images the user added (if they used this option) presented as a slide show. Otherwise a default image will be shown if no images were added to the post. Finally if only one image added by the user then no slide show is available and the "next image" link is hidden. 
 
 ![detail view](static/media/detail_header.png)
 ![detail view second image](static/media/detail_second_image.png)
 
-This appears under the title and the users chosen display name. 
+This appears under the title and the user's chosen display name. 
 
-If the user reached the top of mountains / cairns these will be displayed on the detail view. If they did not then the caption reads "No cairns reached, still proud". We want to inspire users to walk regardless of reaching the tops of mountains for the site to be fully inclusive. 
+If the user reached the top of mountains / cairns these will be displayed on the detail view. If they did not then the caption reads "No cairns reached, still proud". We want to inspire user's to walk regardless of reaching the tops of mountains for the site to be fully inclusive. 
 
 Defensive design is employed here as the user will only see the links to update or delete the post if they are the creator of the post
 
-If a user is logged in they will be able to star or comment on the users post: 
+If a user is logged in they will be able to star or comment on the user's post: 
 
 ![detail view comment 1](static/media/detail_post_comment.png)
 
@@ -397,7 +397,7 @@ If any user somehow gets to the add post page, create profile page they are met 
 
 ![accessing tabs if not logged in](static/media/login_prompt.png)
 
-If the access another users post and attempt to delete it or update is they are met with the below
+If the access another user's post and attempt to delete it or update is they are met with the below
 
 ![delete or update post if not logged in](static/media/not_your_post.png)
 
@@ -409,7 +409,7 @@ If the access another users post and attempt to delete it or update is they are 
 
 ![404_500_errors](static/media/500_errors.png)
 
-If a user manages to get to the update or delete page of another users post they are met with the below, preventing them from actually updating the post: 
+If a user manages to get to the update or delete page of another user's post they are met with the below, preventing them from actually updating the post: 
 
 ![not_post](static/media/not_post.png)
 
@@ -425,7 +425,7 @@ These are endless, however key items below
 
 * I would like to design a map which lights up in sections when a user has hiked that section of the map to further gamify the system. In addition it would show the location of the other major peaks of the region which they have yet to do with details of the peak upon hovering over it. 
 * allow posts to be loaded in from strava and the peaks identified automatically. This and the item above would have to be done for this project to become a viable project. 
-* I had everything in place to comment on comments, so users could respond to any comment made on their post however the django system I had in place would only take a comment from the first text box on the screen rather than that the user was typing into. I ran out of time to fix this. 
+* I had everything in place to comment on comments, so user's could respond to any comment made on their post however the django system I had in place would only take a comment from the first text box on the screen rather than that the user was typing into. I ran out of time to fix this. 
 * Block swear words and profanities, though the only way I could think to do this was to create a list of them as an array and then ensure they were not in the comment or post notes when a user submitted. To do this I would have to myself write a list of the swear words and don't think its suitable for a course reviewer to have to read all of these. 
 
 [Back to contents](#contents)
@@ -434,7 +434,7 @@ These are endless, however key items below
 
 I used the Kanban board from GitHub for this process, splitting user stories into a number of "epics" and linked each story to its related "epic". I manually toggled the priority offline so I could see the must-haves, should-haves, nice-to-have and not happening. Ticket priority would vary in "sprints" and I tried my best to stick to these, in one noted moment I failed and ran out of time to add it, this is the ability to respond to comments mentioned in my README. As it was a nice-to-have I dropped the process due to time constraints. 
 
-Agile working is obviously effective however I found it a challenge to both be learning on the go and to work as a single-person team. I tried to make it a habit to stop after each sprint to evaluate the MVP and re-prioritize the tasks if required. This would depend on how necessary each function wasfor the releasable product, generating a sort of "time" to "how necessary a feature was" ratio. 
+Agile working is obviously effective however I found it a challenge to both be learning on the go and to work as a single-person team. I tried to make it a habit to stop after each sprint to evaluate the MVP and re-prioritize the tasks if required. This would depend on how necessary each function was for the releasable product, generating a sort of "time" to "how necessary a feature was" ratio. 
 
 ## Technologies Used
 
@@ -501,7 +501,7 @@ This is undoubtedly a list thats should come with a trigger warning. Key bugs no
 
 3. In order for {{ distance|intcomma }}Km to work on my profile pages, which formats the figures used in the total distance walked, I had to load {% load humanize %} at the top of the screen. I had no idea about this and spent some time staring at an error page before finding out. 
 
-4. I wanted the users posts to appear on their profile, similar to strava. I had no idea how this would work with the Profile model being run on the profile view but the posts being part of the Posts view. I feel like I missed this in the tutorial videos and cannot believe how long it took me to find the answer. In the end the below additions to my code is all it took: 
+4. I wanted the user's posts to appear on their profile, similar to strava. I had no idea how this would work with the Profile model being run on the profile view but the posts being part of the Posts view. I feel like I missed this in the tutorial videos and cannot believe how long it took me to find the answer. In the end the below additions to my code is all it took: 
 
 site_page = request.GET.get('site_page')
 
@@ -509,7 +509,7 @@ Then render:
 
 "current_page": current_page,
 
-Ultimately running it as a variable and then passing it through the view meant I could use a for loop on it to find all the users own posts. 
+Ultimately running it as a variable and then passing it through the view meant I could use a for loop on it to find all the user's own posts. 
 
 5. My tip modal was displaying the tips for adding a new post. This had to be solved by adding a id="no-tip" to the about page as well as the allauth logout page and then using JS to look for this ID which if present was used to block text appearing in the modal. 
 
