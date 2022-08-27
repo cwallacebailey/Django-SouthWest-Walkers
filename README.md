@@ -26,6 +26,8 @@ This site was built using Django as its framework with HTML, CSS, Bootstrap, Jav
     * [Navigation bar](#navigation-bar)
     * [Footer](#footer)
 
+* [Agile Working](#agile-working)
+
 * [Database](#database)
 
 * [Technologies Used](#technologies-used)
@@ -407,7 +409,13 @@ If the access another users post and attempt to delete it or update is they are 
 
 ### Further Defensive Design
 
-404 errors and 500 errors 
+404 errors and 500 errors are met with the page below that allows a user to head home instead of being stuck on that page, regardless of how they got there. 
+
+![404_500_errors](static/media/500_errors.png)
+
+If a user manages to get to the update or delete page of another users post they are met with the below, preventing them from actually updating the post: 
+
+![404_500_errors](static/media/500_errors.png)
 
 [Back to contents](#contents)
 

@@ -36,7 +36,12 @@
     {% else %}
 
     <p>This isn't your post</p>
-
+    <div class="card-body text-center allauth-height">
+        <a href="{% url 'home' %}" class="btn btn-secondary mb-3">Home</a>
+        <div>
+            <p>Click the above button to head home.</p>
+        </div>
+    </div>
     {% endif %}
     
 {% else %}

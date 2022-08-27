@@ -11,7 +11,7 @@
       <div class="spacer">
       </div>
       {% if user.is_authenticated %}
-
+        {% if profile.user.id == user.id %}
         <h2>Update Your Profile</h2>
         <div class="form-group">
             <form method="POST" enctype="multipart/form-data">
@@ -23,6 +23,26 @@
     </div>
   </div>
 </div>
+{% else %}
+<!-- If the user accessing is not the profile owner -->
+<div class="nav-bar-spacer">
+                
+</div>
+  <div class="row">
+    <div class="col-md-6 mt-2 offset-md-2 text-center allauth-height">
+      <!-- a spacer -->  
+      <div class="spacer">
+      </div>
+      <h3>This isn't your profile to update</h3>
+      <div class="card-body text-center">
+          <a href="{% url 'home' %}" class="btn btn-secondary mb-3">Home</a>
+          <div>
+              <p>Click the above button to head home.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
 
 {% else %}
 <!-- If the user is not authenticated -->
