@@ -2,13 +2,9 @@
 
 [Please see link to the final project](https://south-west-walkers.herokuapp.com) (holding ctrl when clicking this link will open it in a new tab)
 
-South West Walkers is django built blog to record treks in the brecon beacons. It gamify's hiking allowing users to 'collect' peaks and achievements by walking distance challenges and climbing different mountains in the region. 
+South West Walkers is django built blog to record treks in the brecon beacons. It gamify's hiking allowing users to 'collect' peaks and achievements by walking distance challenges and climbing different mountains in the region. By completing hikes and uploading new posts the blog tracks a users profile and adds their achievements to it which can be viewed by the user on their own profile page to inspire them to keep going. 
 
-This site was built using Django as its framework with HTML, CSS, Bootstrap, JavaScript & Python. The database is created using SQL through PostgreSQL.
-
-# The below needs to be updated
-
-![Final project responsive image below]() 
+This site was built using Django as its framework with HTML, CSS, Bootstrap, JavaScript & Python. The database is created using SQL through PostgreSQL. 
 
 ## Contents
 
@@ -395,7 +391,7 @@ When you hover over items on the footer they change colour to give a greater sen
 
 [Back to contents](#contents)
 
-#### accessing tabs if not logged in
+#### Accessing tabs if not logged in
 
 If any user somehow gets to the add post page, create profile page they are met with the below and cannot perform other actions. 
 
@@ -415,7 +411,11 @@ If the access another users post and attempt to delete it or update is they are 
 
 If a user manages to get to the update or delete page of another users post they are met with the below, preventing them from actually updating the post: 
 
-![404_500_errors](static/media/500_errors.png)
+![not_post](static/media/not_post.png)
+
+The same process is used to prevent them from updating someone elses profile: 
+
+![not_profile](static/media/not_profile.png)
 
 [Back to contents](#contents)
 
@@ -430,11 +430,13 @@ These are endless, however key items below
 
 [Back to contents](#contents)
 
-## Database Design
-[Back to contents](#contents)
+### Agile Work
+
+I used the Kanban board from GitHub for this process, splitting user stories into a number of "epics" and linked each story to its related "epic". I manually toggled the priority offline so I could see the must-haves, should-haves, nice-to-have and not happening. Ticket priority would vary in "sprints" and I tried my best to stick to these, in one noted moment I failed and ran out of time to add it, this is the ability to respond to comments mentioned in my README. As it was a nice-to-have I dropped the process due to time constraints. 
+
+Agile working is obviously effective however I found it a challenge to both be learning on the go and to work as a single-person team. I tried to make it a habit to stop after each sprint to evaluate the MVP and re-prioritize the tasks if required. This would depend on how necessary each function wasfor the releasable product, generating a sort of "time" to "how necessary a feature was" ratio. 
 
 ## Technologies Used
-
 
 ### Languages, frameworks and add ons used
 
@@ -450,14 +452,6 @@ These are endless, however key items below
 #### Workspace
 
 [Git](https://gitpod.io/) was used as a workspace to build this project, and fulfilled the version control aspect of the course through regular commits with pushes to github
-
-[Back to contents](#contents)
-
-### Wireframing
-
-#### Balsamiq
-
-[Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design process.
 
 [Back to contents](#contents)
 
@@ -489,7 +483,7 @@ The favicon was made from a screen shot of a font awesome icon
 
 ## Deployment
 
-[Please click here for all Deployment steps and requirements](static/docs/DEPLOYMENT.md).
+[Please click here for all Deployment steps and requirements](DEPLOYMENT.md).
 
 [Back to contents](#contents)
 
