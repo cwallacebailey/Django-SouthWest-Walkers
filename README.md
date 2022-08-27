@@ -114,6 +114,10 @@ This site aims to allow user's to track walks / hikes which they have completed,
     * Create an interactive map showing the location of peaks / cairns to be climbed and if they have or have not been climbed yet
     * View and connect with other user's profiles
 
+I then analysed this in terms of estimated time to complete knowing that I should prioritise user stories and these should not be more than 60% of the timebox user story points. Each story implementation would be finished in a pre-agreed timeframe with myself and I will work in a fashion that prevents me overrunning whereever possible. I will allow very slight extentions where a breakthrough is within 5 minutes of the finish time. Afterwhich all performance is reviewed and process and tested to see if the goals were met.
+
+The user stories above are broken down into separate parts to creat epics which are stored on my kanban board available [here](https://github.com/cwallacebailey/Django-SouthWest-Walkers/projects?type=classic). Once completed or in progress they are moved from to do section of the board. A satisfying process. 
+
 [Back to contents](#contents)
 
 ---
@@ -232,11 +236,11 @@ If a user is new to the sign they have the option to sign up. This uses allauth 
 
 If the username has already been taken the form refreshes and the user is asked to pick another one. 
 
-![Sign Up Check Username](static/media/signup_check_user.png)
+![Sign Up Check Username](static/media/signup_check_username.png)
 
 If the password is not deemed strong enough the user will see the below: 
 
-![Sign Up Check Password](static/media/site_check.png)
+![Sign Up Check Password](static/media/signup_check.png)
 
 [Back to contents](#contents)
 
@@ -302,11 +306,11 @@ The user profile displays all posts the user has made, paginated by 6 shown in r
 
 The user is able to see their progress towards walking all of the Brecon beacons major peaks which is picked up from any posts they have added to the blog. Peaks reached get a gold mountain next to them and are put into the "You've conquered:" section. Peaks still left to walk have a silver hiker symbol and are left in the "Still left to conquer:" section
 
-![Profile Progress](static/media/progress.png)
+![Profile Progress](static/media/progress_2.png)
 
 This section of the profile picture has buttons which switch the tabs the user sees. If they hit "Achievements" they see the achievements and if they hit "progress" they go back to the progress page. Achievements are a result of accumulated posts so if the user covers 50km distance walked over any number of posts they receive an award, if they reach 5 cairns / mountains they receive another award. This is designed to keep the user moving and posting. 
 
-![Profile Progress](static/media/achievements.png)
+![Profile Progress View](static/media/achievements.png)
 
 [Back to contents](#contents)
 
@@ -314,7 +318,7 @@ This section of the profile picture has buttons which switch the tabs the user s
 
 The home page simply shows the posts made by all user's, paginated by 8 in rows of four on a larger screen, rows of 1 post on mobile. When you hover over the posts they change colour to highlight that you are hovering over them. This interactivity is designed to provoke a positive response with the user. 
 
-![Profile Progress](static/media/home_page_post_hover.png)
+![home page hover](static/media/home_page_post_hover.png)
 
 [Back to contents](#contents)
 
@@ -366,7 +370,7 @@ The about page shows the sites purpose and is available through the navbar:
 
 When viewed on a mobile the image is no longer visible and a simple text box appears: 
 
-![About Page](static/media/about_main_mobile.png)
+![About Page View](static/media/about_main_mobile.png)
 
 [Back to contents](#contents)
 
@@ -448,7 +452,7 @@ When compressed the footer items are hidden to make viewing easier
 
 When you hover over items on the footer they change colour to give a greater sense of user interactivity
 
-![Footer hover](static/media/hover.png)
+![Footer hover](static/media/footer_hover.png)
 
 [Back to contents](#contents)
 
